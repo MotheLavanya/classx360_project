@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #800000;
+  --primary-hover: #a00000;
+  --secondary: #4a0404;
+  --accent: #ff0000;
+  --highlight: #800000;
+  --background: #050505;
+  --text-main: #f5f5f5;
+  --text-muted: white;
+  --glass-bg: rgba(20, 0, 0, 0.7);
+  --glass-border: rgba(128, 0, 0, 0.2);
+  --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  --nav-height: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Prevent horizontal overflow globally */
+  width: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  /* Fluid padding */
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --nav-height: 70px;
+  }
+
+  .container {
+    padding: 0 4%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 380px) {
+  html {
+    font-size: 13px;
+    /* Extra scaling for small phones */
+  }
+}
+
+/* Global Classes for Sections */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}

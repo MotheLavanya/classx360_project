@@ -1,0 +1,377 @@
+.checkout-page {
+    padding-top: calc(var(--nav-height) + 40px);
+    padding-bottom: 80px;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.checkout-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Stepper */
+.checkout-stepper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.checkout-stepper::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: #1a1a1a;
+    z-index: 0;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-dark);
+    padding: 0 20px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-circle {
+    background: #800000;
+    border-color: #ff3333;
+    color: white;
+    box-shadow: 0 0 0 4px rgba(128, 0, 0, 0.1);
+}
+
+.step.completed .step-circle {
+    background: #10b981;
+    /* Success Green */
+    border-color: #10b981;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.step.active .step-label {
+    color: #ff3333;
+}
+
+/* Cards */
+.checkout-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2rem;
+}
+
+.plan-name-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(128, 0, 0, 0.1);
+    color: #ff3333;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.plan-header h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.plan-header p {
+    color: var(--text-muted);
+}
+
+/* Feature Comparison (High Specificity to override global LmsComparison styles) */
+.checkout-page .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    background-color: white !important;
+    background: white !important;
+    color: #1a1a1a !important;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.checkout-page .plan-features-list h4 {
+    margin-bottom: 1rem;
+    color: #1a1a1a !important;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+
+.checkout-page .plan-features-list ul {
+    list-style: none;
+    padding-left: 40px;
+}
+
+.checkout-page .plan-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.8rem;
+    color: var(--text-muted) !important;
+    font-size: 0.95rem;
+}
+
+.checkout-page .plan-features-list li.included {
+    color: #334155 !important;
+}
+
+.check-icon {
+    color: #ff3333;
+}
+
+.lock-icon {
+    color: #94a3b8;
+}
+
+.upgrade-nudge {
+    background: #edeca1c4;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.upgrade-nudge h4 {
+    color: #b45309;
+    margin-bottom: 0.5rem;
+}
+
+.upgrade-nudge p {
+    color: #78350f;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.compare-mini-table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+}
+
+.compare-mini-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.compare-mini-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+}
+
+/* Billing Form */
+.billing-form-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+}
+
+.form-section h3 {
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    /* Dark text */
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #e2e8f0;
+    /* Light border */
+    border-radius: 8px;
+    background: #f8fafc;
+    /* Light input bg */
+    color: #1a1a1a;
+    /* Dark text */
+    outline: none;
+    transition: all 0.3s;
+}
+
+/* .plan-features-list {} */
+
+.input-group input:focus {
+    border-color: #800000;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.order-summary {
+    background: #ffffff;
+    /* White card */
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    height: fit-content;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.summary-row.total {
+    border-top: 2px dashed #cbd5e1;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    color: #1a1a1a;
+    /* Dark text */
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Success Step */
+.success-content {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #10b981;
+    margin-bottom: 1.5rem;
+}
+
+.success-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.success-content p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.validity-box {
+    background: #1a0202;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 1px solid #4a0404;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #ff3333;
+}
+
+/* Buttons */
+.step-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .checkout-page {
+        padding-top: calc(var(--nav-height) + 20px);
+        padding-bottom: 60px;
+    }
+
+    .checkout-stepper::before {
+        left: 10%;
+        right: 10%;
+    }
+
+    .step {
+        padding: 0 10px;
+    }
+
+    .step-label {
+        font-size: 0.75rem;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .billing-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-card {
+        padding: 1.5rem;
+    }
+
+    .plan-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-stepper {
+        justify-content: space-around;
+    }
+
+    .step-label {
+        display: none;
+        /* Hide labels on very small screens to save space */
+    }
+
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .step-actions {
+        flex-direction: column;
+    }
+
+    .step-actions button {
+        width: 100%;
+    }
+}

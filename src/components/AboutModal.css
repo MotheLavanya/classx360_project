@@ -1,0 +1,499 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.about-modal {
+    background: #0a0a0a;
+    width: 95%;
+    max-width: 800px;
+    max-height: 85vh;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    position: relative;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.about-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.about-modal::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 10px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.about-content {
+    padding: 2rem 1.5rem;
+}
+
+.btn-back-main {
+    background: none;
+    border: none;
+    color: #ff3333;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding: 0;
+    transition: 0.2s;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-back-main:hover {
+    color: var(--text-main);
+    transform: translateX(-5px);
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.about-header h2 {
+    font-size: 1.6rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.about-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #ff3333;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.about-card:hover {
+    background: #111;
+    transform: translateY(-5px);
+    border-color: #ff3333;
+}
+
+.about-card h3 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.about-card p {
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+
+.about-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-card ul li {
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+}
+
+.about-card ul li::before {
+    content: '•';
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.team-section {
+    margin-bottom: 3rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-avatar {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.team-member h4 {
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.team-member p {
+    color: #ff3333;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.testimonial-section {
+    margin-bottom: 4rem;
+}
+
+.testimonial-container {
+    background: #4a0404;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.contact-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.contact-item h5 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+}
+
+/* Tablet and smaller desktop */
+@media (max-width: 1024px) {
+    .about-modal {
+        max-width: 700px;
+    }
+
+    .about-content {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.1rem;
+    }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 15px;
+    }
+
+    .about-modal {
+        max-height: 90vh;
+    }
+
+    .about-content {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .about-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .about-header p {
+        font-size: 0.85rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .about-card {
+        padding: 1.1rem;
+    }
+
+    .about-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .about-card p {
+        font-size: 0.75rem;
+    }
+
+    .about-card ul li {
+        font-size: 0.72rem;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .team-avatar {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+
+    .team-member h4 {
+        font-size: 0.95rem;
+    }
+
+    .team-member p {
+        font-size: 0.75rem;
+    }
+
+    .testimonial-container {
+        padding: 1.25rem;
+        font-size: 0.8rem;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .modal-close {
+        top: 15px;
+        right: 15px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .about-modal {
+        width: 98%;
+        max-height: 92vh;
+    }
+
+    .about-content {
+        padding: 1.25rem 1rem;
+    }
+
+    .about-header h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .about-header p {
+        font-size: 0.8rem;
+    }
+
+    .about-grid {
+        gap: 0.85rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-card {
+        padding: 1rem;
+    }
+
+    .about-card h3 {
+        font-size: 0.85rem;
+        gap: 6px;
+    }
+
+    .about-card p {
+        font-size: 0.72rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .about-card ul li {
+        font-size: 0.7rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .team-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .team-grid {
+        gap: 1rem;
+    }
+
+    .team-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .team-member h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .team-member p {
+        font-size: 0.72rem;
+    }
+
+    .testimonial-section {
+        margin-bottom: 3rem;
+    }
+
+    .testimonial-container {
+        padding: 1.1rem;
+        font-size: 0.75rem;
+    }
+
+    .contact-section {
+        margin-top: 2.5rem;
+        padding-top: 1.75rem;
+    }
+
+    .contact-item h5 {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .contact-item p {
+        font-size: 0.8rem;
+    }
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 360px) {
+    .about-content {
+        padding: 1rem 0.85rem;
+    }
+
+    .about-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .about-card {
+        padding: 0.9rem;
+    }
+
+    .about-card h3 {
+        font-size: 0.8rem;
+    }
+
+    .about-card p {
+        font-size: 0.7rem;
+    }
+
+    .about-card ul li {
+        font-size: 0.68rem;
+    }
+
+    .team-avatar {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .team-member h4 {
+        font-size: 0.85rem;
+    }
+
+    .team-member p {
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,310 @@
+.how-it-works-v2 {
+    padding: 40px 8%;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.how-it-works-v2 .container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.how-it-works-v2 .section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.how-it-works-v2 .sub-title {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(128, 0, 0, 0.1);
+    color: #800000;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.how-it-works-v2 h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #000000 !important;
+    margin-bottom: 10px;
+}
+
+.how-it-works-v2 .blue-text {
+    color: #800000;
+}
+
+.how-it-works-v2 p {
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.steps-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.step-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step-icon-box {
+    width: 50px;
+    height: 50px;
+    background: #1a1a1a;
+    /* Updated for dark background */
+    border: 1px solid #333333;
+    /* Updated for dark background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.hiw-step-card {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover .step-icon-box {
+    background: #800000;
+    /* Updated to maroon */
+    border-color: #800000;
+    /* Updated to maroon */
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(128, 0, 0, 0.2);
+    /* Updated to maroon shadow */
+    border-radius: 50%;
+    /* Ensure it stays circular */
+}
+
+.trusted-badge:hover {
+    transform: translateY(-5px);
+    background: #111;
+    border-color: #ff3333;
+    /* Updated to maroon/red accent */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a subtle card effect on hover with rounded corners */
+.step-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 20px 10px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    z-index: 2;
+    /* Ensure content stays on top of connectors */
+}
+
+/* Ensure child elements are relative to stack correctly */
+.step-item h3,
+.step-item p,
+.step-icon-box {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    /* Text background transparent */
+}
+
+.step-item:hover {
+    z-index: 5;
+    /* Bring hovered item forward */
+    /* Removed background effect */
+}
+
+.icon-main {
+    font-size: 1.1rem;
+    color: #800000;
+    /* Updated to maroon/red accent */
+    transition: all 0.4s ease;
+}
+
+.step-item:hover .icon-main {
+    color: white;
+}
+
+.step-number {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(128, 0, 0, 0.05);
+    /* Updated to maroon with transparency */
+    line-height: 1;
+    z-index: -1;
+}
+
+.step-connector {
+    position: absolute;
+    top: 60px;
+    /* Centered around text (approx y=125) */
+    bottom: auto;
+    left: 50%;
+    width: 100%;
+    height: 250px;
+    /* Increased for Max Amplitude */
+    background: transparent;
+    transform: none;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.intro-connector {
+    left: -50%;
+    /* Start from outside left */
+    width: 100%;
+    top: 60px;
+    /* Align with main connectors */
+}
+
+.outro-connector {
+    left: 50%;
+    width: 100%;
+    top: 60px;
+    /* Align with main connectors */
+}
+
+@keyframes dashScroll {
+    to {
+        stroke-dashoffset: -28;
+        /* Move by (8+6)*2 = 28 for smooth loop */
+    }
+}
+
+.step-connector svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.step-connector path {
+    fill: none;
+    stroke: #800000;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 8 6;
+    /* Dotted/Dashed line effect */
+    animation: dashScroll 1s linear infinite;
+    /* Always moving */
+}
+
+.step-item h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    background: var(--bg-dark);
+    /* Mask line behind text */
+    display: inline-block;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    max-width: 180px;
+    margin: 0 auto;
+    background: var(--bg-dark);
+    /* Mask line behind text */
+    position: relative;
+    z-index: 2;
+    padding: 0 5px;
+}
+
+.how-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.how-cta button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.how-cta p {
+    font-size: 0.9rem;
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .step-connector {
+        display: none;
+    }
+
+    .steps-wrapper {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .step-item {
+        flex: 0 0 calc(50% - 10px);
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-it-works-v2 {
+        padding: 60px 5%;
+    }
+
+    .how-it-works-v2 h2 {
+        font-size: 1.8rem;
+    }
+
+    .step-item {
+        flex: 0 0 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .step-item p {
+        max-width: 100%;
+    }
+
+    .how-cta button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .how-it-works-v2 h2 {
+        font-size: 1.6rem;
+    }
+
+    .step-icon-box {
+        width: 45px;
+        height: 45px;
+    }
+
+    .icon-main {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,311 @@
+.login-page {
+    font-family: 'Inter', sans-serif;
+    padding-top: var(--nav-height);
+    /* Start below navbar */
+    padding-bottom: 0px;
+    height: 100vh;
+    /* Fixed viewport height */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Center vertically in the middle */
+    position: relative;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('../assets/studentlogin.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    /* Prevent all scrolling */
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 440px;
+    padding: 2rem 2.5rem;
+    border-radius: 30px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 10px auto;
+    /* Centered with minimal offset for balance */
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 50px 120px rgba(128, 0, 0, 0.08);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.auth-header h2 {
+    font-size: 1.8rem;
+    font-weight: 850;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.auth-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 0.8rem;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #e5e7eb;
+    background: #f9fafb;
+    color: #1a1a1a;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-form input:focus {
+    border-color: #800000;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(128, 0, 0, 0.1);
+    outline: none;
+}
+
+.btn-primary.full-width {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: var(--gradient-1);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.3);
+}
+
+.btn-primary.full-width:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(128, 0, 0, 0.4);
+}
+
+.auth-switch {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.auth-switch a {
+    color: #800000;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.social-auth {
+    margin-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 1rem;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.social-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+}
+
+.google-icon {
+    font-weight: bold;
+    color: #4285F4;
+    font-size: 1.1rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+    .login-intro-text h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .login-card {
+        max-width: 400px;
+        padding: 2.5rem;
+    }
+
+    .login-content-wrapper {
+        gap: 0rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-page {
+        padding-top: var(--nav-height);
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 40px;
+        min-height: 100vh;
+    }
+
+    .login-card {
+        max-width: 100%;
+        padding: 2.2rem;
+        margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+    }
+
+    .login-content-wrapper {
+        gap: 0rem;
+        padding: 0;
+    }
+
+    .login-intro-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .login-back-link {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 25px;
+        justify-content: center;
+        width: 100%;
+        color: var(--primary);
+    }
+}
+
+@media (max-width: 480px) {
+    .login-page {
+        padding-top: 110px;
+        /* Consistent navbar clearance for small screens */
+    }
+
+    .login-card {
+        padding: 1.8rem;
+        border-radius: 20px;
+        background: white;
+        border: none;
+    }
+
+    .auth-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .login-intro-text h1 {
+        font-size: 1.8rem;
+        letter-spacing: -0.5px;
+    }
+
+    .login-intro-text p {
+        font-size: 1rem;
+    }
+
+    .auth-form input {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Landscape Mode Fix */
+@media (max-height: 600px) and (orientation: landscape) {
+    .login-page {
+        align-items: flex-start;
+        padding: 40px 20px;
+    }
+}
+
+/* Signup Specific Styles */
+.login-back-link {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: inline-flex;
+    align-items: center;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.login-back-link:hover {
+    color: #800000;
+    transform: translateX(-5px);
+}
+
+.login-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    margin-top: -2rem;
+    /* Balance with navbar height */
+}
+
+.login-intro-text {
+    text-align: left;
+    max-width: 500px;
+}
+
+.login-intro-text h1 {
+    font-size: 3.5rem;
+    font-weight: 850;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.login-intro-text p {
+    color: #475569;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: 500;
+}

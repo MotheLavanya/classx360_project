@@ -1,0 +1,601 @@
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    background-color: var(--bg-dark);
+    margin-bottom: 120px;
+}
+
+/* Background Slider */
+.hero-bg-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background-color: #000;
+    /* Prevent white flashes */
+}
+
+.hero-bg-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* Smooth transition effect */
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #000;
+}
+
+.hero-bg-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    /* Fallback color changed to black */
+}
+
+.hero-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.9 !important;
+    /* Force visibility */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.15) 100%);
+    z-index: 2;
+    /* Sits on top of images */
+    pointer-events: none;
+    /* Let clicks pass through if needed */
+}
+
+/* Content Layout (Left Aligned) */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: 8%;
+    color: #fff;
+    padding-bottom: 100px;
+    /* Space for feature cards */
+}
+
+.hero-slide {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 850px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    margin: 0;
+    transition: visibility 0.8s;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Individual line animations */
+.hero-slide h1,
+.hero-slide .hero-subtitle,
+.hero-slide .hero-cta,
+.hero-slide .scroll-prompt-container {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    color: white !important;
+}
+
+.hero-slide.active h1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.hero-slide.active .hero-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.hero-slide.active .hero-cta {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.7s;
+}
+
+.hero-slide.active .scroll-prompt-container {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.9s;
+}
+
+.hero-slide h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    /* Increased for breathing room */
+    max-width: 800px;
+    color: #ffffff;
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.gradient-text {
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    /* Slightly larger for clarity */
+    line-height: 1.6;
+    margin-bottom: 4.5rem;
+    max-width: 800px;
+    color: #ffffff !important;
+    text-align: left;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    letter-spacing: 0;
+    /* Removed for alignment */
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    padding-left: 0;
+}
+
+/* Adjusted Sizes for Hero Buttons */
+.hero-cta button {
+    padding: 0.85rem 2rem !important;
+    font-size: 0.95rem !important;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+/* Premium Primary Button Style */
+.hero-btn-premium {
+    background: linear-gradient(135deg, #cc0000 0%, #800000 50%, #4a0404 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 10px 30px rgba(128, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-btn-premium::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.hero-btn-premium:hover {
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(128, 0, 0, 0.5), 0 0 20px rgba(255, 51, 51, 0.3) !important;
+    letter-spacing: 0.5px;
+}
+
+.hero-btn-premium:hover::before {
+    opacity: 1;
+}
+
+/* Premium Glass Secondary Button Style */
+.hero-btn-glass {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.hero-btn-glass:hover {
+    background: #ffffff !important;
+    color: var(--primary) !important;
+    border-color: #ffffff !important;
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    letter-spacing: 0.5px;
+}
+
+/* Icons styling within buttons */
+.btn-icon-lead {
+    font-size: 1.1rem;
+    margin-right: -2px;
+    transition: transform 0.3s ease;
+}
+
+.btn-icon-trail {
+    font-size: 1rem;
+    margin-left: -2px;
+    transition: transform 0.3s ease;
+}
+
+.hero-btn-premium:hover .btn-icon-lead {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.hero-btn-glass:hover .btn-icon-trail {
+    transform: translateX(5px);
+}
+
+/* Magnetic effect for all hero buttons */
+.hero-cta button {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.scroll-prompt-container {
+    margin-top: 2rem;
+}
+
+.scroll-prompt-text {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    /* Removed for alignment */
+    color: #ffffff !important;
+}
+
+/* Navigation Buttons (Right Aligned Group) */
+.hero-nav-btn {
+    position: absolute;
+    bottom: 250px;
+    /* Above feature cards */
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+}
+
+.hero-nav-btn.prev {
+    right: 100px;
+}
+
+.hero-nav-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* Pagination Dots Removed */
+
+/* Feature Cards (Bottom Overlap) */
+.hero-feature-cards {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+    padding: 0 8%;
+    transform: translateY(50%);
+    /* Adjusted for better visibility */
+}
+
+.cards-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: center;
+    /* Center the constrained card */
+}
+
+.feature-card {
+    padding: 1.5rem 2.5rem;
+    color: #1e293b;
+    background-color: #ffffff;
+    transition: all 1.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    min-height: 120px;
+    width: 100%;
+    max-width: 1000px;
+    /* Constrained width as requested */
+}
+
+.stats-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    /* Changed to black as requested */
+    margin-bottom: 20px;
+}
+
+.stats-text .highlight {
+    color: #800000;
+    /* Maroon highlight */
+    background: rgba(128, 0, 0, 0.08);
+    padding: 2px 12px;
+    border-radius: 20px;
+}
+
+.stats-text .separator {
+    color: #ccc;
+    font-weight: 300;
+}
+
+.company-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+}
+
+.marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Consistent gap between logos */
+    width: max-content;
+    animation: scrollLogos 20s linear infinite;
+}
+
+.company-logo,
+.logo-placeholder {
+    width: 150px;
+    /* Uniform width for all */
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.company-logo {
+    height: 45px;
+    object-fit: contain;
+    /* Removed grayscale and low opacity for colorful look */
+    transition: all 0.3s ease;
+}
+
+.company-logo.large {
+    height: 40px;
+    width: 200px;
+}
+
+.logo-placeholder {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* Brand Colors for Placeholders */
+.logo-placeholder.google {
+    color: #4285F4;
+    /* Google Blue */
+}
+
+.logo-placeholder.tcs {
+    color: #004C99;
+    /* TCS Blue */
+}
+
+.logo-placeholder.infosys {
+    color: #007CC3;
+    /* Infosys Blue */
+}
+
+.logo-placeholder.gyantrix {
+    color: #FF5733;
+    /* Vibrant Orange for Gyantrix */
+}
+
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-150px * 7 - 80px * 7));
+        /* scroll length of one set (7 logos + 7 gaps) */
+    }
+}
+
+/* Hover effects removed as requested */
+
+.feature-card.blue .card-icon {
+    color: #ff3333;
+    /* Red-maroon accent */
+}
+
+.feature-card.orange .card-icon {
+    color: #f97316;
+}
+
+.feature-card.cyan .card-icon {
+    color: #fbbf24;
+    /* Golden-yellow accent */
+}
+
+.card-icon {
+    font-size: 2.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.feature-card p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .hero-slide h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content {
+        margin-left: 6%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-slide h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-feature-cards {
+        padding: 0 5%;
+        transform: translateY(30%);
+        /* Reduce overlap shift */
+    }
+
+    .hero-content {
+        margin-left: 5%;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 75vh;
+        margin-bottom: 40px;
+    }
+
+    .hero-content {
+        padding: 40px 5%;
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: 80px;
+    }
+
+    .hero-slide {
+        text-align: center;
+    }
+
+    .hero-slide h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        text-align: center;
+        font-size: 0.95rem;
+        margin-bottom: 2.2rem !important;
+    }
+
+    .hero-cta {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-cta button {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    .hero-feature-cards {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        width: 100%;
+        padding: 0 4%;
+        transform: none;
+        z-index: 100;
+    }
+
+    .feature-card {
+        padding: 15px;
+        backdrop-filter: blur(15px);
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(128, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+
+    .stats-text {
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: center;
+        /* Center if it fits, else scroll */
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        width: 100%;
+        display: flex;
+        font-size: 0.8rem;
+        scrollbar-width: none;
+    }
+
+    .stats-text::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-nav-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slide h1 {
+        font-size: 1.7rem;
+    }
+
+    .feature-card {
+        padding: 12px;
+    }
+}

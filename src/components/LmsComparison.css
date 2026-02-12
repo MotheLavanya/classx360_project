@@ -1,0 +1,574 @@
+.lms-comparison {
+    padding-top: 30px;
+    /* background: var(--bg-dark); */
+    overflow: hidden;
+}
+
+.comparison-header-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    /* Reduced from 100px */
+}
+
+.comparison-badge {
+    color: #ff3333;
+    /* Red/Maroon */
+    font-size: 0.85rem;
+    /* Reduced from 1rem */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.comparison-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -1.5px;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    /* Direct side-by-side as in image */
+    max-width: 1400px;
+    margin: 0 auto;
+    background: linear-gradient(to right, #000000 50%, #800000 50%);
+    border-radius: 60px;
+    overflow: hidden;
+    box-shadow: 0 20px 100px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-section {
+    padding: 60px 8%;
+    /* Reduced top padding to move headings higher */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comparison-box {
+    padding: 30px 40px;
+    /* Reduced top padding to move headings higher */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 450px;
+    /* Reduced from 600px for more compact cards */
+    overflow: hidden;
+    /* Prevent falling icons from leaking out */
+}
+
+.without-box {
+    background: #000000;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.with-box {
+    background: #800000;
+}
+
+.box-text-content {
+    margin-bottom: 20px;
+    /* Reduced from 50px */
+    max-width: 400px;
+}
+
+.box-desc {
+    font-size: 1rem;
+    /* Reduced from 1.15rem */
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
+.box-desc.white-text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.danger-text {
+    color: #f8fafc;
+    /* Changed to off-white */
+    display: block;
+    font-size: 1rem;
+    /* Further reduced from 1.4rem */
+    /* font-weight: 900; */
+    margin-top: 4px;
+    /* Reduced from 8px */
+}
+
+.success-text {
+    color: #ffffff;
+    display: block;
+    font-size: 1rem;
+    /* Matched with danger-text */
+    /* font-weight: 900; */
+    margin-top: 4px;
+    /* Reduced from 8px */
+}
+
+.box-visual-area {
+    width: 100%;
+    height: 420px;
+    /* Increased from 320px */
+    margin-bottom: 30px;
+    /* Reduced from 50px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Icons fall through here to the box bottom */
+}
+
+.embedded-orbits {
+    position: relative;
+    width: 380px;
+    /* Increased from 280px */
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.layer-1 {
+    z-index: 3;
+}
+
+.layer-2 {
+    z-index: 2;
+}
+
+/* Stabilized Tracks for Without Side */
+/* Stabilized Tracks for Without Side */
+.wobbly-mode .layer-1:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    border: 3px solid white;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.wobbly-mode .layer-2:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 320px;
+    transform: translate(-50%, -50%);
+    border: 3px solid white;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.chaos-active .wobbly-mode .layer-1:before {
+    animation: burst-uncircle 0.4s forwards ease-out;
+}
+
+.chaos-active .wobbly-mode .layer-2:before {
+    animation: burst-uncircle 0.4s forwards ease-out 0.1s;
+}
+
+@keyframes burst-uncircle {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+        border-radius: 50%;
+    }
+
+    25% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1.05);
+        border-radius: 45% 55% 50% 50%;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+        border-radius: 40% 60% 45% 55%;
+    }
+
+    75% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.15);
+        border-radius: 55% 45% 60% 40%;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0;
+        border-radius: 30% 70% 50% 50%;
+    }
+}
+
+/* Perfect Circles for With Side */
+.with-box .layer-1:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.with-box .layer-2:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 320px;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.orbit-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: orbit-rotate var(--speed, 30s) linear infinite var(--track-dir, normal);
+}
+
+.group-1 {
+    --speed: 30s;
+    --track-dir: normal;
+    --icon-dir: reverse;
+}
+
+.group-2 {
+    --speed: 30s;
+    --track-dir: reverse;
+    --icon-dir: normal;
+}
+
+.chaos-active .orbit-track {
+    animation: none;
+    transform: rotate(0deg) !important;
+    transition: transform 0.1s ease-out;
+}
+
+.chaos-active .orbital-icon {
+    animation-play-state: paused;
+}
+
+@keyframes orbit-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Stable Orbit for Without Card (No track rotation) */
+.without-box .orbit-track {
+    animation: none !important;
+    transform: none !important;
+}
+
+.without-box .orbit-slot {
+    animation: without-stable-orbit var(--speed, 30s) linear infinite var(--track-dir, normal);
+}
+
+@keyframes without-stable-orbit {
+    from {
+        transform: rotate(0deg) translate(var(--lx), var(--ly)) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translate(var(--lx), var(--ly)) rotate(-360deg);
+    }
+}
+
+.orbit-slot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    transform: translate(var(--lx), var(--ly));
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.chaos-active .orbit-slot {
+    /* Chaos happens faster (0.25s total) */
+    animation: fall-chaos 0.25s forwards cubic-bezier(0.6, 0, 1, 0.5);
+    pointer-events: none;
+    transition: none !important;
+}
+
+@keyframes fall-chaos {
+    0% {
+        opacity: 1;
+        transform: translate(var(--lx), var(--ly));
+    }
+
+    /* Phase 1: Icons scatter outward but stay horizontal */
+    25% {
+        opacity: 1;
+        transform: translate(calc(var(--lx) * 1.3 + 15px), calc(var(--ly) * 1.3 - 10px)) scale(1.1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(calc(var(--lx) * 1.5), calc(var(--ly) * 1.5)) scale(1.2);
+    }
+
+    /* Phase 2: Fall straight down perfectly horizontal */
+    100% {
+        transform: translate(calc(var(--lx) * 1.5), 240px) scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.without-box .orbital-icon {
+    animation: none !important;
+    transform: none !important;
+}
+
+.orbital-icon {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: orbit-rotate var(--speed, 30s) linear infinite var(--icon-dir, reverse);
+    color: var(--primary);
+    position: relative;
+    z-index: 10;
+}
+
+.orbital-icon.light {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.icon-label-popup {
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    /* Strict horizontal lock */
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark Glass */
+    color: #ffffff;
+    /* White Text */
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.3s ease;
+    display: block;
+}
+
+.with-box .icon-label-popup {
+    background: rgba(128, 0, 0, 0.5);
+    /* Maroon Glass */
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.chaos-active .orbital-icon {
+    transform: none !important;
+    opacity: 1;
+    /* Keep visible */
+    /* Neutralize orientation correction when falling */
+}
+
+.chaos-active .icon-label-popup {
+    opacity: 1 !important;
+    /* Forces visibility during chaos */
+    transform: translateX(-50%) rotate(0deg) !important;
+    /* Absolute horizontal lock */
+}
+
+/* Central Logo Style */
+.central-logo-box {
+    position: absolute;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    /* Reduced */
+}
+
+.logo-square {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.logo-symbol {
+    font-weight: 200;
+    font-size: 1rem;
+    /* Reduced */
+    color: var(--primary);
+    letter-spacing: -1px;
+}
+
+.box-label {
+    margin-bottom: 10px;
+    /* Reduced from 25px */
+    font-size: 1.5rem;
+    /* Reduced from 1.8rem */
+    font-weight: 900;
+    color: #ffffff;
+    /* Off-white */
+    letter-spacing: -0.5px;
+}
+
+.box-label.white-text {
+    color: #ffffff;
+}
+
+/* Comparison Detailed List Style */
+.comparison-details-list {
+    text-align: left;
+    width: 100%;
+    max-width: 450px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.light .detail-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-icon {
+    font-size: 1rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.light .detail-icon {
+    color: #ffffff;
+}
+
+.detail-text {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.light .detail-text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 1024px) {
+    .comparison-grid {
+        grid-template-columns: 1fr 1fr;
+        background: linear-gradient(to right, #000000 50%, #800000 50%);
+        border-radius: 40px;
+        overflow: hidden;
+    }
+
+    .comparison-box {
+        min-height: 500px;
+        padding: 60px 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-grid {
+        display: flex;
+        flex-direction: column;
+        /* Line-by-line stacking */
+        border-radius: 20px;
+        background: transparent;
+        overflow: visible;
+        gap: 20px;
+    }
+
+    .comparison-box {
+        width: 100%;
+        min-width: 100%;
+        min-height: auto;
+        padding: 40px 20px !important;
+        border-radius: 20px;
+    }
+
+    .with-box {
+        background: #000000;
+        border: 1px solid rgba(0, 122, 255, 0.2);
+    }
+
+    .without-box {
+        background: #800000;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .embedded-orbits {
+        transform: scale(0.9);
+        margin: 20px auto;
+    }
+
+    .box-label {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .detail-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .embedded-orbits {
+        transform: scale(0.75);
+    }
+}

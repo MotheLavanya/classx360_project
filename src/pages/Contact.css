@@ -1,0 +1,433 @@
+/* Enriched Contact Page Styles */
+.contact-page {
+    background: var(--bg-dark);
+    padding-top: 0;
+    padding-bottom: 80px;
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+}
+
+
+
+/* Banner Section */
+.contact-banner-section {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #000;
+}
+
+.banner-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    /* Richer gradient */
+    z-index: 2;
+    backdrop-filter: blur(3px);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 3;
+    color: white;
+    transform: translateY(-20px);
+}
+
+.banner-content h1.letter-animation {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.letter-animation span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: letterReveal 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--char-index) * 0.1s);
+    color: #ffffff !important;
+}
+
+@keyframes letterReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.banner-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+/* Main Grid Layout */
+.contact-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    /* Adjusted ratio */
+    gap: 4rem;
+    max-width: 1140px;
+    margin: -80px auto 0;
+    /* More overlap */
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Form Section */
+.studylab-form {
+    background: white;
+    padding: 3.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    /* softer, premium shadow */
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.studylab-form h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #800000 !important;
+    /* Brand color */
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.form-subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.premium-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.f-field {
+    margin-bottom: 1.5rem;
+}
+
+.f-field input,
+.f-field textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #f0f0f0;
+    /* Subtler border */
+    border-radius: 8px;
+    background: #fcfcfc;
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.f-field input::placeholder,
+.f-field textarea::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.f-field input:focus,
+.f-field textarea:focus {
+    outline: none;
+    background: white;
+    border-color: #800000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(128, 0, 0, 0.1);
+}
+
+.btn-submit.lg {
+    background: #800000;
+    color: white;
+    padding: 18px 48px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 10px 20px -10px rgba(128, 0, 0, 0.5);
+    width: 100%;
+    /* Full width button */
+}
+
+.btn-submit.lg:hover:not(:disabled) {
+    background: #660000;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -10px rgba(128, 0, 0, 0.6);
+}
+
+/* Info Section */
+.studylab-info {
+    padding: 3rem 1rem;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5rem;
+    /* Pushed down as requested */
+}
+
+.studylab-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    color: #800000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(128, 0, 0, 0.1);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+    /* More spacing */
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateX(10px);
+}
+
+.info-icon {
+    width: 56px;
+    height: 56px;
+    background: white;
+    color: #800000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    /* Soft shadow for icon */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.info-item div {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+
+.info-item strong {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: black;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.info-item p {
+    color: #1a1a1a;
+    font-size: 1.15rem;
+    /* Larger text */
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+}
+
+.info-item a {
+    color: #1a1a1a;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+
+.info-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #800000;
+    transition: width 0.3s;
+}
+
+.info-item a:hover::after {
+    width: 100%;
+}
+
+/* Gratitude (Success) Page Styles */
+.contact-page.gratitude {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #050505 0%, #1a0000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gratitude-card {
+    max-width: 600px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    animation: scale-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.gratitude-icon {
+    font-size: 5rem;
+    color: #4ade80;
+    /* Success green */
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 15px rgba(74, 222, 128, 0.4));
+    animation: bounce-in 0.8s ease-out;
+}
+
+.gratitude-card h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.gratitude-card p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+
+
+@keyframes scale-up {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-banner-section {
+        height: 350px;
+    }
+
+    .banner-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-banner-section {
+        height: 300px;
+    }
+
+    .banner-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .contact-main-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-top: 0;
+        padding: 40px 20px;
+        background: transparent;
+    }
+
+    .studylab-form {
+        padding: 2.5rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .studylab-form h3 {
+        font-size: 1.5rem;
+    }
+
+    .studylab-info {
+        padding: 0;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .info-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .gratitude-card h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .premium-form .form-row {
+        grid-template-columns: 1fr;
+    }
+}

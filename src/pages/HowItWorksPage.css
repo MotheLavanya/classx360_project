@@ -1,0 +1,202 @@
+.how-page-wrapper {
+    background: #050505;
+}
+
+/* Banner Styling */
+.how-banner-section {
+    position: relative;
+    padding: 160px 0 100px;
+    background-color: #0f172a;
+    background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80');
+    /* Professional team/education image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    overflow: hidden;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(5, 5, 5, 0.95) 0%, rgba(128, 0, 0, 0.4) 100%);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.banner-content .badge {
+    background: rgba(128, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ff3333;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid rgba(128, 0, 0, 0.3);
+}
+
+.banner-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.banner-content h1 span {
+    color: #800000;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    color: #e2e8f0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Why Workflow Section */
+.why-workflow-section {
+    padding: 100px 0;
+    background: #0a0a0a;
+}
+
+.section-header-center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-header-center h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #f5f5f5;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.section-header-center h2 span {
+    color: #800000;
+}
+
+.section-header-center p {
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+.workflow-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.workflow-feature-card {
+    background: #111;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid #222;
+}
+
+.workflow-feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(128, 0, 0, 0.2);
+    border-color: #800000;
+}
+
+.feature-icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(128, 0, 0, 0.1);
+    color: #ff3333;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.workflow-feature-card h4 {
+    font-size: 1.3rem;
+    color: #f5f5f5;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.workflow-feature-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Final CTA */
+.how-final-cta {
+    padding: 100px 0;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, #800000 0%, #300000 100%);
+    padding: 80px 40px;
+    border-radius: 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.cta-box h3 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.cta-box p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.btn-white-lg {
+    padding: 18px 45px;
+    background: white;
+    color: #800000;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-white-lg:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-header-center h2 {
+        font-size: 2.2rem;
+    }
+
+    .cta-box h3 {
+        font-size: 2rem;
+    }
+}

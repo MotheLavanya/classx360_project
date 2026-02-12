@@ -1,0 +1,316 @@
+/* 2. Iconic Tabbed Navigation - UW 2025 Premium */
+.blog-anchor-nav-iconic {
+    position: sticky;
+    top: 70px;
+    background: var(--uw-white);
+    border-bottom: 1px solid var(--uw-border);
+    z-index: 1000;
+    padding: 1.5rem 0;
+    margin-bottom: 4rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+ 
+.nav-container-iconic {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0 20px;
+}
+ 
+.nav-link-iconic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--uw-text-muted);
+    transition: var(--blog-transition);
+    min-width: 120px;
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+ 
+.nav-icon {
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--uw-light-bg);
+    border-radius: 50%;
+    transition: var(--blog-transition);
+    border: 2px solid transparent;
+}
+ 
+.nav-link-iconic:hover .nav-icon,
+.nav-link-iconic.active .nav-icon {
+    background: var(--uw-maroon);
+    color: white;
+    transform: translateY(-5px);
+    border-color: var(--uw-gold);
+    box-shadow: 0 10px 20px rgba(124, 18, 28, 0.2);
+}
+ 
+.nav-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+ 
+.nav-link-iconic.active .nav-label {
+    color: var(--uw-maroon);
+}
+
+/* 3. Dynamic Content Area & Animations */
+.dynamic-content-area {
+    max-width: 1200px;
+    margin: 0 auto 8rem;
+    padding: 0 20px;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.active-content-wrapper {
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.active-content-wrapper.entrance {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.active-content-wrapper.exit {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+/* Slideway Specific Refinement for Tabbed View */
+.category-slideway-uw {
+    display: flex;
+    align-items: flex-start;
+    gap: 5rem;
+    animation: slideInRight 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.slideway-image-uw {
+    flex: 1.1;
+    height: 500px;
+    position: relative;
+    box-shadow: 30px 30px 0 var(--uw-light-bg);
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.slideway-image-uw img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slideway-accent-gold {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--uw-gold);
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.slideway-content-uw {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.slideway-kicker-uw {
+    color: var(--uw-maroon);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+.slideway-content-uw h2 {
+    font-size: 3rem;
+    font-weight: 950;
+    color: var(--uw-dark);
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.slideway-description-uw {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--uw-text-main);
+    margin: 0;
+}
+
+.resource-grid-modern {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.resource-link-modern {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem;
+    background: var(--uw-light-bg);
+    border-left: 4px solid var(--uw-maroon);
+    text-decoration: none;
+    color: var(--uw-dark);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.resource-link-modern:hover {
+    background: var(--uw-white);
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.dot {
+    color: var(--uw-gold);
+    font-size: 1.5rem;
+}
+
+.slideway-cta-btn-uw {
+    background: var(--uw-maroon);
+    color: white;
+    border: none;
+    padding: 1.25rem 2.5rem;
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: var(--blog-transition);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.slideway-cta-btn-uw:hover {
+    background: var(--uw-dark);
+    box-shadow: 0 0 20px var(--uw-gold);
+}
+
+/* 4. CTA Section - Clean Refinement */
+.blog-cta {
+    background: var(--uw-light-bg);
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.blog-cta-content {
+    max-width: 900px;
+    text-align: center;
+}
+
+.blog-cta h2 {
+    font-size: 3.5rem;
+    color: var(--uw-dark);
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.blog-cta p {
+    font-size: 1.5rem;
+    color: var(--uw-text-muted);
+    margin-bottom: 3rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.btn-cta-primary {
+    background: var(--uw-maroon);
+    color: white;
+    padding: 1.25rem 4rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--blog-transition);
+}
+
+.btn-cta-primary:hover {
+    background: var(--uw-dark);
+    transform: scale(1.05);
+}
+
+.btn-cta-secondary {
+    border: 2px solid var(--uw-maroon);
+    color: var(--uw-maroon);
+    padding: 1.25rem 4rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--blog-transition);
+}
+
+/* Transitions & Micro-animations */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .category-slideway-uw {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-slideway-uw {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .slideway-image-uw {
+        width: 100%;
+        height: 300px;
+        box-shadow: 15px 15px 0 var(--uw-light-bg);
+    }
+
+    .blog-cta h2 {
+        font-size: 2.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

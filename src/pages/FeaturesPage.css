@@ -1,0 +1,127 @@
+.features-page {
+    padding-top: 80px;
+    /* Account for fixed navbar */
+    background: var(--bg-dark);
+}
+
+.features-hero {
+    background: rgba(0, 0, 0, 0.05);
+    /* Soft contrast against page bg */
+    padding: 30px 30px;
+    text-align: center;
+    color: var(--text-main);
+    position: relative;
+    overflow: hidden;
+}
+
+.features-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+}
+
+.features-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.features-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+    color: black;
+}
+
+.blue-highlight {
+    color: #ff3333;
+}
+
+.features-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.features-footer-cta {
+    padding: 60px 8%;
+    background: rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.features-footer-cta .cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.features-footer-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+.features-footer-cta p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.btn-primary-lg {
+    padding: 16px 40px;
+    background: #800000;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(128, 0, 0, 0.3);
+}
+
+.btn-primary-lg:hover {
+    background: #4a0404;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(128, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .features-hero {
+        padding: 40px 20px;
+    }
+
+    .features-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .features-hero p {
+        font-size: 1rem;
+    }
+
+    .features-footer-cta {
+        padding: 40px 5%;
+    }
+
+    .features-footer-cta h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn-primary-lg {
+        width: 100%;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-hero h1 {
+        font-size: 1.8rem;
+    }
+}

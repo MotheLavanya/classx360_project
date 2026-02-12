@@ -1,0 +1,187 @@
+.enrollment-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2200;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.enrollment-modal {
+    background: #0a0a0a;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    animation: slideUpFade 0.3s ease-out;
+    border: 1px solid #1a1a1a;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.em-header {
+    background: linear-gradient(135deg, #0a0a0a 0%, #111 100%);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.em-header h3 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 1.25rem;
+}
+
+.em-close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.em-close:hover {
+    color: #ff3333;
+}
+
+/* Body */
+.em-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Confirmation View */
+.course-preview-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.cp-icon {
+    font-size: 2.5rem;
+    color: #ff3333;
+    background: rgba(128, 0, 0, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cp-details h4 {
+    margin: 0 0 0.4rem;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.cp-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.plan-check {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.plan-check.eligible {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10b981;
+    color: #065f46;
+}
+
+.plan-check.locked {
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid #fbbf24;
+    color: #92400e;
+}
+
+/* Success View */
+.success-icon-large {
+    font-size: 4rem;
+    color: #10b981;
+    margin-bottom: 1.5rem;
+    animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.progress-preview {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-bg {
+    height: 8px;
+    background: var(--bg-card);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--primary);
+    width: 0%;
+    transition: width 1s ease-out;
+}
+
+/* Buttons */
+.em-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}

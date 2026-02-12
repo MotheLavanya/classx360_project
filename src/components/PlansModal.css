@@ -1,0 +1,192 @@
+.plans-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2100;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.plans-modal {
+    background: #0a0a0a;
+    width: 95%;
+    max-width: 1100px;
+    max-height: 90vh;
+    border-radius: 24px;
+    border: 1px solid #1a1a1a;
+    position: relative;
+    padding: 3rem 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    animation: modalSlideUp 0.4s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.plans-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.plans-modal-close:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.plans-modal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.plans-modal-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.plans-modal-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.plans-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.modal-plan-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.modal-plan-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff3333;
+    background: #111;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-plan-card.highlight {
+    border: 2px solid #ff3333;
+    position: relative;
+    background: #0a0a0a;
+}
+
+.pop-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-1);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.mp-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 1.5rem;
+}
+
+.mp-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.mp-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ff3333;
+}
+
+.mp-price span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.mp-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    height: 40px;
+    /* fixed height for alignment */
+}
+
+.mp-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.mp-features li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.mp-features li::before {
+    content: '✓';
+    color: #ff3333;
+    font-weight: 800;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .plans-modal {
+        padding: 2rem 1rem;
+    }
+
+    .plans-modal-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .plans-modal-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,495 @@
+/* Blog Page - Compact Trifecta Knowledge Sheet (Premium Minimalism) */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 150px;
+}
+
+:root {
+    --uw-maroon: #ff4d4d;
+    /* Brighter maroon for dark mode */
+    --uw-gold: #ffc425;
+    --uw-dark: #ffffff;
+    /* Text is now white */
+    --uw-light-bg: #1a1a1a;
+    --uw-white: #0a0a0a;
+    /* Cards are now dark */
+    --uw-border: #333333;
+    --uw-text-main: #e0e0e0;
+    --uw-text-muted: white;
+    --blog-transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --glass-bg: rgba(10, 10, 10, 0.85);
+}
+
+/* Navbar Visibility Fix - Mandatory Contrast (Black Theme) */
+body.blog-page-active .navbar {
+    background: #050505 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.blog-page-active .navbar .logo-text,
+body.blog-page-active .navbar .nav-links a,
+body.blog-page-active .navbar .logo {
+    color: #ffffff !important;
+}
+
+body.blog-page-active .navbar .nav-links a.active {
+    color: #800000 !important;
+}
+
+body.blog-page-active .navbar .mobile-menu-btn span {
+    background: white;
+}
+
+.blog-page-container.academic-mode {
+    background-color: #ffffff;
+    /* Updated background color */
+    min-height: 100vh;
+    padding-top: 80px;
+    /* Push below the 65px Navbar */
+}
+
+.blog-page {
+    position: relative;
+    max-width: 1300px;
+    /* Reduced from 1500 */
+    margin: 0 auto;
+    padding: 0 40px 80px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--uw-text-main);
+}
+
+/* 1. Compact Academic Hero */
+.blog-hero.trifecta-hero {
+    text-align: center;
+    padding: 10px 0 25px;
+    /* Further reduced from 80px/30px */
+    max-width: 800px;
+    /* Narrower for better focus */
+    margin: 0 auto;
+}
+
+.category-tag-minimal {
+    background: #800000;
+    color: white;
+    padding: 10px 12px;
+    /* Slightly smaller */
+    font-size: 0.7rem;
+    /* Reduced from 0.75rem */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    /* Reduced from 1.5rem */
+    display: block;
+    /* Changed from inline-block to block for margin auto centering */
+    border-radius: 50px;
+    width: 220px;
+    font-size: 12px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+}
+
+.blog-hero h1 {
+    font-size: 1.5rem;
+    /* Further reduced from 2.8rem max */
+    font-weight: 950;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    /* Further reduced from 1rem */
+    color: black;
+    text-transform: uppercase;
+}
+
+.gold-text {
+    color: #800000;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1rem;
+    /* Reduced from 1.1rem */
+    color: black;
+    max-width: 550px;
+    line-height: 1.5;
+    margin: 0 auto;
+}
+
+/* 2. Minimized Sub-Navigation */
+.blog-anchor-nav-iconic {
+    position: sticky;
+    top: 65px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--uw-border);
+    border-bottom: 1px solid var(--uw-border);
+    z-index: 1000;
+    padding: 1rem 0;
+    /* Reduced padding */
+    margin-bottom: 3rem;
+    /* Reduced margin */
+}
+
+.nav-container-iconic {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    /* Further reduced gap for single-line fit */
+}
+
+.nav-link-iconic {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--uw-text-muted);
+    transition: var(--blog-transition);
+    padding: 0.4rem 0.8rem;
+    position: relative;
+    white-space: nowrap;
+    /* Guarantee single line */
+}
+
+.nav-link-iconic.active {
+    color: var(--uw-maroon);
+}
+
+.nav-link-iconic::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0.8rem;
+    right: 0.8rem;
+    height: 2px;
+    background: var(--uw-maroon);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link-iconic.active::after {
+    transform: scaleX(1);
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    /* Reduced from 0.85 */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.dropdown-symbol {
+    font-size: 0.75rem;
+    color: var(--uw-text-muted);
+    transition: transform 0.3s ease;
+}
+
+.nav-link-iconic.active .dropdown-symbol {
+    color: var(--uw-maroon);
+    transform: rotate(180deg);
+}
+
+/* 3. Compact Horizontal Trifecta Card */
+.dynamic-trifecta-area {
+    min-height: 500px;
+    position: relative;
+    margin-top: -1rem;
+    /* Pull slightly closer to nav */
+}
+
+.horizontal-trifecta-card {
+    background: var(--uw-white);
+    border: 1px solid var(--uw-border);
+    padding: 2rem;
+    /* Reduced from 3rem */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    /* Reduced from 2.5rem */
+    transition: all 0.5s ease;
+}
+
+.horizontal-trifecta-card:hover {
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+}
+
+/* New Stacked Header */
+.trifecta-header {
+    text-align: center;
+    max-width: 600px;
+    /* Reduced from 800px */
+    margin: 0 auto;
+    border-bottom: 1px solid var(--uw-border);
+    padding-bottom: 1rem;
+    /* Reduced from 1.5rem */
+    width: 100%;
+}
+
+/* 3-Column Info Grid */
+.trifecta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    /* Reduced from 3rem */
+}
+
+.trifecta-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Reduced from 1.5rem */
+}
+
+/* Side Content Layout */
+.side-content {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: sideFadeIn 0.8s ease forwards;
+    padding-top: 1rem;
+}
+
+.left-side {
+    animation-delay: 0.2s;
+}
+
+.right-side {
+    animation-delay: 0.4s;
+}
+
+@keyframes sideFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trifecta-kicker {
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: var(--uw-maroon);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border-bottom: 1px solid var(--uw-gold);
+    align-self: flex-start;
+    padding-bottom: 0.3rem;
+}
+
+.trifecta-subheading {
+    font-size: 1.4rem;
+    /* Scaled down */
+    font-weight: 900;
+    color: var(--uw-dark);
+    line-height: 1.25;
+    margin: 0;
+}
+
+.trifecta-paragraph {
+    font-size: 1rem;
+    /* Scaled down */
+    line-height: 1.6;
+    color: var(--uw-text-muted);
+    margin: 0;
+}
+
+/* Center Column - Minimized Image */
+.center-image {
+    align-items: center;
+}
+
+.trifecta-image-container {
+    width: 100%;
+    max-width: 320px;
+    /* Minimized */
+    aspect-ratio: 1;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.trifecta-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    position: relative;
+    border: 3px solid #1a1a1a;
+    /* Dark border */
+}
+
+.trifecta-gold-frame {
+    position: absolute;
+    inset: -10px;
+    border: 1.5px solid var(--uw-gold);
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.trifecta-main-title {
+    font-size: 1.4rem;
+    /* Reduced from 1.8rem */
+    font-weight: 900;
+    color: var(--uw-maroon);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 0.3rem;
+    /* Reduced from 0.5rem */
+}
+
+.trifecta-main-desc {
+    font-size: 0.85rem;
+    /* Reduced from 0.95rem */
+    color: var(--uw-text-muted);
+    line-height: 1.4;
+    max-width: 500px;
+    /* Reduced from 600px */
+    margin: 0 auto;
+}
+
+/* Resource List - Refined */
+.trifecta-resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.list-label {
+    font-weight: 900;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--uw-text-muted);
+}
+
+.trifecta-article-link {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #ff4d4d;
+    /* Bright maroon */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.trifecta-article-link:hover {
+    color: #ffffff;
+    border-bottom-color: var(--uw-gold);
+}
+
+.minimal-action-link {
+    font-weight: 900;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff4d4d;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* 4. Compact Footer CTA */
+.blog-footer-cta {
+    padding: 60px 0;
+    /* Reduced from 80px */
+    border-top: 1px solid var(--uw-border);
+    text-align: center;
+    background: #800000;
+}
+
+.cta-flat-container h2 {
+    font-size: 1.8rem;
+    /* Reduced from 2.5rem */
+    font-weight: 950;
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    /* Reduced from 1.5rem */
+    letter-spacing: -0.5px;
+}
+
+.cta-flat-container p {
+    font-size: 0.95rem;
+    /* Reduced from 1.1rem */
+    color: var(--uw-text-muted);
+    margin-bottom: 2.2rem;
+    /* Reduced from 3rem */
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-links-academic {
+    display: flex;
+    gap: 1.5rem;
+    /* Slightly reduced */
+    justify-content: center;
+}
+
+.btn-academic-solid {
+    background: var(--uw-maroon);
+    color: rgba(255, 255, 255, 0.895);
+    padding: 0.8rem 2rem;
+    /* Reduced from 1.25rem 3rem */
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    /* Reduced from 0.85rem */
+    transition: var(--blog-transition);
+}
+
+.btn-academic-solid:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    color: #800000;
+}
+
+.btn-academic-outline {
+    border: 1.5px solid #d40c0c;
+    color: #020202;
+    padding: 0.8rem 2rem;
+    /* Reduced from 1.25rem 3rem */
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    /* Reduced from 0.85rem */
+    transition: var(--blog-transition);
+}
+
+.btn-academic-outline:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .horizontal-trifecta-card {
+        grid-template-columns: 1fr;
+        padding: 3rem;
+        gap: 4rem;
+    }
+
+    .center-image {
+        order: -1;
+    }
+
+    .trifecta-image-container {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-links-academic {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}

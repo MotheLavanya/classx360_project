@@ -1,0 +1,416 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+        height: 70px;
+        /* Force consistent mobile height */
+    }
+}
+
+.navbar.is-home {
+    background: transparent;
+    /* Fully mixed in with Hero */
+    backdrop-filter: none;
+    /* Removed glassmorphism as requested */
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: none;
+    /* Removed the line mark as requested */
+}
+
+.navbar.scrolled {
+    background: #000000;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    height: calc(var(--nav-height) - 10px);
+}
+
+.navbar.is-home.scrolled {
+    background: black;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo-icon-main {
+    font-size: 3rem;
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px rgba(128, 0, 0, 0.4));
+    transition: font-size 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .logo-icon-main {
+        font-size: 2.2rem;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+}
+
+.nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    align-items: center;
+    margin-right: 2rem;
+    padding: 0;
+}
+
+.nav-links a,
+.nav-link-btn {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 200;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    padding: 0.2rem 0.5rem;
+    border-radius: 25px;
+    /* Pill Shape */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Active & Hover States - Electric Blue Theme */
+.nav-links a:hover,
+.nav-link-btn:hover {
+    background: #ffffff;
+    /* Solid White */
+    border-color: white;
+    /* White Border */
+    color: #800000;
+    /* Maroon Text */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.nav-links a.active {
+    background: white;
+    /* Solid White */
+    color: #800000;
+    /* Maroon Text */
+    border-color: white;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(128, 0, 0, 0.4);
+}
+
+/* Remove old underline effects */
+.nav-links a::after,
+.nav-link-btn::after,
+.nav-links a:hover::after,
+.nav-links a.active::after,
+.nav-link-btn:hover::after {
+    display: none;
+}
+
+
+
+.dropdown-symbol {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.nav-link-btn.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-link-btn.active .dropdown-symbol {
+    transform: rotate(180deg);
+}
+
+/* Nav Dropdown Styles */
+.nav-dropdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-dropdown-trigger {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 200;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 25px;
+    border: 1px solid transparent;
+}
+
+.nav-dropdown-container:hover .nav-dropdown-trigger {
+    background: #ffffff;
+    border-color: white;
+    color: #800000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-arrow {
+    font-size: 0.6rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown-container:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 10px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 3100;
+}
+
+.nav-dropdown-container:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-transform: none;
+    font-size: 0.85rem;
+    letter-spacing: 0;
+    justify-content: flex-start;
+    width: 100%;
+    font-weight: 400;
+}
+
+.nav-dropdown-menu a:hover {
+    background: #ffffff;
+    color: #800000;
+    border-color: white;
+    font-weight: 600;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navbar .nav-actions .btn-secondary,
+.navbar .mobile-nav-actions .btn-secondary {
+    background-color: #800000 !important;
+    color: white !important;
+    border-color: #800000 !important;
+}
+
+.navbar .nav-actions .btn-secondary:hover,
+.navbar .mobile-nav-actions .btn-secondary:hover {
+    background-color: #4a0404 !important;
+    border-color: #4a0404 !important;
+}
+
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.mobile-menu-btn span {
+    width: 30px;
+    height: 2px;
+    background: #ffffff;
+    transition: 0.3s ease;
+}
+
+
+/* Premium Testimonials Badge */
+.nav-item-testimonials {
+    border: 1px solid rgba(255, 196, 37, 0.4);
+    /* Subtle Gold Border */
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem !important;
+    /* Pill shape padding */
+    transition: all 0.3s ease;
+    background: rgba(255, 196, 37, 0.05);
+    /* Very faint gold tint */
+}
+
+.nav-item-testimonials:hover {
+    background: var(--uw-gold);
+    color: #000000 !important;
+    /* Black text on gold */
+    transform: translateY(-2px);
+    border-color: var(--uw-gold);
+    box-shadow: 0 4px 15px rgba(255, 196, 37, 0.3);
+}
+
+.nav-item-testimonials.active {
+    background: var(--uw-gold);
+    color: #000000 !important;
+    border-color: var(--uw-gold);
+}
+
+/* Remove default underline for this specific item */
+.nav-item-testimonials::after {
+    display: none !important;
+}
+
+.mobile-menu-btn.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Auth Buttons in Mobile Menu */
+.mobile-nav-actions {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.mobile-nav-actions button {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 1.2rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        /* Full width mobile menu for better focus */
+        max-width: 400px;
+        height: 100vh;
+        background: #000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        margin-right: 0;
+        transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1050;
+    }
+
+    .nav-links.mobile-open {
+        right: 0;
+    }
+
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-nav-actions {
+        display: flex;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .nav-link-btn,
+    .nav-links a {
+        font-size: 1.2rem;
+        padding: 1.2rem;
+        width: 100%;
+        justify-content: center;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .nav-dropdown-container {
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-dropdown-trigger {
+        font-size: 1.2rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo-icon-main {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .navbar {
+        padding: 0 15px;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -11,7 +11,6 @@ import FeaturesModal from './components/FeaturesModal';
 import AboutModal from './components/AboutModal';
 
 import ScrollToTop from './components/ScrollToTop';
-import ScrollReveal from './components/ScrollReveal';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
@@ -44,6 +43,7 @@ function App() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('login');
 
+
   const openLogin = () => {
     setAuthMode('login');
     setIsAuthModalOpen(true);
@@ -66,7 +66,6 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <ScrollReveal />
       <div className="landing-page">
         <Navbar
           onLogin={openLogin}
@@ -87,7 +86,7 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Home onSignUp={openSignUp} />} />
-          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/features" element={<FeaturesPage onSignUp={openSignUp} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/pricing" element={<Pricing onSignUp={openSignUp} />} />

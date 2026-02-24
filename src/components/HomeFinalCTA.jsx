@@ -8,13 +8,13 @@ const HomeFinalCTA = ({ onSignUp }) => {
             <div className="cta-minimal-overlay"></div>
             <div className="container">
                 <div className="cta-minimal-content">
-                    <h2 className="cta-minimal-headline reveal">
-                        Everything Your Institution Needs. <span className="highlight">One Platform.</span>
+                    <h2 className="cta-minimal-headline reveal-scale">
+                        Everything Your Institution Needs <span className="highlight">One Platform.</span>
                     </h2>
-                    <p className="cta-minimal-subline reveal">
+                    <p className="cta-minimal-subline reveal-scale delay-1">
                         Simplify management. Improve learning. Scale faster.
                     </p>
-                    <div className="cta-minimal-actions reveal">
+                    <div className="cta-minimal-actions reveal-scale delay-2">
                         <button className="btn-cta-premium" onClick={onSignUp}>
                             <span>Get Started Now</span>
                             <FaArrowRight className="btn-icon" />

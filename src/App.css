@@ -13,8 +13,10 @@
   --nav-height: 65px;
 }
 
-html {
-  scroll-behavior: smooth;
+
+
+body {
+  overflow-y: scroll;
 }
 
 .back-nav-btn {
@@ -115,138 +117,6 @@ html {
   padding: 1.2rem 2.5rem;
   font-size: 1.1rem;
 }
-
-/* Global Scroll Reveal Animations */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Directional Reveals */
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-.reveal-left.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-.reveal-right.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.92);
-  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-.reveal-scale.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Stagger Delays (0.1s steps) */
-.delay-1 {
-  transition-delay: 0.1s;
-}
-
-.delay-2 {
-  transition-delay: 0.2s;
-}
-
-.delay-3 {
-  transition-delay: 0.3s;
-}
-
-.delay-4 {
-  transition-delay: 0.4s;
-}
-
-.delay-5 {
-  transition-delay: 0.5s;
-}
-
-.delay-6 {
-  transition-delay: 0.6s;
-}
-
-.delay-7 {
-  transition-delay: 0.7s;
-}
-
-.delay-8 {
-  transition-delay: 0.8s;
-}
-
-.delay-9 {
-  transition-delay: 0.9s;
-}
-
-.delay-10 {
-  transition-delay: 1.0s;
-}
-
-.delay-11 {
-  transition-delay: 1.1s;
-}
-
-.delay-12 {
-  transition-delay: 1.2s;
-}
-
-.delay-13 {
-  transition-delay: 1.3s;
-}
-
-.delay-14 {
-  transition-delay: 1.4s;
-}
-
-.delay-15 {
-  transition-delay: 1.5s;
-}
-
-.delay-16 {
-  transition-delay: 1.6s;
-}
-
-.delay-17 {
-  transition-delay: 1.7s;
-}
-
-.delay-18 {
-  transition-delay: 1.8s;
-}
-
-.delay-19 {
-  transition-delay: 1.9s;
-}
-
-.delay-20 {
-  transition-delay: 2.0s;
-}
-
 
 /* Shared Typography */
 .logo-text {

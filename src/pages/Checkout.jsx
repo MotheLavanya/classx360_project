@@ -8,6 +8,13 @@ const Checkout = () => {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [isAnnual, setIsAnnual] = useState(true);
+    const [showInvoiceMsg, setShowInvoiceMsg] = useState(false);
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        organization: ''
+    });
+    const [error, setError] = useState('');
 
     // Mock Plan Data
     const plansData = {
@@ -141,11 +148,60 @@ const Checkout = () => {
                             <h3>To Pay: <span style={{ color: 'var(--primary)', fontSize: '2rem' }}>${price}</span> <span style={{ fontSize: '1rem', color: '#64748b' }}>/{isAnnual ? 'year' : 'month'}</span></h3>
                         </div>
 
-                        <div className="step-actions">
+                        <div className="checkout-contact-stage" style={{ marginTop: '2.5rem', borderTop: '1px solid var(--glass-border)', paddingTop: '2rem' }}>
+                            <div className="plan-header" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
+                                <h3>Contact Information</h3>
+                                <p style={{ fontSize: '0.9rem' }}>Please fill in your details to proceed to billing.</p>
+                            </div>
+                            
+                            <div className="billing-form-grid" style={{ gridTemplateColumns: '1fr', gap: '1.5rem' }}>
+                                <div className="input-group">
+                                    <label>Full Name *</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="John Doe" 
+                                        value={formData.fullName}
+                                        onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                                        required 
+                                    />
+                                </div>
+                                <div className="input-group">
+                                    <label>Email Address *</label>
+                                    <input 
+                                        type="email" 
+                                        placeholder="john@example.com" 
+                                        value={formData.email}
+                                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                        required 
+                                    />
+                                </div>
+                                <div className="input-group">
+                                    <label>Organization / Institute *</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Acme Academy" 
+                                        value={formData.organization}
+                                        onChange={(e) => setFormData({...formData, organization: e.target.value})}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            {error && <p className="error-msg" style={{ color: 'var(--primary)', marginTop: '1rem', fontWeight: 'bold' }}>{error}</p>}
+                        </div>
+
+                        <div className="step-actions" style={{ marginTop: '3rem' }}>
                             <button className="btn-back-main" onClick={() => navigate(-1)}>
                                 <FaArrowLeft /> Back
                             </button>
-                            <button className="btn-primary" onClick={() => setStep(2)}>Proceed to Billing <FaArrowRight /></button>
+                            <button className="btn-primary" onClick={() => {
+                                if (!formData.fullName || !formData.email || !formData.organization) {
+                                    setError('⚠️ All fields are mandatory. Please fill in your details to proceed.');
+                                    return;
+                                }
+                                setError('');
+                                setStep(2);
+                            }}>Proceed to Billing <FaArrowRight /></button>
                         </div>
                     </div>
                 )}
@@ -164,15 +220,15 @@ const Checkout = () => {
                                     <h3>Contact Information</h3>
                                     <div className="input-group">
                                         <label>Full Name</label>
-                                        <input type="text" placeholder="John Doe" required />
+                                        <input type="text" placeholder="Enter Your Name" required />
                                     </div>
                                     <div className="input-group">
                                         <label>Email Address</label>
-                                        <input type="email" placeholder="john@example.com" required />
+                                        <input type="email" placeholder="Enter Your Email" required />
                                     </div>
                                     <div className="input-group">
                                         <label>Organization / Institute (Optional)</label>
-                                        <input type="text" placeholder="Acme Academy" />
+                                        <input type="text" placeholder="Enter Your Organization Name" required />
                                     </div>
 
                                     <h3 style={{ marginTop: '2rem' }}>Payment Method</h3>
@@ -180,7 +236,7 @@ const Checkout = () => {
                                         <label>Card Details</label>
                                         <div style={{ border: '1px solid var(--glass-border)', padding: '1rem', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '1rem', background: '#f8fafc' }}>
                                             <FaCreditCard size={24} color="#64748b" />
-                                            <input type="text" placeholder="Card Number" style={{ border: 'none', background: 'transparent', padding: 0 }} />
+                                            <input type="text" placeholder="Card Number" style={{ border: 'none', background: 'transparent', padding: 0 }} required />
                                         </div>
                                     </div>
                                 </div>
@@ -228,9 +284,20 @@ const Checkout = () => {
                             Validity: {new Date().toLocaleDateString()} to {new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toLocaleDateString()}
                         </div>
 
-                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                            <Link to="/courses" className="btn-primary">Go to Dashboard</Link>
-                            <button className="btn-secondary">Download Invoice</button>
+                        <div className="success-actions-wrapper">
+                            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                                <Link to="/" className="btn-primary">Go to Dashboard</Link>
+                                <button className="btn-secondary" onClick={() => {
+                                    setShowInvoiceMsg(true);
+                                    setTimeout(() => setShowInvoiceMsg(false), 5000);
+                                }}>Download Invoice</button>
+                            </div>
+
+                            {showInvoiceMsg && (
+                                <div className="invoice-download-msg fade-in">
+                                    <FaCheckCircle /> Your invoice is being generated and will be downloaded shortly!
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}

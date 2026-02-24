@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
     FaBullseye, FaLightbulb, FaCheckCircle, FaHistory,
-    FaUsers, FaStar, FaArrowRight, FaRocket
+    FaUsers, FaStar, FaArrowRight, FaRocket, FaShieldAlt, FaHandshake
 } from 'react-icons/fa';
 import './About.css';
 import StaticPillars from '../components/StaticPillars';
 
 // Import assets
-import StoryImage from '../assets/image1.jpg';
-import TeamImage from '../assets/about2.jpg';
+import StoryImage from '../assets/transform.png';
+import TeamImage from '../assets/aboutus.png';
 import DashboardImage from '../assets/dashboard_preview.png';
-import BgPattern from '../assets/courses1.jpg';
+import BgPattern from '../assets/vision.png';
 
 // Import additional assets
 import StudentImage from '../assets/student_mgmt_new.png';
@@ -242,12 +242,14 @@ const About = () => {
                     </div>
                     <div className="content-side">
                         <div className="section-tag"><FaHistory /> How We Started</div>
-                        <h2 className="section-heading">Born from a Need for <span className="highlight-maroon">Simplicity</span></h2>
+                        <h2 className="section-heading">Created to Simplify Education Management</h2>
                         <p>
-                            ClassX 360 began with a simple idea — to solve the complex daily challenges schools face in administration. We noticed that educators were spending more time on paperwork than on students.
+                            We built ClassX360 to bring clarity and structure to institutional operations.
+                            By combining smart technology with user-friendly design, we help institutions save time, improve efficiency, and focus more on student success.
                         </p>
                         <p>
-                            Our journey from a small conceptual prototype to a fully integrated ERP platform reflects our unwavering focus on innovation, reliability, and most importantly, the user experience of every person in the education circle.
+                            Our platform connects academics, administration, and communication in one unified system.
+                            This enables better coordination, accurate reporting, and smarter decision-making across the institution.
                         </p>
                     </div>
                 </div>
@@ -263,23 +265,35 @@ const About = () => {
                     <div className="values-grid">
                         <div className="value-item">
                             <span className="value-num">01</span>
+                            <div className="value-icon-wrapper">
+                                <FaLightbulb />
+                            </div>
                             <h3>Innovation</h3>
-                            <p>Continuously pushing boundaries to create smarter educational tools.</p>
+                            <p>We develop advanced technology to make teaching and learning more effective.</p>
                         </div>
                         <div className="value-item">
                             <span className="value-num">02</span>
+                            <div className="value-icon-wrapper">
+                                <FaShieldAlt />
+                            </div>
                             <h3>Trust & Security</h3>
-                            <p>Uncompromising protection of institutional and student data.</p>
+                            <p>We ensure the highest level of safety and privacy for all institutional data.</p>
                         </div>
                         <div className="value-item">
                             <span className="value-num">03</span>
+                            <div className="value-icon-wrapper">
+                                <FaUsers />
+                            </div>
                             <h3>User-Centric</h3>
-                            <p>Designing interfaces that are intuitive and empowering for all.</p>
+                            <p>We create easy-to-use tools that make daily tasks simpler for everyone.</p>
                         </div>
                         <div className="value-item">
                             <span className="value-num">04</span>
-                            <h3>Collaboration</h3>
-                            <p>Building bridges between all stakeholders in the learning journey.</p>
+                            <div className="value-icon-wrapper">
+                                <FaHandshake />
+                            </div>
+                            <h3>Connected Learning</h3>
+                            <p>We help teachers, students, and parents work together more efficiently.</p>
                         </div>
                     </div>
                 </div>
@@ -314,7 +328,7 @@ const About = () => {
                                     <FaStar className="feature-icon" />
                                     <div>
                                         <h4>Expertise & Care</h4>
-                                        <p>Combining decades of pedagogical knowledge with cutting-edge technology.</p>
+                                        <p>Bringing years of teaching experience together with modern technology.</p>
                                     </div>
                                 </div>
                             </div>

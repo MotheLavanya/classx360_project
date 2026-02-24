@@ -2,24 +2,24 @@ import React from 'react';
 import './StaticPillars.css';
 
 // Import assets
-import MissionImage from '../assets/about.jpg';
+import MissionImage from '../assets/transforms.png';
 import StoryImage from '../assets/image1.jpg';
-import TeamImage from '../assets/about2.jpg';
+import TeamImage from '../assets/datadriven.png';
 
 const pillarData = [
     {
         title: "Transform your classroom",
-        description: "Our inquiry-based learning approach helps students develop critical thinking and encourages them to take action. Each piece of media comes with a ready-made activity designed to engage your students' problem-solving and critical-thinking skills.",
+        description: "Modern digital tools and engaging content that make learning easier and more effective for everyone. Our platform helps teachers spend less time on paperwork and more time inspiring students in the classroom. We provide the perfect balance of technology and education to create a better learning experience.",
         image: MissionImage,
     },
     {
         title: "Engage with Media",
-        description: "Experience education through interactive media, 360° explorations, and immersive storytelling that captivates students and brings learning to life through discovery.",
+        description: "A dynamic learning environment that helps students participate more and understand lessons with clarity. By using high-quality visuals and interactive resources, we bring difficult concepts to life through discovery. This approach ensures that every student stays curious and enjoys the journey of learning.",
         image: StoryImage,
     },
     {
         title: "Data-Driven Success",
-        description: "Our platform provides comprehensive insights into student performance and institutional growth, allowing for informed decision-making at every level.",
+        description: "Organized digital resources designed to help students learn actively and achieve better academic results. Parents and teachers can easily track progress through simple dashboards that highlight growth. With the right insights, we help every institution make smarter decisions for their students' future.",
         image: TeamImage,
     }
 ];

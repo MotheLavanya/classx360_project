@@ -14,7 +14,8 @@ const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        subject: '',
+        institution: '',
+        phone: '',
         message: ''
     });
 
@@ -27,7 +28,7 @@ const Contact = () => {
         // Mocking API call
         setTimeout(() => {
             setStatus('sent');
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ name: '', email: '', institution: '', phone: '', message: '' });
         }, 1500);
     };
 
@@ -41,7 +42,7 @@ const Contact = () => {
                 <div className="gratitude-card card-glass">
                     <div className="gratitude-icon"><FaCheckCircle /></div>
                     <h2>Thank You for Reaching Out!</h2>
-                    <p>We've received your message. A confirmation email has been sent to your inbox, and our team will get back to you within 1-2 business days.</p>
+                    <p>We've received your message. A confirmation email has been sent to your inbox, and our team will get back to you within 24 hours.</p>
                     <button className="btn-submit" onClick={() => setStatus('')}>Send Another Message</button>
                 </div>
             </div>
@@ -50,13 +51,15 @@ const Contact = () => {
 
     return (
         <div className="contact-page">
-            {/* 0. Banner Section */}
-            <section className="contact-banner-section reveal">
-                <div className="banner-overlay"></div>
-                <img src={ContactBanner} alt="Contact Us Banner" className="banner-bg-img" />
+            {/* 🚀 PREMIUM HERO BANNER */}
+            <section className="contact-hero-banner">
+                <div className="banner-bg-wrapper">
+                    <img src={ContactBanner} alt="Contact Banner" className="banner-bg-img" />
+                    <div className="banner-overlay"></div>
+                </div>
                 <div className="banner-content">
-                    <h1 className="letter-animation">
-                        {"CONTACT US".split('').map((char, index) => (
+                    <h1 className="banner-title reveal">
+                        {"Connect With ClassX360".split('').map((char, index) => (
                             <span key={index} style={{ '--char-index': index }}>
                                 {char === ' ' ? '\u00A0' : char}
                             </span>
@@ -65,71 +68,169 @@ const Contact = () => {
                 </div>
             </section>
 
-            {/* 1. Hero Section Removed - Content moved to Banner */}
+            <div className="contact-container">
+                {/* 🏷 SECTION HEADER */}
+                <header className="contact-header reveal">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions or want to see ClassX360 in action? Our team is ready to assist you.</p>
+                </header>
 
-            <div className="contact-main-grid reveal">
-                {/* 2. Left Column: Contact Form */}
-                <div className="contact-content">
-                    <div className="form-section studylab-form">
-                        <h3>Get in Touch</h3>
-                        <p className="form-subtitle">We’re Here to Help You Learn Better!</p>
-                        <form onSubmit={handleSubmit} className="premium-form">
-                            <div className="form-row">
-                                <div className="f-field">
-                                    <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+                <div className="contact-main-layout reveal">
+                    {/* 🖤 LEFT SIDE – CONTACT DETAILS */}
+                    <div className="contact-info-side">
+                        <div className="contact-info-container">
+                            <div className="info-row">
+                                <div className="info-icon-wrapper">
+                                    <FaEnvelope />
                                 </div>
-                                <div className="f-field">
-                                    <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+                                <div className="info-text">
+                                    <strong>Email</strong>
+                                    <p><a href="mailto:support@classx360.com">support@classx360.com</a></p>
                                 </div>
                             </div>
-                            <div className="f-field">
-                                <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} required />
+
+                            <div className="info-row">
+                                <div className="info-icon-wrapper">
+                                    <FaPhone />
+                                </div>
+                                <div className="info-text">
+                                    <strong>Phone</strong>
+                                    <p>+91 XXXXX XXXXX</p>
+                                </div>
                             </div>
-                            <div className="f-field">
-                                <textarea name="message" rows="5" placeholder="Message" value={formData.message} onChange={handleChange} required></textarea>
+
+                            <div className="info-row">
+                                <div className="info-icon-wrapper">
+                                    <FaMapMarkerAlt />
+                                </div>
+                                <div className="info-text">
+                                    <strong>Location</strong>
+                                    <p>Hyderabad, India</p>
+                                </div>
                             </div>
-                            <button type="submit" className="btn-submit lg" disabled={status === 'sending'}>
-                                {status === 'sending' ? 'Sending...' : 'Send Message'}
-                            </button>
-                        </form>
+
+                            <div className="info-row">
+                                <div className="info-icon-wrapper">
+                                    <FaClock />
+                                </div>
+                                <div className="info-text">
+                                    <strong>Business Hours</strong>
+                                    <p>Mon – Fri | 9:00 AM – 6:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Extra Info: Social Links */}
+                        <div className="contact-social-section">
+                            <h4>Follow Our Journey</h4>
+                            <div className="social-grid">
+                                <a href="#" className="social-item"><FaLinkedinIn /></a>
+                                <a href="#" className="social-item"><FaTwitter /></a>
+                                <a href="#" className="social-item"><FaFacebookF /></a>
+                                <a href="#" className="social-item"><FaInstagram /></a>
+                            </div>
+                        </div>
+
+                        {/* Extra Info: Inquiry Process */}
+                        <div className="contact-process-section">
+                            <h4>What Happens Next?</h4>
+                            <div className="process-timeline">
+                                <div className="process-step">
+                                    <div className="step-dot"></div>
+                                    <div className="step-label">
+                                        <strong>Message Received</strong>
+                                        <p>Our experts review your inquiry immediately.</p>
+                                    </div>
+                                </div>
+                                <div className="process-step">
+                                    <div className="step-dot"></div>
+                                    <div className="step-label">
+                                        <strong>Expert Consultation</strong>
+                                        <p>We'll reach out to discuss your specific needs.</p>
+                                    </div>
+                                </div>
+                                <div className="process-step">
+                                    <div className="step-dot"></div>
+                                    <div className="step-label">
+                                        <strong>Personalized Demo</strong>
+                                        <p>See a 1:1 demo of ClassX360 for your institution.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                {/* 3. Right Column: Contact Info */}
-                <div className="contact-sidebar">
-                    <div className="info-card studylab-info">
-                        <h3>Contact Details</h3>
-
-                        <div className="info-item">
-                            <div className="info-icon"><FaMapMarkerAlt /></div>
-                            <div>
-                                <strong>Address</strong>
-                                <p>123 Learning Street, Education City,<br />Andhra Pradesh, India</p>
-                            </div>
+                    {/* 📝 RIGHT SIDE – CONTACT FORM */}
+                    <div className="contact-form-side">
+                        <div className="form-card">
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        placeholder="Full Name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email Address"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        name="institution"
+                                        placeholder="Institution Name"
+                                        value={formData.institution}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        placeholder="Phone Number"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <textarea
+                                        name="message"
+                                        rows="4"
+                                        placeholder="Message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                    ></textarea>
+                                </div>
+                                <button type="submit" className="btn-request-demo" disabled={status === 'sending'}>
+                                    {status === 'sending' ? 'Sending...' : 'Request a Demo'}
+                                </button>
+                                <p className="button-note">We typically respond within 24 hours.</p>
+                            </form>
                         </div>
 
-                        <div className="info-item">
-                            <div className="info-icon"><FaPhone /></div>
-                            <div>
-                                <strong>Phone</strong>
-                                <p>+91-9876543210</p>
+                        {/* Direct Help Teaser */}
+                        <div className="direct-help-card">
+                            <FaComments className="help-icon" />
+                            <div className="help-text">
+                                <strong>Need Instant Help?</strong>
+                                <p>Chat with our support team live for quick answers.</p>
                             </div>
-                        </div>
-
-                        <div className="info-item">
-                            <div className="info-icon"><FaEnvelope /></div>
-                            <div>
-                                <strong>Email</strong>
-                                <p><a href="mailto:support@classx360.com">support@classx360.com</a></p>
-                            </div>
-                        </div>
-
-                        <div className="info-item">
-                            <div className="info-icon"><FaClock /></div>
-                            <div>
-                                <strong>Hours</strong>
-                                <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-                            </div>
+                            <button className="btn-chat-toggle" onClick={() => setIsChatOpen(true)}>
+                                Open Chat
+                            </button>
                         </div>
                     </div>
                 </div>

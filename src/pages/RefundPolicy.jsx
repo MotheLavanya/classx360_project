@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Terms.css'; // Synced with Terms/Privacy styling
-import RefundHeroImage from '../assets/refundpolicy.jpg';
+import RefundHeroImage from '../assets/privacypolicy.png';
 
 const RefundPolicy = () => {
     return (

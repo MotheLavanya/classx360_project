@@ -39,7 +39,7 @@
 }
 
 .how-it-works-v2 p {
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     color: #475569;
 }
 
@@ -58,8 +58,8 @@
 }
 
 .step-icon-box {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background: #1a1a1a;
     /* Updated for dark background */
     border: 1px solid #333333;
@@ -113,7 +113,6 @@
     border-radius: 20px;
     transition: all 0.3s ease;
     z-index: 2;
-    /* Ensure content stays on top of connectors */
 }
 
 /* Ensure child elements are relative to stack correctly */
@@ -133,7 +132,7 @@
 }
 
 .icon-main {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     color: #800000;
     /* Updated to maroon/red accent */
     transition: all 0.4s ease;
@@ -212,12 +211,11 @@
 }
 
 .step-item h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-main);
     margin-bottom: 6px;
     background: var(--bg-dark);
-    /* Mask line behind text */
     display: inline-block;
     padding: 0 10px;
     position: relative;
@@ -225,13 +223,12 @@
 }
 
 .step-item p {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: var(--text-muted);
-    max-width: 180px;
+    max-width: 260px;
     margin: 0 auto;
     background: var(--bg-dark);
-    /* Mask line behind text */
     position: relative;
     z-index: 2;
     padding: 0 5px;
@@ -245,7 +242,7 @@
 .how-cta button {
     padding: 10px 25px;
     font-size: 0.9rem;
-    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .how-cta p {
@@ -306,5 +303,119 @@
 
     .icon-main {
         font-size: 1rem;
+    }
+}
+
+/* Floating Images for Steps (User Request) */
+.step-floating-img {
+    position: absolute;
+    z-index: 10;
+    /* Make sure it's visible */
+    pointer-events: none;
+    border-radius: 12px;
+    opacity: 0.85;
+    transition: all 0.5s ease;
+}
+
+/* Hover effects removed to keep images fixed */
+/* .step-item:hover .step-floating-img {
+    transform: translateX(50%) rotate(0deg) translateY(0) !important;
+    opacity: 1;
+    z-index: 20;
+}
+
+.step-item:hover .step-4-img {
+    transform: translateX(-50%) rotate(0deg) translateY(0) !important;
+} */
+
+/* Step 1 - Unprofessional (Chaos) - Start of Arch (Bottom Left) */
+.step-1-img {
+    top: 66%;
+    /* Align with incoming curve */
+    left: -40%;
+    right: auto;
+    bottom: auto;
+    width: 140px;
+    opacity: 0.95;
+    mix-blend-mode: screen;
+    /* Clean removal of black bg */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    /* Glow */
+    border-radius: 12px;
+    /* Clean Card Style */
+    box-shadow: none;
+    border: none;
+    transform: rotate(0deg);
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 15px rgba(128, 0, 0, 0.4));
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 25px rgba(128, 0, 0, 0.6));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 15px rgba(128, 0, 0, 0.4));
+    }
+}
+
+/* Step 4 - Track Growth (Order) - End of Path (Top Right) */
+.step-4-img {
+    top: -20%;
+    /* Align with outgoing curve */
+    right: -60%;
+    left: auto;
+    bottom: auto;
+    width: 230px;
+    /* Slightly larger for emphasis */
+    opacity: 1;
+    mix-blend-mode: screen;
+    /* Clean removal of black bg */
+    filter: invert(1) hue-rotate(180deg) drop-shadow(0 0 15px rgba(128, 0, 0, 0.5));
+    /* Maroon Glow + Color Correction */
+    border-radius: 12px;
+    box-shadow: none;
+    border: none;
+    /* Subtle maroon border */
+    transform: rotate(0deg);
+    z-index: 10;
+    pointer-events: none;
+    animation: successPulse 3s infinite ease-in-out;
+    /* Heartbeat of success */
+}
+
+/* Hover effect removed as requested */
+/* .step-item:hover .step-1-img,
+.step-item:hover .step-4-img {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+} */
+
+/* Responsive Hide */
+@media (max-width: 768px) {
+
+    .step-1-img,
+    .step-4-img {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        transform: none !important;
+        margin: 20px auto;
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        order: 10;
+        /* Push to end in flex/grid if needed */
     }
 }

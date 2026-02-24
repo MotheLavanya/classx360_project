@@ -8,7 +8,7 @@ import HeroBg3 from '../assets/graduation-bg.png';
 import LogoTCS from '../assets/tcs.png';
 import LogoInfosys from '../assets/infosys.png';
 import LogoAmazon from '../assets/image copy 7.png';
-import LogoGoogle from '../assets/google.png';
+import LogoInfosyte from '../assets/infosyte.png';
 import LogoGyantrix from '../assets/Screenshot 2026-02-05 185349.png';
 import LogoFutureInvo from '../assets/futureinvosolutions.webp';
 import LogoInfotech from '../assets/infotech.png';
@@ -31,8 +31,8 @@ const Hero = ({ onGetDemo }) => {
         },
         {
             headline: "Modern LMS, Zero Paperwork",
-            subheadline: "Automate administrative tasks and focus on what matters most: learning outcomes.",
-            primaryCTA: "Get Started Free",
+            subheadline: "Everything your institution needs, in one digital platform. Less paperwork, more focus on growth and results.",
+            primaryCTA: "Sign Up Free",
             secondaryCTA: "See Features",
             scrollPrompt: "⬇ Save time and reduce workload",
             background: HeroBg2
@@ -160,32 +160,36 @@ const Hero = ({ onGetDemo }) => {
             </button>
 
             <div className="hero-content">
-                {slides.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={`hero-slide ${activeIndex === index ? 'active' : ''}`}
-                    >
-                        <h1>{slide.headline}</h1>
-                        <p className="hero-subtitle">
-                            {slide.subheadline}
-                        </p>
-                        <div className="hero-cta">
-                            <button className="btn-primary hero-btn-premium" onClick={onGetDemo}>
-                                <FaPlayCircle className="btn-icon-lead" />
-                                {slide.primaryCTA}
-                            </button>
-                            <button className="btn-secondary hero-btn-glass" onClick={() => handleSecondaryAction(index)}>
-                                {slide.secondaryCTA}
-                                <FaArrowRight className="btn-icon-trail" />
-                            </button>
+                <div className="hero-text-slider">
+                    {slides.map((slide, index) => (
+                        <div
+                            key={index}
+                            className={`hero-slide ${activeIndex === index ? 'active' : ''}`}
+                        >
+                            <h1>{slide.headline}</h1>
+                            <p className="hero-subtitle">
+                                {slide.subheadline}
+                            </p>
                         </div>
+                    ))}
+                </div>
 
-                        <div className="scroll-prompt-container">
-                            <p className="scroll-prompt-text">{slide.scrollPrompt}</p>
-                        </div>
-                    </div>
-                ))}
+                {/* Fixed CTA Buttons */}
+                <div className="hero-cta reveal delay-1">
+                    <button className="btn-primary hero-btn-premium" onClick={onGetDemo}>
+                        <FaPlayCircle className="btn-icon-lead" />
+                        Start Your Free Demo
+                    </button>
+                    <button className="btn-secondary hero-btn-glass" onClick={() => navigate('/features')}>
+                        Explore Features
+                        <FaArrowRight className="btn-icon-trail" />
+                    </button>
+                </div>
 
+                {/* Fixed Scroll Prompt */}
+                <div className="scroll-prompt-container reveal delay-2">
+                    <p className="scroll-prompt-text">⬇ Explore ClassX 360 features</p>
+                </div>
             </div>
 
             <div className="hero-feature-cards">
@@ -202,7 +206,7 @@ const Hero = ({ onGetDemo }) => {
                             <div className="marquee-track">
                                 {/* First Set */}
                                 <img src={LogoFutureInvo} alt="Future Invo Solutions" className="company-logo" />
-                                <img src={LogoGoogle} alt="Google" className="company-logo large" />
+                                <img src={LogoInfosyte} alt="Infosyte" className="company-logo infosyte" />
                                 <img src={LogoTCS} alt="TCS" className="company-logo large" />
                                 <img src={LogoAmazon} alt="Amazon" className="company-logo" />
                                 <img src={LogoInfosys} alt="Infosys" className="company-logo large" />
@@ -211,7 +215,7 @@ const Hero = ({ onGetDemo }) => {
 
                                 {/* Duplicated for Infinite Scroll */}
                                 <img src={LogoFutureInvo} alt="Future Invo Solutions" className="company-logo" />
-                                <img src={LogoGoogle} alt="Google" className="company-logo large" />
+                                <img src={LogoInfosyte} alt="Infosyte" className="company-logo infosyte" />
                                 <img src={LogoTCS} alt="TCS" className="company-logo large" />
                                 <img src={LogoAmazon} alt="Amazon" className="company-logo" />
                                 <img src={LogoInfosys} alt="Infosys" className="company-logo large" />
@@ -220,7 +224,7 @@ const Hero = ({ onGetDemo }) => {
 
                                 {/* Third set for gapless loop on wider screens */}
                                 <img src={LogoFutureInvo} alt="Future Invo Solutions" className="company-logo" />
-                                <img src={LogoGoogle} alt="Google" className="company-logo large" />
+                                <img src={LogoInfosyte} alt="Infosyte" className="company-logo infosyte" />
                                 <img src={LogoTCS} alt="TCS" className="company-logo large" />
                                 <img src={LogoAmazon} alt="Amazon" className="company-logo" />
                                 <img src={LogoInfosys} alt="Infosys" className="company-logo large" />

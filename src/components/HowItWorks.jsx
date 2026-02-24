@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaSchool, FaBookOpen, FaComments, FaChartLine } from 'react-icons/fa';
 import './HowItWorks.css';
+import UnprofessionalImg from '../assets/unprofessional.png';
+import SucessImageImg from './sucessimage.png';
 
 const HowItWorks = ({ onGetDemo }) => {
     const steps = [
@@ -50,11 +52,19 @@ const HowItWorks = ({ onGetDemo }) => {
                             <p>{step.desc}</p>
                             {/* Intro Connector for Step 1 - Start form Down Outside */}
                             {index === 0 && (
-                                <div className="step-connector intro-connector">
-                                    <svg viewBox="0 0 100 250" preserveAspectRatio="none">
-                                        <path d="M-50,250 Q0,250 50,125" vectorEffect="non-scaling-stroke" />
-                                    </svg>
-                                </div>
+                                <>
+                                    <div className="step-connector intro-connector">
+                                        <svg viewBox="0 0 100 250" preserveAspectRatio="none">
+                                            <path d="M-50,250 Q0,250 50,125" vectorEffect="non-scaling-stroke" />
+                                        </svg>
+                                    </div>
+                                    <img src={UnprofessionalImg} className="step-floating-img step-1-img" alt="Chaos" />
+                                </>
+                            )}
+
+                            {/* Step 4 Floating Image */}
+                            {index === 3 && (
+                                <img src={SucessImageImg} className="step-floating-img step-4-img" alt="Success" />
                             )}
 
                             {/* Connectors between steps - Alternating Arch/Valley */}

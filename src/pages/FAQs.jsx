@@ -76,6 +76,37 @@ const FAQs = () => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    // Split FAQs into two columns for independent expansion
+    const leftColumn = faqsData.filter((_, i) => i % 2 === 0);
+    const rightColumn = faqsData.filter((_, i) => i % 2 !== 0);
+
+    const renderFaqItem = (faq, index, isRightColumn) => {
+        // Calculate the actual index in faqsData for state management
+        const actualIndex = isRightColumn ? index * 2 + 1 : index * 2;
+        const isOpen = openIndex === actualIndex;
+
+        return (
+            <div
+                key={actualIndex}
+                className={`faq-item ${isOpen ? 'open' : ''}`}
+                onClick={() => toggleFAQ(actualIndex)}
+            >
+                <div className="faq-question">
+                    <span className="q-icon"><FaQuestionCircle /></span>
+                    <h3>{faq.question}</h3>
+                    <span className="toggle-icon">
+                        {isOpen ? <FaMinus /> : <FaPlus />}
+                    </span>
+                </div>
+                <div className="faq-answer">
+                    <div className="answer-inner">
+                        <p>{faq.answer}</p>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
     return (
         <div className="faqs-page">
             <header className="faqs-hero">
@@ -91,26 +122,12 @@ const FAQs = () => {
             <section className="faqs-content">
                 <div className="container narrow">
                     <div className="faqs-list">
-                        {faqsData.map((faq, index) => (
-                            <div
-                                key={index}
-                                className={`faq-item ${openIndex === index ? 'open' : ''}`}
-                                onClick={() => toggleFAQ(index)}
-                            >
-                                <div className="faq-question">
-                                    <span className="q-icon"><FaQuestionCircle /></span>
-                                    <h3>{faq.question}</h3>
-                                    <span className="toggle-icon">
-                                        {openIndex === index ? <FaMinus /> : <FaPlus />}
-                                    </span>
-                                </div>
-                                <div className="faq-answer">
-                                    <div className="answer-inner">
-                                        <p>{faq.answer}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                        <div className="faq-column">
+                            {leftColumn.map((faq, i) => renderFaqItem(faq, i, false))}
+                        </div>
+                        <div className="faq-column">
+                            {rightColumn.map((faq, i) => renderFaqItem(faq, i, true))}
+                        </div>
                     </div>
                 </div>
             </section>

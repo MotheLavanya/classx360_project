@@ -1,6 +1,5 @@
 .lms-comparison {
-    padding-top: 30px;
-    /* background: var(--bg-dark); */
+    padding-top: 10px;
     overflow: hidden;
 }
 
@@ -39,7 +38,7 @@
     /* Direct side-by-side as in image */
     max-width: 1400px;
     margin: 0 auto;
-    background: linear-gradient(to right, #000000 50%, #800000 50%);
+    background: linear-gradient(to right, #1A1A1A 50%, #800000 50%);
     border-radius: 60px;
     overflow: hidden;
     box-shadow: 0 20px 100px rgba(0, 0, 0, 0.1);
@@ -55,21 +54,19 @@
 }
 
 .comparison-box {
-    padding: 30px 40px;
-    /* Reduced top padding to move headings higher */
+    padding: 25px 35px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 450px;
-    /* Reduced from 600px for more compact cards */
+    min-height: 380px;
     overflow: hidden;
-    /* Prevent falling icons from leaking out */
 }
 
 .without-box {
-    background: #000000;
+    background: #1A1A1A;
+    /* Charcoal Black */
     border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -119,22 +116,18 @@
 
 .box-visual-area {
     width: 100%;
-    height: 420px;
-    /* Increased from 320px */
-    margin-bottom: 30px;
-    /* Reduced from 50px */
+    height: 350px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    /* Icons fall through here to the box bottom */
 }
 
 .embedded-orbits {
     position: relative;
-    width: 380px;
-    /* Increased from 280px */
-    height: 380px;
+    width: 320px;
+    height: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,42 +177,36 @@
 }
 
 .chaos-active .wobbly-mode .layer-1:before {
-    animation: burst-uncircle 0.4s forwards ease-out;
+    animation: distort-orbit 0.5s forwards cubic-bezier(0.4, 0, 0.2, 1);
+    /* Professional easing */
 }
 
 .chaos-active .wobbly-mode .layer-2:before {
-    animation: burst-uncircle 0.4s forwards ease-out 0.1s;
+    animation: distort-orbit 0.5s forwards cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
 }
 
-@keyframes burst-uncircle {
+@keyframes distort-orbit {
     0% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
         border-radius: 50%;
-    }
-
-    25% {
-        opacity: 0.9;
-        transform: translate(-50%, -50%) scale(1.05);
-        border-radius: 45% 55% 50% 50%;
-    }
-
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1);
-        border-radius: 40% 60% 45% 55%;
-    }
-
-    75% {
+        border-width: 3px;
         opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1.15);
-        border-radius: 55% 45% 60% 40%;
     }
 
+    /* Phase 1: Subtle Expansion to indicate instability */
+    40% {
+        transform: translate(-50%, -50%) scale(1.15);
+        border-radius: 45%;
+        border-width: 2px;
+        opacity: 0.6;
+    }
+
+    /* Phase 2: Fade out completely as structure breaks */
     100% {
-        transform: translate(-50%, -50%) scale(1.2);
+        transform: translate(-50%, -50%) scale(0.9);
+        border-radius: 40%;
         opacity: 0;
-        border-radius: 30% 70% 50% 50%;
+        visibility: hidden;
     }
 }
 
@@ -274,7 +261,69 @@
 }
 
 .chaos-active .orbital-icon {
-    animation-play-state: paused;
+    animation: warning-fall 3s ease-in-out infinite;
+    /* Red warning color */
+    color: #ef4444 !important;
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+    z-index: 10;
+}
+
+@keyframes warning-fall {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    /* Phase 1: Warning Shake (0% - 30%) */
+    5% {
+        transform: translate(-2px, 0) rotate(-5deg);
+    }
+
+    10% {
+        transform: translate(2px, 0) rotate(5deg);
+    }
+
+    15% {
+        transform: translate(-2px, 0) rotate(-5deg);
+    }
+
+    20% {
+        transform: translate(2px, 0) rotate(5deg);
+    }
+
+    25% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    /* Phase 2: The Fall (30% - 60%) */
+    30% {
+        transform: translate(0, 0) rotate(0deg);
+        animation-timing-function: cubic-bezier(0.5, 0, 1, 1);
+        /* Accelerate */
+    }
+
+    60% {
+        /* Fall down to bottom of container with random X offset */
+        transform: translate(var(--fx, 0px), calc(300px + var(--fy, 0px))) rotate(180deg);
+        opacity: 0;
+    }
+
+    /* Phase 3: Hidden Reset (60% - 90%) */
+    60.1% {
+        opacity: 0;
+        transform: translate(0, -300px);
+    }
+
+    90% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+
+    /* Phase 4: Re-appear (90% - 100%) */
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
 }
 
 @keyframes orbit-rotate {
@@ -294,7 +343,7 @@
 }
 
 .without-box .orbit-slot {
-    animation: without-stable-orbit var(--speed, 30s) linear infinite var(--track-dir, normal);
+    animation: without-stable-orbit var(--speed, 0.01s) linear infinite var(--track-dir, normal);
 }
 
 @keyframes without-stable-orbit {
@@ -316,12 +365,16 @@
     margin-top: -20px;
     margin-left: -20px;
     transform: translate(var(--lx), var(--ly));
-    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    transition: transform 3.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.8s ease;
+    transition-delay: 0.2s;
+    /* Magnetic Delay: Icons "hover" before snapping back */
 }
 
 .chaos-active .orbit-slot {
-    /* Chaos happens faster (0.25s total) */
-    animation: fall-chaos 0.25s forwards cubic-bezier(0.6, 0, 1, 0.5);
+    /* Coordinated Fall */
+    animation: fall-chaos 0.3s forwards cubic-bezier(0.25, 1, 0.5, 1);
+    animation-delay: 0.25s;
+    /* Wait for half of distortion (0.25s) to pass */
     pointer-events: none;
     transition: none !important;
 }
@@ -329,24 +382,33 @@
 @keyframes fall-chaos {
     0% {
         opacity: 1;
-        transform: translate(var(--lx), var(--ly));
+        transform: translate(var(--lx), var(--ly)) scale(1);
     }
 
-    /* Phase 1: Icons scatter outward but stay horizontal */
-    25% {
-        opacity: 1;
-        transform: translate(calc(var(--lx) * 1.3 + 15px), calc(var(--ly) * 1.3 - 10px)) scale(1.1);
+    /* Phase 1: Gentle Drift/Jitter (Less aggressive vibration) */
+    15% {
+        transform: translate(calc(var(--lx) + 3px), calc(var(--ly) - 4px)) rotate(2deg);
     }
 
+    30% {
+        transform: translate(calc(var(--lx) - 4px), calc(var(--ly) + 3px)) rotate(-2deg);
+    }
+
+    /* Phase 2: Graceful Terminal Descent */
     50% {
         opacity: 1;
-        transform: translate(calc(var(--lx) * 1.5), calc(var(--ly) * 1.5)) scale(1.2);
+        transform: translate(calc(var(--lx) * 1.05), calc(var(--ly) + 30px)) rotate(10deg);
     }
 
-    /* Phase 2: Fall straight down perfectly horizontal */
+    /* Controlled acceleration downwards */
+    80% {
+        opacity: 1;
+        transform: translate(calc(var(--lx) * 0.95), 180px) rotate(-6deg);
+    }
+
     100% {
-        transform: translate(calc(var(--lx) * 1.5), 240px) scale(1.05);
-        opacity: 0.8;
+        opacity: 1;
+        transform: translate(calc(var(--lx) * 0.9), 230px) rotate(4deg);
     }
 }
 
@@ -356,23 +418,34 @@
 }
 
 .orbital-icon {
-    width: 40px;
-    height: 40px;
-    background: #ffffff;
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f1f5f9 60%, #e2e8f0 100%);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    /* Premium 3D Extrusion Shadow */
+    box-shadow:
+        0 3px 0 #cbd5e1,
+        0 6px 12px rgba(0, 0, 0, 0.15),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.05);
     animation: orbit-rotate var(--speed, 30s) linear infinite var(--icon-dir, reverse);
-    color: var(--primary);
+    color: inherit;
     position: relative;
     z-index: 10;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .orbital-icon.light {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f8fafc 70%, #f1f5f9 100%);
+    box-shadow:
+        0 3px 0 #e2e8f0,
+        0 8px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .icon-label-popup {
@@ -512,7 +585,7 @@
 @media (max-width: 1024px) {
     .comparison-grid {
         grid-template-columns: 1fr 1fr;
-        background: linear-gradient(to right, #000000 50%, #800000 50%);
+        background: linear-gradient(to right, #1A1A1A 50%, #800000 50%);
         border-radius: 40px;
         overflow: hidden;
     }
@@ -543,12 +616,12 @@
     }
 
     .with-box {
-        background: #000000;
-        border: 1px solid rgba(0, 122, 255, 0.2);
+        background: #800000;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .without-box {
-        background: #800000;
+        background: #1A1A1A;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
 

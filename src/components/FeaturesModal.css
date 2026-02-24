@@ -13,15 +13,15 @@
 }
 
 .features-modal {
-    background: #0a0a0a;
+    background: #1A1A1A;
     width: 95%;
     max-width: 850px;
     max-height: 85vh;
     border-radius: 20px;
-    border: 1px solid #1a1a1a;
+    border: 1px solid rgba(128, 0, 0, 0.1);
     position: relative;
     padding: 2rem 1.75rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
 }
 
@@ -125,8 +125,8 @@
 }
 
 .f-card {
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     padding: 1rem;
     display: flex;
@@ -154,59 +154,13 @@
 .f-info h3 {
     font-size: 0.95rem;
     margin-bottom: 0.25rem;
-    color: var(--text-main);
+    color: #ffffff;
     position: relative;
     display: inline-block;
 }
 
-
-
-.title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.25rem;
-}
-
-.title-row h3 {
-    margin-bottom: 0 !important;
-}
-
-.card-action-btn {
-    background: var(--gradient-1);
-    color: white;
-    border: none;
-    padding: 0.3rem 0.6rem;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.card-action-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
-}
-
-.card-tag {
-    background: rgba(128, 0, 0, 0.1);
-    color: #ff3333;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.clickable-card {
-    cursor: pointer;
-}
-
 .f-info p {
-    color: var(--text-muted);
+    color: #cbd5e1;
     font-size: 0.75rem;
     line-height: 1.4;
 }

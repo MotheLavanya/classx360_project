@@ -1,88 +1,100 @@
 .login-page {
     font-family: 'Inter', sans-serif;
-    padding-top: var(--nav-height);
-    /* Start below navbar */
-    padding-bottom: 0px;
-    height: 100vh;
-    /* Fixed viewport height */
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Center vertically in the middle */
     position: relative;
     box-sizing: border-box;
     background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
         url('../assets/studentlogin.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: No-repeat;
     background-attachment: fixed;
-    overflow: hidden;
-    /* Prevent all scrolling */
+    padding: 80px 20px;
+}
+
+.login-page.align-bottom {
+    align-items: flex-end;
+    padding-bottom: 60px;
+    /* Position closer to bottom but with safety margin */
 }
 
 .login-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     width: 100%;
-    max-width: 440px;
-    padding: 2rem 2.5rem;
+    max-width: 480px;
+    padding: 1.2rem 2.5rem;
     border-radius: 30px;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    margin: 10px auto;
-    /* Centered with minimal offset for balance */
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+/* Custom Scrollbar removed as per user request */
+
+/* Wider and shorter card specifically for Signup */
+.signup-mode .login-card {
+    max-width: 650px;
+    padding: 1rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .login-card:hover {
-    transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 50px 120px rgba(128, 0, 0, 0.08);
 }
 
 .auth-header {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .auth-header h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 850;
     color: #1a1a1a;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     letter-spacing: -0.5px;
 }
 
 .auth-header p {
     color: #64748b;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .auth-form .form-group {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .auth-form label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     font-weight: 600;
     color: #374151;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .auth-form input {
     width: 100%;
-    padding: 10px 14px;
+    padding: 8px 12px;
     border: 2px solid #e5e7eb;
     background: #f9fafb;
     color: #1a1a1a;
-    border-radius: 12px;
-    font-size: 0.9rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -91,6 +103,21 @@
     background: #ffffff;
     box-shadow: 0 0 0 4px rgba(128, 0, 0, 0.1);
     outline: none;
+}
+
+.btn-auth-submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background: #800000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.2);
 }
 
 .btn-primary.full-width {
@@ -113,40 +140,27 @@
     box-shadow: 0 8px 25px rgba(128, 0, 0, 0.4);
 }
 
-.auth-switch {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.85rem;
+.auth-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 35px;
+    height: 35px;
+    background: #f1f5f9;
     color: #64748b;
-}
-
-.auth-switch a {
-    color: #800000;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.social-auth {
-    margin-top: 1rem;
-    border-top: 1px solid #f3f4f6;
-    padding-top: 1rem;
-}
-
-.social-btn {
-    width: 100%;
-    padding: 12px;
-    background: #ffffff;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    font-weight: 600;
-    color: #374151;
-    cursor: pointer;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
-    font-size: 0.95rem;
+    z-index: 10;
+}
+
+.auth-close-btn:hover {
+    background: #800000;
+    color: white;
+    transform: rotate(90deg);
 }
 
 .social-btn:hover {
@@ -278,21 +292,13 @@
 
 .login-content-wrapper {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
     width: 100%;
-    max-width: 1200px;
-    padding: 2rem;
-    margin-top: -2rem;
-    /* Balance with navbar height */
+    height: 100%;
 }
 
-.login-intro-text {
-    text-align: left;
-    max-width: 500px;
-}
+/* Removed login-intro-text */
 
 .login-intro-text h1 {
     font-size: 3.5rem;

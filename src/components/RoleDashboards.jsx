@@ -9,128 +9,134 @@ const RoleDashboards = ({ onSignUp }) => {
         {
             id: 'admin',
             title: 'Admin',
+            subtitle: 'Complete School Control',
             icon: <FaUserShield />,
-            badge: 'Centralized Control',
-            description: 'Powerful management tools for institutional administrators to oversee operations smoothly.',
+            description: 'Manage your entire institution from a single, powerful dashboard. From tracking school fees to monitoring overall performance, stay on top of every detail effortlessly.',
             features: [
-                'Manage students & staff records',
-                'Automated fee collection & tracking',
-                'Comprehensive academic reporting',
-                'Institution-wide notifications',
-                'Staff payroll and inventory'
+                'Total Institution Oversight',
+                'Automated Fee Tracking',
+                'Staff & Payroll Management',
+                'Inventory & Asset Control'
             ],
-            cta: 'Explore Admin Panel'
+            cta: 'Explore Admin Tools',
+            theme: '#800000',
+            portalGlow: 'rgba(128, 0, 0, 0.4)'
         },
         {
             id: 'teacher',
             title: 'Teacher',
+            subtitle: 'Teach More, Paperwork Less',
             icon: <FaChalkboardTeacher />,
-            badge: 'Classroom Efficiency',
-            description: 'Digital tools that reduce administrative burden so you can focus on teaching.',
+            description: 'Spend more time inspiring students and less on administration. Automate attendance, grading, and lesson planning so you can focus on what matters most—teaching.',
             features: [
-                'Instant attendance marking',
-                'Study material & video uploads',
-                'Online quiz & assignment creation',
-                'Automatic mark entry & analysis',
-                'Direct student communication'
+                'Smart Attendance & Grading',
+                'Digital Study Materials',
+                'Easy Lesson Planning',
+                'Direct Parent Messaging'
             ],
-            cta: 'View Teacher Dashboard'
+            cta: 'See Teacher Features',
+            theme: '#1e40af',
+            portalGlow: 'rgba(30, 64, 175, 0.4)'
         },
         {
             id: 'student',
             title: 'Student',
+            subtitle: 'Learn Smarter, Not Harder',
             icon: <FaUserGraduate />,
-            badge: 'Learning on the Go',
-            description: 'A personalized learning space to track progress and access resources anytime.',
+            description: 'Your entire school life in one secure place. Access your classes, assignments, and progress reports anytime, anywhere—making learning more organized and fun.',
             features: [
-                'Personalized class timetable',
-                'Easy assignment submissions',
-                'Instant results & progress reports',
-                'Access to e-library & resources',
-                'Mobile-first learning experience'
+                'Personalized Timetables',
+                'Online Study Resources',
+                'Live Progress Tracking',
+                'Easy Assignment Uploads'
             ],
-            cta: 'Access Student Portal'
+            cta: 'See Student Portal',
+            theme: '#059669',
+            portalGlow: 'rgba(5, 150, 105, 0.4)'
         },
         {
             id: 'parent',
             title: 'Parent',
+            subtitle: 'Stay Involved, Stay Informed',
             icon: <FaUsers />,
-            badge: 'Stay Informed',
-            description: 'Transparency and real-time updates on your child\'s educational journey.',
+            description: 'Never miss a milestone in your child\'s education. Get instant updates on their attendance, grades, and school events, ensuring you stay connected to their growth.',
             features: [
-                'Real-time attendance alerts',
-                'Performance & grade tracking',
-                'Fee payment history & reminders',
-                'Teacher-parent messaging',
-                'Event & holiday notifications'
+                'Instant Attendance Alerts',
+                'Live Progress Reports',
+                'Secure Online Fee Payments',
+                'Integrated School Calendar'
             ],
-            cta: 'Connect as Parent'
+            cta: 'Check Parent Dashboard',
+            theme: '#d97706',
+            portalGlow: 'rgba(217, 119, 6, 0.4)'
         }
     ];
 
     const activeRole = roles.find(role => role.id === activeTab);
 
     return (
-        <section className="role-dashboards reveal">
+        <section className="role-portal-section reveal">
             <div className="container">
-                <div className="section-header-center">
-                    <span className="section-badge">Platform Access</span>
-                    <h2 className="section-title">One Platform. <span className="highlight">Multiple Roles.</span></h2>
-                    <p className="section-desc">
-                        Secure and personalized dashboards designed specifically for every stakeholder in the educational ecosystem.
+                <div className="section-header-center dark-bg reveal">
+                    <span className="portal-badge">Platform Access</span>
+                    <h2 className="portal-title">The Right Dashboard for <span className="highlight-text">Every User</span></h2>
+                    <p className="portal-desc">
+                        A simple and powerful platform with specialized tools built specifically for admins, teachers, students, and parents.
                     </p>
                 </div>
 
-                <div className="dashboard-interactive-box">
-                    {/* Left: Interactive Tabs */}
-                    <div className="role-tabs">
-                        {roles.map((role) => (
+                <div className="role-3d-wrapper">
+                    {/* The Navigation Dock (Now at the Top) */}
+                    <div className="portal-dock reveal">
+                        {roles.map(role => (
                             <button
                                 key={role.id}
-                                className={`role-tab-btn ${activeTab === role.id ? 'active' : ''}`}
+                                className={`dock-item ${activeTab === role.id ? 'active' : ''}`}
                                 onClick={() => setActiveTab(role.id)}
+                                style={{ '--dock-accent': role.theme }}
                             >
-                                <div className="tab-icon">{role.icon}</div>
-                                <div className="tab-info">
-                                    <span className="tab-title">{role.title}</span>
-                                    <span className="tab-hint">{role.badge}</span>
-                                </div>
-                                <FaArrowRight className="tab-arrow" />
+                                <div className="dock-icon">{role.icon}</div>
+                                <span className="dock-label">{role.title}</span>
                             </button>
                         ))}
                     </div>
 
-                    {/* Right: Feature Display */}
-                    <div className="role-content-display">
-                        <div className={`role-card-inner card-fade-in`}>
-                            <div className="role-card-header">
-                                <div className="role-main-icon">{activeRole.icon}</div>
-                                <div className="role-header-text">
-                                    <h3>{activeRole.title} Dashboard</h3>
-                                    <p>{activeRole.description}</p>
-                                </div>
-                            </div>
+                    {/* The 3D Console */}
+                    <div className="portal-stage reveal-scale" key={activeTab} style={{ '--portal-accent': activeRole.theme, '--portal-glow': activeRole.portalGlow }}>
+                        <div className="portal-inner">
+                            <div className="portal-glass-panel">
+                                <div className="portal-content-grid">
+                                    <div className="portal-main-info">
+                                        <span className="portal-info-tag">{activeRole.subtitle}</span>
+                                        <h3>{activeRole.title} Dashboard</h3>
+                                        <p>{activeRole.description}</p>
 
-                            <div className="role-features-grid">
-                                {activeRole.features.map((feature, idx) => (
-                                    <div key={idx} className="role-feature-item">
-                                        <div className="check-mark">
-                                            <FaCheck />
-                                        </div>
-                                        <span>{feature}</span>
+                                        <button className="portal-cta-btn" onClick={onSignUp}>
+                                            {activeRole.cta} <FaArrowRight />
+                                        </button>
                                     </div>
-                                ))}
-                            </div>
 
-                            <div className="role-card-footer">
-                                <button className="btn-primary role-cta-btn" onClick={onSignUp}>
-                                    {activeRole.cta} <FaArrowRight />
-                                </button>
+                                    <div className="portal-visual-display">
+                                        <div className="visual-icon-orb">
+                                            {activeRole.icon}
+                                        </div>
+                                        <div className="portal-feature-list">
+                                            {activeRole.features.map((feature, i) => (
+                                                <div key={i} className="portal-feature-pill">
+                                                    <FaCheck /> {feature}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Ambient Background Lights */}
+            <div className="portal-ambient-light" style={{ '--light-color': activeRole.theme }}></div>
         </section>
     );
 };

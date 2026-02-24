@@ -2,100 +2,110 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
 import EduTech from "../assets/courses.jpg";
-import CaseStudy from "../assets/about.jpg";
-import Management from "../assets/learning.png";
-import Research from "../assets/courses1.jpg";
-import Innovation from "../assets/innovative.png";
+import CaseStudy from "../assets/successstories.png";
+import Management from "../assets/institutionalmanagments.png";
+import Research from "../assets/academicresearch.png";
+import Innovation from "../assets/futuregrowth.png";
 const BLOG_CATEGORIES_DATA = [
     {
-        id: 'education-tech',
-        title: 'EduTech',
+        id: 'technology',
+        title: 'Technology',
         image: EduTech,
-        description: 'Exploring the latest in digital learning, ERP systems, and educational automation.',
+        description: 'Explore how smart digital tools and automation make running your school easier.',
         leftContent: {
-            heading: 'AI & Machine Learning',
-            paragraph: 'Artificial Intelligence is no longer a future concept but a present-day necessity. From predictive attendance tracking to automated faculty scheduling, ClassX 360 leverages machine learning to reduce administrative overhead.'
+            heading: 'Smart Automation',
+            paragraph: 'Technology is now a daily necessity. From simple attendance tracking to automated scheduling, ClassX 360 uses smart tools to help your staff save time every day.'
         },
         rightContent: {
-            heading: 'Digital Resilience',
-            paragraph: 'Building a robust digital backbone requires cloud-native architectures that ensure 99.9% uptime, allowing students and staff to access crucial resources even during peak periods.'
+            heading: 'Reliable Systems',
+            paragraph: 'A strong digital foundation means your school stays connected. Our cloud systems ensure that students and staff can access resources whenever they need them.'
         },
-        articles: [
-            { title: 'The Future of AI in Education', link: '/blog/ai-future' },
-            { title: 'Simplifying Campus Management', link: '/blog/campus-mgmt' }
-        ]
+        highlights: [
+            'Automated campus workflows',
+            'Secure cloud-first architecture',
+            'Real-time data synchronization'
+        ],
+        strategicNote: 'Modern technology is not just about tools; it is about creating a culture of efficiency.'
     },
     {
         id: 'success-stories',
-        title: 'Stories',
+        title: 'Success Stories',
         image: CaseStudy,
-        description: 'Real-world impact and transformative results from our institutional partners.',
+        description: 'Read real examples of how schools and colleges are improving with ClassX 360.',
         leftContent: {
-            heading: 'Institutional Scaling',
-            paragraph: 'Horizon Tech implemented ClassX 360 across three campuses, unifying their student records and financial tracking. Within six months, they reported a 25% increase in operational transparency.'
+            heading: 'Scaling Up',
+            paragraph: 'One of our partners successfully unified three campuses onto a single system. Within just six months, they saw a massive improvement in how they track student records.'
         },
         rightContent: {
-            heading: 'Digital First Results',
-            paragraph: 'By adopting a paperless administration through our specialized ERP modules, Unity College managed to transition 15,000 students to online record management in a single year.'
+            heading: 'Digital Results',
+            paragraph: 'By going paperless, many institutions have transformed their daily operations. For example, some schools moved thousands of student records online in just one academic year.'
         },
-        articles: [
-            { title: 'Horizon Tech Success Story', link: '/blog/horizon-tech' },
-            { title: 'Unity College Efficiency Report', link: '/blog/unity-report' }
-        ]
+        highlights: [
+            'Multi-campus unification success',
+            '25% increase in transparency',
+            '100% paperless administration'
+        ],
+        strategicNote: 'Real success comes from empowering people with the right information at the right time.'
     },
     {
-        id: 'management',
-        title: 'Management',
+        id: 'administrative-excellence',
+        title: 'Institutional Management',
         image: Management,
-        description: 'Advanced methodologies for large-scale educational operation and faculty excellence.',
+        description: 'Streamline your campus operations with integrated tools for staff oversight, secure financial tracking, and real-time administrative insights.',
         leftContent: {
-            heading: 'Faculty Excellence',
-            paragraph: 'Managing high-performing faculty members requires clear workload visibility. Our tools allow department heads to track teaching hours and research output in a single dashboard.'
+            heading: 'Operational Control',
+            paragraph: 'Managing a large institution is easier when everything is organized in one place. Monitor faculty activities and teaching hours with a clear, professional dashboard.'
         },
         rightContent: {
-            heading: 'Governance & Auditing',
-            paragraph: 'Modern education governance demands rigorous financial tracking. ClassX 360 provides real-time auditing tools that help institutions maintain fiscal health while expanding.'
+            heading: 'Financial Clarity',
+            paragraph: 'Maintain accurate records for sustainable growth. ClassX360 provides secure, real-time tools to manage billing and track expenses as your organization expands.'
         },
-        articles: [
-            { title: 'Optimizing Faculty Workload', link: '/blog/faculty-workload' },
-            { title: 'Financial Tracking for Colleges', link: '/blog/finance-tracking' }
-        ]
+        highlights: [
+            'Centralized Admin Hub',
+            'Automated Billing & Audits',
+            'Staff Resource Management'
+        ],
+        strategicNote: 'Professional management is the foundation of a successful educational institution.'
     },
     {
-        id: 'research',
-        title: 'Research',
+        id: 'academic-research',
+        title: 'Academic Research',
         image: Research,
-        description: 'Pushing the boundaries of academic research through data-driven innovation and collaborative tools.',
+        description: 'Expert insights and research-driven advice to help your institution achieve better academic results.',
         leftContent: {
-            heading: 'Collaborative Research',
-            paragraph: 'Academic breakthroughs happen when silos are broken. Our research module enables inter-departmental data sharing while maintaining strict IP security and audit trails.'
+            heading: 'Collaborative Innovation',
+            paragraph: 'Learning outcomes improve significantly when educators work together. Our platform facilitates cross-departmental collaboration while ensuring all data remains secure and private.'
         },
         rightContent: {
-            heading: 'Innovation Frameworks',
-            paragraph: 'Implementing agile methodologies in traditional research environments. ClassX 360 provides the tracking and resource allocation tools needed for multi-year innovation projects.'
+            heading: 'Academic Frameworks',
+            paragraph: 'Modernizing traditional classrooms can be a seamless process. We provide the structured resources and tracking tools necessary for successful long-term educational projects.'
         },
-        articles: [
-            { title: 'Inter-campus Collaboration', link: '/blog/collaboration' },
-            { title: 'The Future of Lab Management', link: '/blog/lab-mgmt' }
-        ]
+        highlights: [
+            'Inter-departmental collaboration',
+            'Research IP security protocols',
+            'Adaptive learning frameworks'
+        ],
+        strategicNote: 'Regular research keeps our teaching methods effective and modern for every student.'
     },
     {
-        id: 'innovation',
-        title: 'Innovation',
+        id: 'future-growth',
+        title: 'Growth & Innovation',
         image: Innovation,
-        description: 'Leading digital transformation and future-ready education through cutting-edge technology.',
+        description: 'Prepare your school for the future with the latest trends in digital education.',
         leftContent: {
-            heading: 'Digital Transformation',
-            paragraph: 'Educational institutions must evolve to meet modern demands. Our platform enables seamless digital transformation, from legacy system migration to cloud-first infrastructure that scales with your growth.'
+            heading: 'Digital Change',
+            paragraph: 'Education is evolving quickly. Our platform helps you move smoothly from old systems to modern, cloud-based tools that grow as your school expands.'
         },
         rightContent: {
-            heading: 'Future-Ready Learning',
-            paragraph: 'Preparing students for tomorrow requires adaptive learning environments. ClassX 360 integrates emerging technologies like VR labs, adaptive assessments, and personalized learning pathways.'
+            heading: 'Ready for Tomorrow',
+            paragraph: 'Preparing students for the future requires modern learning environments. We integrate new technologies like virtual labs and personalized learning paths for every student.'
         },
-        articles: [
-            { title: 'Cloud Migration Best Practices', link: '/blog/cloud-migration' },
-            { title: 'Adaptive Learning Technologies', link: '/blog/adaptive-learning' }
-        ]
+        highlights: [
+            'Strategic cloud migration',
+            'Emerging tech integration',
+            'Personalized student pathways'
+        ],
+        strategicNote: 'Innovation is not a destination; it is a continuous journey towards excellence.'
     }
 ];
 
@@ -117,7 +127,19 @@ const Blog = () => {
         setTimeout(() => {
             setActiveCategoryId(id);
             setIsAnimating(false);
-            // window.scrollTo removed to prevent jump
+
+            // On mobile, scroll to content top when category changes
+            if (window.innerWidth <= 768) {
+                const contentArea = document.querySelector('.dynamic-trifecta-area');
+                if (contentArea) {
+                    const navHeight = 120; // Approx height of navbar + iconic nav
+                    const elementPosition = contentArea.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: elementPosition - navHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            }
         }, 300);
     };
 
@@ -126,10 +148,10 @@ const Blog = () => {
             <div className="blog-page page-entrance">
                 <section className="blog-hero trifecta-hero">
                     <div className="blog-hero-content">
-                        <span className="category-tag-minimal reveal-fade">The Knowledge Base</span>
-                        <h1 className="text-reveal">State-of-the-Art <span className="gold-text">Education Insights</span></h1>
+                        <span className="category-tag-minimal reveal-fade">Resource Center</span>
+                        <h1 className="text-reveal">Insights for Smarter Institution Management</h1>
                         <p className="subtitle reveal-up">
-                            Comprehensive framework for institutional excellence. Symmetrical information architecture across five specialized knowledge domains.
+                            Explore expert strategies, technology updates, and practical solutions to improve institutional efficiency.
                         </p>
                     </div>
                 </section>
@@ -162,12 +184,13 @@ const Blog = () => {
                                 <div className="trifecta-grid">
                                     {/* Left Content */}
                                     <div className="trifecta-column side-content left-side">
-                                        <span className="trifecta-kicker">Strategic Overview</span>
+                                        <span className="trifecta-kicker">Quick Overview</span>
                                         <h3 className="trifecta-subheading">{activeCategory.leftContent.heading}</h3>
                                         <p className="trifecta-paragraph">{activeCategory.leftContent.paragraph}</p>
 
-                                        <div className="trifecta-action-item">
-                                            <Link to="/contact" className="minimal-action-link">Explore Framework →</Link>
+                                        <div className="trifecta-strategic-note">
+                                            <span className="note-label">Strategic Impact:</span>
+                                            <p>{activeCategory.strategicNote}</p>
                                         </div>
                                     </div>
 
@@ -181,17 +204,19 @@ const Blog = () => {
 
                                     {/* Right Content */}
                                     <div className="trifecta-column side-content right-side">
-                                        <span className="trifecta-kicker">Extended Insights</span>
+                                        <span className="trifecta-kicker">More Details</span>
                                         <h3 className="trifecta-subheading">{activeCategory.rightContent.heading}</h3>
                                         <p className="trifecta-paragraph">{activeCategory.rightContent.paragraph}</p>
 
                                         <div className="trifecta-resource-list">
-                                            <span className="list-label">Featured Reading:</span>
-                                            {activeCategory.articles.map((article, idx) => (
-                                                <Link key={idx} to={article.link} className="trifecta-article-link">
-                                                    {article.title}
-                                                </Link>
-                                            ))}
+                                            <span className="list-label">Key Highlights:</span>
+                                            <ul className="trifecta-highlight-list">
+                                                {activeCategory.highlights.map((highlight, idx) => (
+                                                    <li key={idx} className="trifecta-highlight-item">
+                                                        {highlight}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -202,11 +227,11 @@ const Blog = () => {
 
                 <section className="blog-footer-cta">
                     <div className="cta-flat-container">
-                        <h2>Ready to Elevate Your Institution?</h2>
-                        <p>Join the future of education management today with our five-pillar development approach.</p>
+                        <h2>Empower Your Institution's Future</h2>
+                        <p>Discover how our smart tools can simplify your daily operations and help you focus on success.</p>
                         <div className="cta-links-academic">
-                            <Link to="/contact" className="btn-academic-solid">Contact an Expert</Link>
-                            <Link to="/pricing" className="btn-academic-outline">View Plans</Link>
+                            <Link to="/contact" className="btn-academic-solid">Get in Touch</Link>
+                            <Link to="/pricing" className="btn-academic-outline">Explore Our Plans</Link>
                         </div>
                     </div>
                 </section>

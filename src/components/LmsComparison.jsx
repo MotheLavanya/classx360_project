@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './LmsComparison.css';
 import {
     FaChalkboardTeacher, FaCalendarAlt, FaChartPie, FaComments,
@@ -11,13 +11,35 @@ import {
 import { comparisonData } from './comparisonData';
 
 const LmsComparison = () => {
+    const sectionRef = useRef(null);
     const [chaosActive, setChaosActive] = useState(false);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setChaosActive(prev => !prev);
-        }, 2000); // Toggle every 2s as requested
-        return () => clearInterval(interval);
+        let fallTimeout;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    // Start timer to trigger chaos after delay
+                    fallTimeout = setTimeout(() => {
+                        setChaosActive(true);
+                    }, 2500);
+                } else {
+                    // Reset instantly when user scrolls away
+                    if (fallTimeout) clearTimeout(fallTimeout);
+                    setChaosActive(false);
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            observer.disconnect();
+            if (fallTimeout) clearTimeout(fallTimeout);
+        };
     }, []);
 
     // Stable random offsets for the falling collection effect
@@ -28,30 +50,30 @@ const LmsComparison = () => {
         }))
     );
 
-    // Mapping string names from data to actual Icon components
+    // Mapping string names from data to actual Icon components with "real" brand colors
     const iconMap = {
-        FaClipboardList: <FaClipboardList />,
-        FaEnvelope: <FaEnvelope />,
-        FaChartBar: <FaChartBar />,
-        FaPrint: <FaPrint />,
-        FaMoneyBillWave: <FaMoneyBillWave />,
-        FaFolderOpen: <FaFolderOpen />,
-        FaHourglassHalf: <FaHourglassHalf />,
-        FaTimesCircle: <FaTimesCircle />,
-        FaChartLine: <FaChartLine />,
-        FaCalendarAlt: <FaCalendarAlt />,
-        FaLock: <FaLock />,
-        FaChartPie: <FaChartPie />,
-        FaChalkboardTeacher: <FaChalkboardTeacher />,
-        FaAward: <FaAward />,
-        FaComments: <FaComments />,
-        FaGlobe: <FaGlobe />,
-        FaShieldAlt: <FaShieldAlt />,
-        FaUsers: <FaUsers />,
-        FaUserGraduate: <FaUserGraduate />,
-        FaBookOpen: <FaBookOpen />,
-        FaTabletAlt: <FaTabletAlt />,
-        FaUserShield: <FaUserShield />
+        FaClipboardList: <FaClipboardList style={{ color: '#64748b' }} />,
+        FaEnvelope: <FaEnvelope style={{ color: '#ef4444' }} />,
+        FaChartBar: <FaChartBar style={{ color: '#f59e0b' }} />,
+        FaPrint: <FaPrint style={{ color: '#334155' }} />,
+        FaMoneyBillWave: <FaMoneyBillWave style={{ color: '#10b981' }} />,
+        FaFolderOpen: <FaFolderOpen style={{ color: '#facc15' }} />,
+        FaHourglassHalf: <FaHourglassHalf style={{ color: '#94a3b8' }} />,
+        FaTimesCircle: <FaTimesCircle style={{ color: '#e11d48' }} />,
+        FaChartLine: <FaChartLine style={{ color: '#f43f5e' }} />,
+        FaCalendarAlt: <FaCalendarAlt style={{ color: '#0ea5e9' }} />,
+        FaLock: <FaLock style={{ color: '#475569' }} />,
+        FaChartPie: <FaChartPie style={{ color: '#8b5cf6' }} />,
+        FaChalkboardTeacher: <FaChalkboardTeacher style={{ color: '#800000' }} />, // Brand Maroon
+        FaAward: <FaAward style={{ color: '#fbbf24' }} />,
+        FaComments: <FaComments style={{ color: '#22c55e' }} />,
+        FaGlobe: <FaGlobe style={{ color: '#0ea5e9' }} />,
+        FaShieldAlt: <FaShieldAlt style={{ color: '#10b981' }} />,
+        FaUsers: <FaUsers style={{ color: '#f97316' }} />,
+        FaUserGraduate: <FaUserGraduate style={{ color: '#8b5cf6' }} />,
+        FaBookOpen: <FaBookOpen style={{ color: '#6366f1' }} />,
+        FaTabletAlt: <FaTabletAlt style={{ color: '#4b5563' }} />,
+        FaUserShield: <FaUserShield style={{ color: '#14b8a6' }} />
     };
 
     const withoutItems = comparisonData.without.items.map(item => ({
@@ -75,7 +97,7 @@ const LmsComparison = () => {
 
     // Distribution: 5 on inner, 7 on outer for 12 items
     const orbitCountsWithout = [5, 7];
-    const orbitCountsWith = [5, 7]; // Now matched with 12 items
+    const orbitCountsWith = [5, 7]; // Remains 12 items
 
     const withoutGroups = distributeIcons(withoutItems, orbitCountsWithout);
     const withGroups = distributeIcons(withItems, orbitCountsWith);
@@ -85,7 +107,10 @@ const LmsComparison = () => {
             <div className="container">
                 <div className="comparison-grid">
                     {/* Without Card */}
-                    <div className={`comparison-box without-box ${chaosActive ? 'chaos-active' : ''}`}>
+                    <div
+                        ref={sectionRef}
+                        className={`comparison-box without-box reveal-left ${chaosActive ? 'chaos-active' : ''}`}
+                    >
                         <h3 className="box-label">Without ClassX360</h3>
                         <div className="box-text-content">
                             <p className="box-desc">Disconnected tools and manual work lead to silos. <br /> <strong className="danger-text">You are losing efficiency!</strong></p>
@@ -102,6 +127,8 @@ const LmsComparison = () => {
                                                 const angleRad = (rotation - 90) * (Math.PI / 180);
                                                 const lx = Math.round(radius * Math.cos(angleRad));
                                                 const ly = Math.round(radius * Math.sin(angleRad));
+                                                // Calculate consistent index for stability
+                                                const flatIdx = gIdx * 3 + iIdx;
 
                                                 return (
                                                     <div
@@ -109,7 +136,9 @@ const LmsComparison = () => {
                                                         className="orbit-slot"
                                                         style={{
                                                             '--lx': `${lx}px`,
-                                                            '--ly': `${ly}px`
+                                                            '--ly': `${ly}px`,
+                                                            '--fx': `${fallOffsets[flatIdx]?.x || 0}px`,
+                                                            '--fy': `${fallOffsets[flatIdx]?.y || 40}px`
                                                         }}
                                                     >
                                                         <div className="orbital-icon">
@@ -127,7 +156,7 @@ const LmsComparison = () => {
                     </div>
 
                     {/* With Card */}
-                    <div className="comparison-box with-box">
+                    <div className="comparison-box with-box reveal-right">
                         <h3 className="box-label white-text">With ClassX360</h3>
                         <div className="box-text-content">
                             <p className="box-desc white-text">Unified platform with real-time insights and automation. <br /> <strong className="success-text">You are acing your goals!</strong></p>

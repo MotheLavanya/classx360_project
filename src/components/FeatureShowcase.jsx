@@ -1,140 +1,175 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
-    FaVideo, FaUserShield, FaUsers, FaClipboardCheck,
-    FaCalendarCheck, FaDollarSign, FaBell, FaChartLine,
-    FaMobileAlt, FaRobot
+    FaCalendarCheck,
+    FaClipboardCheck, FaRobot,
+    FaChartBar, FaCreditCard, FaMobileAlt,
+    FaArrowLeft, FaArrowRight, FaLayerGroup,
+    FaGraduationCap, FaBullhorn, FaLock
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './FeatureShowcase.css';
 
 const FeatureShowcase = () => {
-    const features = [
-        {
-            name: "Courses (Live & On-Demand)",
-            icon: <FaVideo />,
-            image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop",
-            description: "Comprehensive course management system enabling institutions to create, organize, and deliver both live and pre-recorded educational content. Features include interactive lesson builders with rich multimedia support (video, audio, documents, presentations), real-time student progress tracking, automated assessments with instant grading, discussion forums for peer collaboration, assignment submission portals, digital certification upon completion, and detailed analytics on course engagement and completion rates. Supports multiple content formats, drip content scheduling, and seamless integration with video conferencing platforms for live sessions."
-        },
-        {
-            name: "User & Role Management",
-            icon: <FaUserShield />,
-            image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&h=250&fit=crop",
-            description: "Enterprise-grade security infrastructure with granular role-based access control (RBAC) ensuring data privacy and regulatory compliance. Provides dedicated, customizable dashboards and permission sets for administrators, instructors, students, parents, and support staff. Features include multi-factor authentication (MFA), single sign-on (SSO) integration, audit trails for all user actions, customizable user hierarchies, department-level access controls, bulk user management, automated user provisioning and de-provisioning, password policies, session management, and comprehensive activity logging for security monitoring and compliance reporting."
-        },
-        {
-            name: "Student & Batch Management",
-            icon: <FaUsers />,
-            image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop",
-            description: "Centralized student information system (SIS) for managing comprehensive student profiles including personal information, academic records, attendance history, performance metrics, and mentor relationships. Streamlines enrollment processes with online registration, document verification, and automated batch assignments. Enables efficient cohort management across multiple programs with flexible batch creation, student transfers, batch scheduling, capacity management, and waitlist handling. Includes parent portal access, emergency contact management, student ID generation, transcript management, and integration with academic performance tracking for holistic student lifecycle management."
-        },
-        {
-            name: "Exams & Assessments",
-            icon: <FaClipboardCheck />,
-            image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop",
-            description: "Robust examination platform supporting both online and offline assessment modes with comprehensive question bank management, multiple question types (MCQ, true/false, short answer, essay, coding challenges), automated grading with instant feedback, plagiarism detection using AI algorithms, performance analytics with item analysis, customizable rubrics for subjective assessments, randomized question papers, time-bound assessments with proctoring support, detailed student performance reports with strengths and weaknesses analysis, grade books, weighted scoring, curve grading options, and exportable result sheets for institutional records and accreditation purposes."
-        },
-        {
-            name: "Attendance Management",
-            icon: <FaCalendarCheck />,
-            image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=250&fit=crop",
-            description: "Digital attendance tracking system with support for multiple marking methods including biometric integration (fingerprint, facial recognition), QR code scanning, RFID cards, geofencing for location-based attendance, and manual entry options. Provides real-time attendance monitoring dashboards, automated absence alerts to parents and administrators via SMS/email, comprehensive attendance reports with trends and patterns, integration with academic performance metrics to identify at-risk students, leave management system, attendance percentage calculations, customizable attendance policies, late arrival tracking, and bulk attendance marking for efficient classroom management across all programs and batches."
-        },
-        {
-            name: "Fee & Finance Management",
-            icon: <FaDollarSign />,
-            image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=250&fit=crop",
-            description: "Complete financial management solution with automated fee structure configuration supporting multiple fee categories, discounts, scholarships, and concessions. Integrated online payment gateway supporting credit/debit cards, net banking, UPI, and digital wallets with secure PCI-DSS compliant transactions. Features include flexible installment planning with automated reminders, instant digital receipt generation, comprehensive dues tracking with aging reports, refund processing workflows, late fee calculations, payment reconciliation, multi-currency support, financial reporting for institutional accounting and auditing, expense management, budget tracking, and detailed financial analytics for revenue forecasting and cash flow management."
-        },
-        {
-            name: "Communication & Notifications",
-            icon: <FaBell />,
-            image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=400&h=250&fit=crop",
-            description: "Multi-channel communication platform delivering automated and manual notifications via SMS, email, push notifications, and in-app messaging. Supports targeted messaging with advanced segmentation for attendance alerts, exam schedules, fee reminders, grade updates, announcements, event notifications, and emergency communications. Features include customizable message templates, scheduled messaging, bulk communication tools, delivery tracking and read receipts, two-way communication channels, parent-teacher messaging, broadcast announcements, notification preferences management, communication history logs, and integration with external communication providers for reliable message delivery across all stakeholder groups."
-        },
-        {
-            name: "Advanced Reports & Analytics",
-            icon: <FaChartLine />,
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
-            description: "Business intelligence platform with real-time interactive dashboards and customizable reports covering academic performance, student engagement metrics, financial analytics, attendance trends, enrollment statistics, and operational efficiency indicators. Features include advanced data visualization with charts, graphs, and heat maps, predictive analytics using machine learning for student success forecasting, cohort analysis, comparative performance reports, trend identification, KPI tracking, automated report scheduling and distribution, drill-down capabilities for detailed analysis, exportable reports in multiple formats (PDF, Excel, CSV), role-based report access, and comprehensive data insights for evidence-based decision making and strategic planning."
-        },
-        {
-            name: "Mobile & Cloud Access",
-            icon: <FaMobileAlt />,
-            image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
-            description: "Cloud-native architecture ensuring 24/7 accessibility from any device with internet connectivity, eliminating infrastructure maintenance overhead. Responsive mobile interfaces optimized for smartphones and tablets with native app-like experience, offline capability for critical functions with automatic data synchronization when connectivity is restored, progressive web app (PWA) support, cross-platform compatibility (iOS, Android, Windows, macOS), automatic software updates, scalable infrastructure to handle growing user base, enterprise-grade security with encrypted data transmission (SSL/TLS), regular automated backups, disaster recovery mechanisms, 99.9% uptime SLA, and global content delivery network (CDN) for fast loading times worldwide."
-        },
-        {
-            name: "AI Automation & Personalization",
-            icon: <FaRobot />,
-            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
-            description: "Artificial intelligence-powered features including smart workflow automation for routine administrative tasks, predictive student performance analytics identifying at-risk students early, personalized learning path recommendations based on individual learning styles and pace, intelligent content suggestions tailored to student interests and skill gaps, automated administrative task handling (scheduling, reminders, report generation), adaptive assessment difficulty that adjusts based on individual student capabilities, natural language processing for automated query responses, chatbot support for instant assistance, smart scheduling optimization, automated grading for subjective answers, sentiment analysis for student feedback, and machine learning algorithms that continuously improve system recommendations and insights for enhanced educational outcomes."
-        }
+    const categories = [
+        { id: '1', name: "User & Role Management", icon: <FaLock />, desc: "Secure portal access and permissions for staff and students." },
+        { id: '2', name: "Student & Batch Management", icon: <FaGraduationCap />, desc: "Effortlessly manage student profiles and batch assignments." },
+        { id: '3', name: "Exams & Assessments", icon: <FaClipboardCheck />, desc: "Comprehensive tools for scheduling and grading assessments." },
+        { id: '4', name: "Attendance Management", icon: <FaCalendarCheck />, desc: "Automated digital tracking for daily student attendance." },
+        { id: '5', name: "Fee & Finance Management", icon: <FaCreditCard />, desc: "Manage billing, payments, and financial records with ease." },
+        { id: '6', name: "Communication & Notifications", icon: <FaBullhorn />, desc: "Instantly share updates and alerts with your community." },
+        { id: '7', name: "Advanced Reports & Analytics", icon: <FaChartBar />, desc: "Actionable data insights to monitor educational performance." },
+        { id: '8', name: "Mobile & Cloud Access", icon: <FaMobileAlt />, desc: "Access your dashboard anytime from any device." },
+        { id: '9', name: "AI Automation & Personalization", icon: <FaRobot />, desc: "Smart tools to streamline repetitive tasks and learning." }
     ];
 
-    const [offsetY, setOffsetY] = useState(0);
-    const sectionRef = useRef(null);
+    // Triple the categories for infinite buffer
+    const extendedCategories = [...categories, ...categories, ...categories];
+
+    const rowRef = React.useRef(null);
+    const isDraggingRef = React.useRef(false);
+    const isHoveredRef = React.useRef(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeftPos, setScrollLeftPos] = useState(0);
+
+    const CARD_WIDTH = 240; // 210px card + 30px gap
+    const SET_WIDTH = categories.length * CARD_WIDTH;
+
+    // ── Initial Positioning & Loop Jump ──
+    const handleInfiniteJump = () => {
+        if (!rowRef.current) return;
+        const { scrollLeft } = rowRef.current;
+
+        // If too far left or too far right, jump to middle set center
+        if (scrollLeft < 10) {
+            rowRef.current.scrollLeft = SET_WIDTH;
+        } else if (scrollLeft >= (SET_WIDTH * 2)) {
+            rowRef.current.scrollLeft = SET_WIDTH;
+        }
+    };
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (sectionRef.current) {
-                const rect = sectionRef.current.getBoundingClientRect();
+        if (rowRef.current) {
+            rowRef.current.scrollLeft = SET_WIDTH;
+        }
+    }, [SET_WIDTH]);
 
-                // Only animate when section is in view or close to it
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    // This creates a "fixed" feel by countering the scroll, 
-                    // but with a slight multiplier (0.15) for the parallax effect.
-                    setOffsetY(-rect.top * 0.15);
-                }
-            }
-        };
+    // ── Auto-scroll: one card every 12 seconds ──
+    useEffect(() => {
+        const INTERVAL_MS = 8000;
+        const timer = setInterval(() => {
+            if (!rowRef.current || isDraggingRef.current || isHoveredRef.current) return;
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+            rowRef.current.scrollBy({ left: CARD_WIDTH, behavior: 'smooth' });
+
+            // Check for jump after animation finishes
+            setTimeout(handleInfiniteJump, 600);
+        }, INTERVAL_MS);
+
+        return () => clearInterval(timer);
     }, []);
 
+    // ── Manual Handlers ──
+    const handleScrollLeft = () => {
+        rowRef.current?.scrollBy({ left: -CARD_WIDTH, behavior: 'smooth' });
+        setTimeout(handleInfiniteJump, 600);
+    };
+    const handleScrollRight = () => {
+        rowRef.current?.scrollBy({ left: CARD_WIDTH, behavior: 'smooth' });
+        setTimeout(handleInfiniteJump, 600);
+    };
+
+    const onMouseDown = (e) => {
+        isDraggingRef.current = true;
+        setStartX(e.pageX - rowRef.current.offsetLeft);
+        setScrollLeftPos(rowRef.current.scrollLeft);
+        rowRef.current.style.cursor = 'grabbing';
+    };
+
+    const onMouseMove = (e) => {
+        if (!isDraggingRef.current) return;
+        e.preventDefault();
+        const x = e.pageX - rowRef.current.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        rowRef.current.scrollLeft = scrollLeftPos - walk;
+        handleInfiniteJump();
+    };
+
+    const stopDrag = () => {
+        isDraggingRef.current = false;
+        if (rowRef.current) rowRef.current.style.cursor = 'grab';
+    };
+
+    const touchStartX = React.useRef(0);
+    const touchScrollLeft = React.useRef(0);
+
+    const onTouchStart = (e) => {
+        touchStartX.current = e.touches[0].pageX - rowRef.current.offsetLeft;
+        touchScrollLeft.current = rowRef.current.scrollLeft;
+    };
+
+    const onTouchMove = (e) => {
+        const x = e.touches[0].pageX - rowRef.current.offsetLeft;
+        const walk = (x - touchStartX.current) * 1.5;
+        rowRef.current.scrollLeft = touchScrollLeft.current - walk;
+        handleInfiniteJump();
+    };
+
     return (
-        <section
-            className="feature-showcase reveal"
-            id="features"
-            ref={sectionRef}
-        >
-            {/* Parallax Background Layer */}
-            <div
-                className="parallax-bg"
-                style={{ transform: `translateY(${offsetY}px)` }}
-            ></div>
-
-            {/* Animated particles with Parallax */}
-            <div className="particle particle-1"></div>
-            <div className="particle particle-2"></div>
-            <div className="particle particle-3"></div>
-            <div className="particle particle-4"></div>
-            <div className="particle particle-5"></div>
-
-            <div className="container">
-                <div className="feature-left">
-                    <h2>Powerful Features Built for Modern Institutions</h2>
-                    <p>
-                        A comprehensive suite of tools to manage learning, automate operations, and scale
-                        institutional growth—securely and efficiently from a single platform. ClassX360 unifies
-                        academics, administration, communication, and analytics to help institutions operate
-                        smarter and grow faster.
-                    </p>
+        <section className="features-adoption-section" id="features">
+            <div className="features-container">
+                <div className="flowing-line-overlay">
+                    <svg className="flowing-svg" viewBox="0 0 3000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M120 320 L 700 320 C 850 320, 900 55, 1050 55 L 3000 55" stroke="#ffffff" strokeWidth="4" opacity="0.8" fill="none" />
+                        <circle cx="120" cy="320" r="10" fill="#ffffff" opacity="0.8" />
+                        <rect x="2990" y="45" width="20" height="20" fill="#ffffff" transform="rotate(45 3000 55)" opacity="0.7" />
+                    </svg>
                 </div>
 
-                <div className="feature-grid-wrapper">
-                    <div className="feature-grid">
-                        {features.map((feature, index) => (
-                            <div key={index} className="feature-item reveal-item">
-                                <div className="feature-front">
-                                    <span className="feature-icon">{feature.icon}</span>
-                                    <h4 className="feature-header">{feature.name}</h4>
+                <div className="features-top-shelf">
+                    <div className="sub-header-adoption">
+                        <FaLayerGroup className="book-icon" size={18} />
+                        <span style={{ fontSize: '1.2rem', fontWeight: 600 }}>Main Features</span>
+                    </div>
+                    <div className="scroll-controls-adoption">
+                        <button className="ctrl-btn-adoption" onClick={handleScrollLeft} aria-label="Scroll Left"><FaArrowLeft /></button>
+                        <button className="ctrl-btn-adoption" onClick={handleScrollRight} aria-label="Scroll Right"><FaArrowRight /></button>
+                    </div>
+                </div>
+
+                <div className="features-layout-adoption">
+                    <div className="features-heading-column">
+                        <h2 className="main-heading-adoption">
+                            Make Institution Management Simple with Powerful Features
+                        </h2>
+                        <Link to="/features">
+                            <button className="view-all-btn-adoption">VIEW ALL FEATURES</button>
+                        </Link>
+                    </div>
+
+                    <div className="features-scroll-column">
+                        <div
+                            className="cards-row-wrapper-hybrid"
+                            ref={rowRef}
+                            onMouseDown={onMouseDown}
+                            onMouseMove={onMouseMove}
+                            onMouseUp={stopDrag}
+                            onMouseEnter={() => { isHoveredRef.current = true; }}
+                            onMouseLeave={() => { stopDrag(); isHoveredRef.current = false; }}
+                            onTouchStart={onTouchStart}
+                            onTouchMove={onTouchMove}
+                        >
+                            {extendedCategories.map((cat, index) => (
+                                <div key={`${cat.id}-${index}`} className="adoption-card">
+                                    <div className="card-number-watermark">{cat.number}</div>
+                                    <div className="card-shimmer"></div>
+                                    <div className="icon-wrapper-adoption">{cat.icon}</div>
+                                    <h3>{cat.name}</h3>
+                                    <div className="card-footer-adoption">
+                                        <p className="card-description-adoption">{cat.desc}</p>
+                                    </div>
                                 </div>
-                                <div className="feature-back">
-                                    <div className="feature-image" style={{ backgroundImage: `url(${feature.image})` }}></div>
-                                    <p className="feature-description">{feature.description}</p>
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,42 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Testimonials.css';
+import testimonialImage from '../assets/testimonialimage.png';
+import testimonial1 from '../assets/testimonial1.png';
+import testimonial2 from '../assets/testimonial2.png';
+import testimonial3 from '../assets/testimonial3.png';
+import testimonial4 from '../assets/testimonial4.png';
 
 const testimonialsData = [
     {
         id: 1,
-        name: "Ramesh Gupta",
-        role: "Principal, St. Xavier's School",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
-        quote: "ClassX 360 has completely transformed how we manage our administrative tasks. The attendance and fee management modules are lifesavers!"
+        name: "Prof. Aravind Sharma",
+        role: "Head of Computer Science, VIT",
+        image: testimonial4,
+        quote: "ClassX 360 has completely transformed how we manage our academic schedules and research labs. A truly modern solution for faculty!"
     },
     {
         id: 2,
-        name: "Anita Desai",
-        role: "Director, Learning Curve Institute",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-        quote: "The best decision we made for our institute. The student performance tracking is detailed and helps us focus on weak areas effectively."
+        name: "Dr. Priya Malik",
+        role: "Professor of Mathematics, Global University",
+        image: testimonial1,
+        quote: "The automated grading and analytics tools are world-class. It allows me to focus more on teaching and less on manual data entry."
     },
     {
         id: 3,
-        name: "Vikram Singh",
-        role: "Administrator, Global Academy",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
-        quote: "Seamless integration and user-friendly interface. Parents love the transparency it offers regarding their child's progress."
+        name: "Prof. Siddharth Roy",
+        role: "Senior Faculty, IIT Bombay",
+        image: testimonial2,
+        quote: "Modern education requires modern tools. ClassX 360 provides the granular level of control that high-performance institutes need."
     },
     {
         id: 4,
-        name: "Sarah Williams",
-        role: "Head of Dept, International School",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
-        quote: "Support team is fantastic. Any issue is resolved within minutes. The platform is robust and handles our large data effortlessly."
+        name: "Dr. Elena Rodriguez",
+        role: "Assistant Professor, Stanford International",
+        image: testimonialImage,
+        quote: "The interface is incredibly intuitive for both faculty and students. It has significantly improved our classroom engagement metrics."
     },
     {
         id: 5,
-        name: "Mohd. Irfan",
-        role: "Founder, Excel Coaching",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
-        quote: "Highly recommended for any educational institution looking to digitize their operations. It saves time, money, and resources."
+        name: "Prof. Zaid Khan",
+        role: "Dean of Academic Affairs, EduSmart University",
+        image: testimonial3,
+        quote: "Highly recommended for any professor looking to digitalize their curriculum and track student research progress in real-time."
     }
 ];
 
@@ -119,13 +124,14 @@ const Testimonials = () => {
     };
 
     return (
+
         <section className="testimonials-section reveal reveal-section" id="testimonials">
             <div className="container">
                 <div className="testimonials-layout">
                     {/* Left Side: Sticky Content */}
-                    <div className="testimonials-left">
+                    <div className="testimonials-left reveal-left">
                         <div className="sticky-content">
-                            <span className="sub-title">Testimonials</span>
+                            <div className="section-badge">Testimonials</div>
                             <h2>Trusted by Leading Institutions</h2>
                             <p className="section-description">
                                 Join over 1000+ schools and colleges transforming their administration with ClassX 360.
@@ -137,7 +143,7 @@ const Testimonials = () => {
 
                     {/* Right Side: Horizontal Scroller with JS Animation */}
                     <div
-                        className="testimonials-right"
+                        className="testimonials-right reveal-right"
                         ref={scrollRef}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}

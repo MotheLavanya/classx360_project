@@ -1,5 +1,5 @@
 .how-page-wrapper {
-    background: #050505;
+    background: #1A1A1A;
 }
 
 /* Banner Styling */
@@ -70,7 +70,7 @@
 /* Why Workflow Section */
 .why-workflow-section {
     padding: 100px 0;
-    background: #0a0a0a;
+    background: #1A1A1A;
 }
 
 .section-header-center {
@@ -103,7 +103,7 @@
 }
 
 .workflow-feature-card {
-    background: #111;
+    background: #1A1A1A;
     padding: 40px;
     border-radius: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);

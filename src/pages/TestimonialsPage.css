@@ -78,7 +78,7 @@
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: black !important;
+    color: #1A1A1A !important;
     max-width: 800px;
     text-align: center !important;
     line-height: 1.6;
@@ -130,7 +130,7 @@
     font-size: 2.5rem;
     font-weight: 900;
     margin-bottom: 0.5rem;
-    color: #090808;
+    color: #1A1A1A;
 }
 
 .stat-name {
@@ -241,7 +241,7 @@
 /* Featured Carousel */
 .featured-testimonials {
     padding: 10px 0;
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(26, 26, 26, 0.4);
 }
 
 .carousel-wrapper {

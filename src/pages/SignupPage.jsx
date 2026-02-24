@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaPhone, FaLock, FaArrowLeft, FaTimes } from 'react-icons/fa';
 import '../components/AuthModal.css';
 import './LoginPage.css';
 
@@ -26,31 +26,21 @@ const SignupPage = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleGoogleLogin = () => {
-        alert("Google Login is being simulated. Redirecting...");
-    };
-
     return (
-        <div className="login-page page-entrance">
-            <Link to="/" className="login-back-link">
-                <FaArrowLeft style={{ marginRight: '8px' }} /> Back to Home
-            </Link>
-
+        <div className="login-page signup-mode page-entrance">
             <div className="login-content-wrapper">
-                <div className="login-intro-text">
-                    <h1>Join ClassX 360</h1>
-                    <p>Experience the next generation of Learning Management. Streamline your administration and empower your educators today.</p>
-                </div>
-
                 <div className="login-card">
+                    <Link to="/" className="auth-close-btn" title="Close">
+                        <FaTimes />
+                    </Link>
                     <div className="auth-header">
-                        <h2>Get Started</h2>
-                        <p>Create your free account today</p>
+                        <h2>Create Account</h2>
+                        <p>Join thousands of institutions today</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="auth-form" autoComplete="off">
                         <div className="form-group">
-                            <label>Full Name</label>
+                            <label><FaUser className="input-icon" /> Full Name</label>
                             <input
                                 type="text"
                                 name="name"
@@ -61,18 +51,18 @@ const SignupPage = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label>Contact Number</label>
+                            <label><FaPhone className="input-icon" /> Contact Number</label>
                             <input
                                 type="tel"
                                 name="phone"
-                                placeholder="Enter your mobile number"
+                                placeholder="Enter your phone number"
                                 value={formData.phone}
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className="form-group">
-                            <label>Email Address</label>
+                            <label><FaEnvelope className="input-icon" /> Email Address</label>
                             <input
                                 type="email"
                                 name="email"
@@ -83,7 +73,7 @@ const SignupPage = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label>Password</label>
+                            <label><FaLock className="input-icon" /> Password</label>
                             <input
                                 type="password"
                                 name="password"
@@ -93,21 +83,19 @@ const SignupPage = () => {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn-primary lg full-width">
-                            Create Account
+                        <button type="submit" className="btn-auth-submit">
+                            Get Started Free
                         </button>
                     </form>
 
-                    <div className="auth-switch">
+                    <div className="auth-footer">
                         <p>
-                            Already have an account?{' '}
-                            <Link to="/login">
-                                Login here
+                            Already member?{' '}
+                            <Link to="/login" className="switch-link">
+                                Sign In
                             </Link>
                         </p>
                     </div>
-
-
                 </div>
             </div>
         </div>

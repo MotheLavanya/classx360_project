@@ -4,18 +4,18 @@ export const comparisonData = {
         status: "MANUAL & DISCONNECTED",
         description: "Multiple tools, manual tracking, and disjointed processes lead to inefficiency and data silos.",
         items: [
-            { icon: "FaClipboardList", text: "Paper" },
-            { icon: "FaEnvelope", text: "Email" },
-            { icon: "FaChartBar", text: "Silos" },
-            { icon: "FaPrint", text: "Manual" },
-            { icon: "FaMoneyBillWave", text: "Fees" },
-            { icon: "FaFolderOpen", text: "Scattered" },
-            { icon: "FaHourglassHalf", text: "Slow" },
-            { icon: "FaTimesCircle", text: "Errors" },
-            { icon: "FaChartLine", text: "Delays" },
-            { icon: "FaCalendarAlt", text: "Chaos" },
-            { icon: "FaLock", text: "Risks" },
-            { icon: "FaChartPie", text: "Blind" }
+            { icon: "FaPrint", text: "Manual Tasks" },
+            { icon: "FaEnvelope", text: "Siloed Systems" },
+            { icon: "FaFolderOpen", text: "Fragmented Data" },
+            { icon: "FaMoneyBillWave", text: "Fee Leaks" },
+            { icon: "FaHourglassHalf", text: "Process Delays" },
+            { icon: "FaTimesCircle", text: "Human Errors" },
+            { icon: "FaChartPie", text: "Blind Spots" },
+            { icon: "FaLock", text: "Security Risks" },
+            { icon: "FaClipboardList", text: "Paper Records" },
+            { icon: "FaUsers", text: "Staff Burnout" },
+            { icon: "FaCalendarAlt", text: "Scheduling Gaps" },
+            { icon: "FaChartBar", text: "Wrong Reports" }
         ]
     },
     with: {
@@ -23,18 +23,18 @@ export const comparisonData = {
         status: "AUTOMATED & UNIFIED",
         description: "A centralized platform that streamlines learning and administration for better outcomes.",
         items: [
-            { icon: "FaChalkboardTeacher", text: "LMS" },
-            { icon: "FaCalendarAlt", text: "Auto" },
-            { icon: "FaChartPie", text: "Insights" },
-            { icon: "FaAward", text: "Awards" },
-            { icon: "FaComments", text: "Chat" },
-            { icon: "FaGlobe", text: "Cloud" },
-            { icon: "FaShieldAlt", text: "Secure" },
-            { icon: "FaUsers", text: "Portal" },
+            { icon: "FaChalkboardTeacher", text: "Unified LMS" },
+            { icon: "FaCalendarAlt", text: "Workflow Automation" },
+            { icon: "FaChartPie", text: "Data Insights" },
+            { icon: "FaAward", text: "Recognition" },
+            { icon: "FaComments", text: "Collaboration" },
+            { icon: "FaGlobe", text: "Cloud Infrastructure" },
+            { icon: "FaShieldAlt", text: "Security" },
+            { icon: "FaUsers", text: "Central Portal" },
             { icon: "FaChartLine", text: "Analytics" },
-            { icon: "FaChartBar", text: "Reports" },
-            { icon: "FaTabletAlt", text: "Mobile" },
-            { icon: "FaUserShield", text: "Parents" }
+            { icon: "FaChartBar", text: "Reporting" },
+            { icon: "FaTabletAlt", text: "Mobile Sync" },
+            { icon: "FaUserShield", text: "Parent Engagement" }
         ]
     }
 };

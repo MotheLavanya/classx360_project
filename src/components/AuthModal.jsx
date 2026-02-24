@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { FaUser, FaEnvelope, FaPhone, FaLock, FaEye, FaEyeSlash, FaEnvelopeOpen } from 'react-icons/fa';
 import './AuthModal.css';
 
 const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
     const [mode, setMode] = useState(initialMode);
+    const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -19,6 +21,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
                 phone: '',
                 password: ''
             });
+            setShowPassword(false);
         }
     }, [initialMode, isOpen]);
 
@@ -41,101 +44,107 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleFocus = (e) => {
-        setFormData({ ...formData, [e.target.name]: '' });
-    };
-
-    const handleGoogleLogin = () => {
-        console.log("Google Login initiated for ClassX 360");
-        // Mocking a successful social login
-        alert("Google Login is being simulated. Redirecting...");
-        onClose();
-    };
-
     return (
         <div className="modal-overlay" onClick={onClose}>
-            <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
-                <button className="modal-close" onClick={onClose}>&times;</button>
+            <div className="auth-modal-wrapper">
+                <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
+                    <button className="modal-close" onClick={onClose}>&times;</button>
 
-                <div className="auth-header">
-                    <h2>{mode === 'login' ? 'Welcome Back' : 'Get Started'}</h2>
-                    <p>{mode === 'login' ? 'Enter your credentials to continue' : 'Create your free account today'}</p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="auth-form" autoComplete="off">
-                    {mode === 'signup' && (
-                        <div className="form-group">
-                            <label>Full Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Enter your name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                onFocus={handleFocus}
-                                autoComplete="off"
-                                required
-                            />
+                    <div className="auth-content">
+                        <div className="auth-header">
+                            <h2>{mode === 'login' ? 'Welcome Back' : 'Create Account'}</h2>
+                            <p>{mode === 'login' ? 'Please enter your details to sign in' : 'Join thousands of institutions today'}</p>
                         </div>
-                    )}
-                    {mode === 'signup' && (
-                        <div className="form-group">
-                            <label>Contact Number</label>
-                            <input
-                                type="tel"
-                                name="phone"
-                                placeholder="Enter your mobile number"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                onFocus={handleFocus}
-                                autoComplete="off"
-                                required
-                            />
+
+                        <form onSubmit={handleSubmit} className="auth-form" autoComplete="off">
+                            {mode === 'signup' && (
+                                <div className="form-group">
+                                    <label><FaUser className="input-icon" /> Full Name</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        placeholder="Enter your name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                            )}
+                            {mode === 'signup' && (
+                                <div className="form-group">
+                                    <label><FaPhone className="input-icon" /> Contact Number</label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        placeholder="Enter your phone number"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                            )}
+                            <div className="form-group">
+                                <label><FaEnvelope className="input-icon" /> Email Address</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group password-group">
+                                <label><FaLock className="input-icon" /> Password</label>
+                                <div className="password-input-wrapper">
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        name="password"
+                                        placeholder="Enter your password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <button
+                                        type="button"
+                                        className="password-toggle"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                    >
+                                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {mode === 'login' && (
+                                <div className="form-options-bottom">
+                                    <button
+                                        type="button"
+                                        className="forgot-password"
+                                        onClick={() => alert("Check your email to reset your password. We've sent a recovery link to your registered email address.")}
+                                    >
+                                        Forgot Password?
+                                    </button>
+                                </div>
+                            )}
+
+                            <button type="submit" className="btn-auth-submit">
+                                {mode === 'login' ? 'Sign In' : 'Get Started Free'}
+                            </button>
+                        </form>
+
+                        <div className="auth-footer">
+                            <p>
+                                {mode === 'login' ? "Don't have an account?" : "Already member?"}
+                                <button
+                                    className="switch-btn"
+                                    onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
+                                >
+                                    {mode === 'login' ? 'Create Account' : 'Sign In'}
+                                </button>
+                            </p>
                         </div>
-                    )}
-                    <div className="form-group">
-                        <label>Email Address</label>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                            autoComplete="off"
-                            required
-                        />
                     </div>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Enter your password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                            autoComplete="new-password"
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn-primary full-width">
-                        {mode === 'login' ? 'Login' : 'Create Account'}
-                    </button>
-                </form>
-
-                <div className="auth-switch">
-                    <p>
-                        {mode === 'login' ? "New to ClassX 360?" : "Already have an account?"}
-                        <button
-                            onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
-                        >
-                            {mode === 'login' ? 'Sign Up for free' : 'Login here'}
-                        </button>
-                    </p>
                 </div>
-
-
             </div>
         </div>
     );

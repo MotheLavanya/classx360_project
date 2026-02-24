@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { FaGraduationCap } from 'react-icons/fa';
+import { FaGraduationCap, FaGlobe } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutToggle, isAboutOpen, onNavigate }) => {
@@ -19,6 +19,8 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
         };
 
         window.addEventListener('scroll', handleScroll);
+        // Sync state immediately on mount
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -41,15 +43,19 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
         if (window.innerWidth <= 768) setIsMobileMenuOpen(false);
     };
 
-    const closeMobileMenu = () => {
-        if (window.innerWidth <= 768) setIsMobileMenuOpen(false);
+    const handleLogoClick = (e) => {
+        if (location.pathname === '/') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        handleNavigate();
     };
 
     return (
         <header className={`navbar ${isScrolled ? 'scrolled' : ''} ${isHomePage ? 'is-home' : ''}`}>
-            <Link to="/" className="logo" onClick={handleNavigate}>
+            <Link to="/" className="logo" onClick={handleLogoClick}>
                 <FaGraduationCap className="logo-icon-main" />
-                <span className="logo-text">ClassX<span className="logo-highlight">360</span></span>
+                <span className="logo-text">ClassX<span className="logo-highlight">36<span className="highlight-zero"><span className="logo-globe-icon"></span></span></span></span>
             </Link>
 
             <button
@@ -95,22 +101,22 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
                 <div className="mobile-nav-actions">
                     <button
                         className="btn-secondary"
-                        onClick={() => { onSignUp(); closeMobileMenu(); }}
+                        onClick={() => { onLogin(); closeMobileMenu(); }}
                     >
-                        Sign Up
+                        Login
                     </button>
                     <button
                         className="btn-primary"
                         onClick={() => { onSignUp(); closeMobileMenu(); }}
                     >
-                        Get Started
+                        Signup
                     </button>
                 </div>
             </nav>
 
             <div className="nav-actions">
-                <button className="btn-secondary" onClick={onSignUp}>Sign Up</button>
-                <button className="btn-primary" onClick={onSignUp}>Get Started</button>
+                <button className="btn-secondary" onClick={onLogin}>Login</button>
+                <button className="btn-primary" onClick={onSignUp}>Signup</button>
             </div>
         </header>
     );

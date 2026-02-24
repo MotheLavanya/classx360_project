@@ -43,6 +43,13 @@ function App() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('login');
 
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    // Force scroll to top on initial load/refresh
+    window.scrollTo(0, 0);
+  }, []);
 
   const openLogin = () => {
     setAuthMode('login');

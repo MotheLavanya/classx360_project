@@ -20,6 +20,27 @@
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Curved Divider Styling */
+.features-banner-curve {
+    position: absolute;
+    bottom: -1px;
+    /* Overlap to prevent thin white lines */
+    left: 0;
+    width: 100%;
+    height: 100px;
+    /* Increased height for a better curve */
+    z-index: 5;
+    overflow: hidden;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.features-banner-curve svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 .features-hero-image-wrapper {
     position: absolute;
     top: 0;
@@ -33,6 +54,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.7;
+    /* Added transparency */
     transition: transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
     display: block;
 }
@@ -47,8 +70,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* Simplified dark overlay for better image clarity */
-    background: rgba(0, 0, 0, 0.4);
+    /* Enhanced dark overlay for depth */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
     z-index: 2;
 }
 
@@ -57,7 +80,7 @@
     z-index: 10;
     width: 100%;
     max-width: 1000px;
-    padding: 85px 5% 0;
+    padding: 55px 5% 0;
     /* Increased to clear the fixed navbar */
     display: flex;
     flex-direction: column;

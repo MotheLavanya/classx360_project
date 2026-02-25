@@ -17,9 +17,88 @@
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr 0.8fr;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr 1.2fr;
     gap: 30px;
     margin-bottom: 30px;
+}
+
+/* Newsletter Column */
+.newsletter-col p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    /* Slightly lighter for better contrast without border */
+    padding: 5px;
+    border-radius: 50px;
+    border: none;
+    /* Removed borders */
+    transition: all 0.3s ease;
+}
+
+.newsletter-form:focus-within {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.newsletter-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.newsletter-form button {
+    background: #800000;
+    color: #fff;
+    border: none;
+    padding: 0 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 38px;
+}
+
+.newsletter-form button:hover {
+    background: #4a0404;
+    transform: scale(1.05);
+}
+
+/* Inline Success Message */
+.subscribe-success-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: #10b981;
+    font-size: 1.25rem;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* .success-icon {
+    font-size: 0.5rem;
+} */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .footer-col h4 {

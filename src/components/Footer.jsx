@@ -6,14 +6,19 @@ import './Footer.css';
 const Footer = ({ onSignUp, onLogin }) => {
     const [email, setEmail] = useState('');
     const [isSubscribed, setIsSubscribed] = useState(false);
+    const [showToast, setShowToast] = useState(false);
 
     const handleSubscribe = (e) => {
         e.preventDefault();
         if (email) {
             console.log('Newsletter subscription for:', email);
             setIsSubscribed(true);
+            setShowToast(true);
             setEmail('');
-            setTimeout(() => setIsSubscribed(false), 5000);
+            setTimeout(() => {
+                setIsSubscribed(false);
+                setShowToast(false);
+            }, 3000);
         }
     };
 
@@ -64,18 +69,7 @@ const Footer = ({ onSignUp, onLogin }) => {
                         </ul>
                     </div>
 
-                    {/* 4. Support */}
-                    <div className="footer-col">
-                        <h4>Support</h4>
-                        <ul>
-                            <li><Link to="/login" className="footer-link-btn">Student Login</Link></li>
-                            <li><button onClick={onSignUp} className="footer-link-btn">Request Demo</button></li>
-                            {/* <li><a href="/faqs">Help Center</a></li> */}
-                            {/* <li><a href="/docs">Documentation</a></li> */}
-                        </ul>
-                    </div>
-
-                    {/* 5. Legal */}
+                    {/* 4. Legal */}
                     <div className="footer-col">
                         <h4>Legal</h4>
                         <ul>
@@ -83,6 +77,30 @@ const Footer = ({ onSignUp, onLogin }) => {
                             <li><a href="/terms">Terms of Service</a></li>
                             <li><a href="/refund">Refund Policy</a></li>
                         </ul>
+                    </div>
+
+                    {/* 5. Stay in Loop */}
+                    <div className="footer-col newsletter-col">
+                        <h4>Stay in Loop</h4>
+                        <p>Subscribe for latest updates and news.</p>
+                        <form className="newsletter-form" onSubmit={handleSubscribe}>
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <button type="submit">
+                                Join
+                            </button>
+                        </form>
+                        {showToast && (
+                            <div className="subscribe-success-inline">
+                                {/* <FaCheckCircle className="success-icon" /> */}
+                                <span>Thanks for joining!</span>
+                            </div>
+                        )}
                     </div>
                 </div>
 

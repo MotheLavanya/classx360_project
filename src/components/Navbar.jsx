@@ -72,6 +72,9 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
 
                 <NavLink to="/features" onClick={handleNavigate}>Features</NavLink>
 
+                <NavLink to="/pricing" onClick={handleNavigate}>Pricing</NavLink>
+                <NavLink to="/blog" onClick={handleNavigate}>Blog</NavLink>
+                <NavLink to="/testimonials" onClick={handleNavigate}>Testimonials</NavLink>
                 <div
                     className={`nav-dropdown-container ${isAboutDropdownOpen ? 'active' : ''}`}
                     onMouseEnter={() => setIsAboutDropdownOpen(true)}
@@ -93,9 +96,6 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
                     </div>
                 </div>
 
-                <NavLink to="/pricing" onClick={handleNavigate}>Pricing</NavLink>
-                <NavLink to="/blog" onClick={handleNavigate}>Blog</NavLink>
-                <NavLink to="/testimonials" onClick={handleNavigate}>Testimonials</NavLink>
                 <NavLink to="/contact" onClick={handleNavigate}>Contact</NavLink>
 
                 <div className="mobile-nav-actions">

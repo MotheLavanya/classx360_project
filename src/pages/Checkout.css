@@ -23,10 +23,10 @@
     content: '';
     position: absolute;
     top: 15px;
-    left: 20%;
-    right: 20%;
+    left: 10%;
+    right: 10%;
     height: 2px;
-    background: #1a1a1a;
+    background: #e2e8f0;
     z-index: 0;
 }
 
@@ -113,17 +113,20 @@
     color: var(--text-muted);
 }
 
-/* Feature Comparison (High Specificity to override global LmsComparison styles) */
+/* Feature Comparison */
 .checkout-page .comparison-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
     margin-bottom: 2rem;
-    background-color: white !important;
     background: white !important;
     color: #1a1a1a !important;
-    border-radius: 0;
-    overflow: visible;
+}
+
+@media (max-width: 1024px) {
+    .checkout-page .comparison-grid {
+        gap: 1.5rem;
+    }
 }
 
 .checkout-page .plan-features-list h4 {
@@ -200,7 +203,18 @@
 .billing-form-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .billing-form-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .order-summary {
+        max-width: 100%;
+    }
 }
 
 .form-section h3 {
@@ -342,6 +356,16 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .checkout-container {
+        max-width: 800px;
+    }
+
+    .checkout-card {
+        padding: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .checkout-page {
         padding-top: calc(var(--nav-height) + 20px);
@@ -349,8 +373,8 @@
     }
 
     .checkout-stepper::before {
-        left: 10%;
-        right: 10%;
+        left: 15%;
+        right: 15%;
     }
 
     .step {
@@ -362,8 +386,13 @@
     }
 
     .comparison-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2rem;
+    }
+
+    .checkout-page .plan-features-list h4,
+    .checkout-page .plan-features-list ul {
+        padding-left: 0;
     }
 
     .billing-form-grid {
@@ -379,20 +408,31 @@
     }
 }
 
+@media (max-width: 600px) {
+    .checkout-stepper::before {
+        display: none;
+    }
+}
+
 @media (max-width: 480px) {
     .checkout-stepper {
         justify-content: space-around;
+        gap: 10px;
     }
 
     .step-label {
         display: none;
-        /* Hide labels on very small screens to save space */
     }
 
     .step-circle {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .step {
+        padding: 0;
     }
 
     .step-actions {
@@ -401,5 +441,14 @@
 
     .step-actions button {
         width: 100%;
+    }
+
+    .success-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .validity-box {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
     }
 }

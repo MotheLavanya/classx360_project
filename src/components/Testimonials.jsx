@@ -67,52 +67,57 @@ const Testimonials = () => {
     };
 
     const isHovered = React.useRef(false);
-    const scrollPos = React.useRef(0); // Track float position for smooth slow scroll
 
-    // Auto-scroll loop
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(true);
+
+    // Auto-scroll logic: move photo by photo smoothly
     useEffect(() => {
-        let animationFrameId;
-
-        const loop = () => {
-            const scrollContainer = scrollRef.current;
-            if (scrollContainer && !isHovered.current) {
-                // Slower Continuous Scroll (0.5px per frame)
-                // We use a ref to track the float value because scrollLeft rounds to integer
-                scrollPos.current += 0.5;
-                scrollContainer.scrollLeft = scrollPos.current;
-
-                // Seamless Loop Reset Logic (Robust)
-                // Use the first card to measure exact set width (Card + Gap) * Count
-                // This handles potential sub-pixel gap issues better than total scrollWidth
-                const firstCard = scrollContainer.querySelector('.testimonial-card-modern');
-                if (firstCard) {
-                    const cardWidth = firstCard.offsetWidth;
-                    const gap = 10; // Matches updated CSS gap
-                    const singleSetCount = testimonialsData.length;
-                    const oneSetWidth = (cardWidth + gap) * singleSetCount;
-
-                    if (scrollPos.current >= oneSetWidth) {
-                        scrollPos.current -= oneSetWidth;
-                        scrollContainer.scrollLeft = scrollPos.current;
-                    }
-                } else if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 4) {
-                    // Fallback if DOM query fails
-                    const oneSetWidth = scrollContainer.scrollWidth / 4;
-                    scrollPos.current -= oneSetWidth;
-                    scrollContainer.scrollLeft = scrollPos.current;
-                }
-            } else if (scrollContainer && isHovered.current) {
-                // Sync ref if user manually scrolls or pauses
-                scrollPos.current = scrollContainer.scrollLeft;
+        const intervalTime = 3000; // Stay for 3 seconds
+        const timer = setInterval(() => {
+            if (!isHovered.current) {
+                setIsTransitioning(true);
+                setCurrentIndex(prev => prev + 1);
             }
-            animationFrameId = requestAnimationFrame(loop);
-        };
+        }, intervalTime);
 
-        // Start loop
-        animationFrameId = requestAnimationFrame(loop);
-
-        return () => cancelAnimationFrame(animationFrameId);
+        return () => clearInterval(timer);
     }, []);
+
+    // Handle seamless loop
+    useEffect(() => {
+        const totalItems = testimonialsData.length;
+        // When we reach the end of the first set (index 5), snap back to 0
+        if (currentIndex === totalItems) {
+            const transitionDuration = 1200; // Matches CSS transition duration
+            const resetTimer = setTimeout(() => {
+                setIsTransitioning(false); // Disable transition for snap
+                setCurrentIndex(0); // Snap back to the beginning card
+            }, transitionDuration);
+            return () => clearTimeout(resetTimer);
+        }
+    }, [currentIndex]);
+
+    // Re-enable transition after snap back
+    useEffect(() => {
+        if (currentIndex === 0 && !isTransitioning) {
+            const timer = setTimeout(() => {
+                setIsTransitioning(true);
+            }, 50); // Small buffer to ensure browser processed the snap
+            return () => clearTimeout(timer);
+        }
+    }, [currentIndex, isTransitioning]);
+
+    const getTransform = () => {
+        const firstCard = scrollRef.current?.querySelector('.testimonial-card-modern');
+        if (firstCard) {
+            const cardWidth = firstCard.offsetWidth;
+            const gap = 10;
+            const step = cardWidth + gap;
+            return `translateX(-${currentIndex * step}px)`;
+        }
+        return `translateX(-${currentIndex * 250}px)`; // Fallback
+    };
 
     // Handlers for pausing on hover (optional enhancement for UX)
     const handleMouseEnter = () => {
@@ -148,7 +153,13 @@ const Testimonials = () => {
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                     >
-                        <div className="testimonials-track">
+                        <div
+                            className="testimonials-track"
+                            style={{
+                                transform: getTransform(),
+                                transition: isTransitioning ? 'transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
+                            }}
+                        >
                             {/* Render 4 Sets for Robust Infinite Loop */}
                             {[...Array(4)].map((_, setIndex) => (
                                 testimonialsData.map((testimonial) => (

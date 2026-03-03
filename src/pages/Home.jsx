@@ -11,25 +11,25 @@ import HomeFinalCTA from '../components/HomeFinalCTA';
 const Home = ({ onSignUp }) => {
     return (
         <main>
-            <section className="snap-section">
+            <section>
                 <Hero onGetDemo={onSignUp} />
             </section>
-            <section className="snap-section">
+            <section>
                 <LmsComparison />
             </section>
-            <section className="snap-section">
+            <section>
                 <HowItWorks onGetDemo={onSignUp} />
             </section>
-            <section className="snap-section">
+            <section>
                 <FeatureShowcase />
             </section>
-            <section className="snap-section">
+            <section>
                 <RoleDashboards onSignUp={onSignUp} />
             </section>
-            <section className="snap-section">
+            <section>
                 <Testimonials />
             </section>
-            <section className="snap-section">
+            <section>
                 <HomeFinalCTA onSignUp={onSignUp} />
             </section>
 

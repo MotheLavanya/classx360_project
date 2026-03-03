@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -24,6 +24,7 @@ import FeaturesPage from './pages/FeaturesPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import FAQs from './pages/FAQs';
+import FeatureDetail from './pages/FeatureDetail';
 
 // Helper component to handle conditional footer
 const ConditionalFooter = ({ onSignUp, openLogin }) => {
@@ -43,12 +44,9 @@ function App() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('login');
 
-  useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-    // Force scroll to top on initial load/refresh
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    // Force scroll to top instantly on initial load/refresh
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
 
   const openLogin = () => {
@@ -108,6 +106,7 @@ function App() {
           <Route path="/refund" element={<RefundPolicy />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/feature/:slug" element={<FeatureDetail onSignUp={openSignUp} />} />
         </Routes>
         <ConditionalFooter onSignUp={openSignUp} openLogin={openLogin} />
 

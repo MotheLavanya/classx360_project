@@ -1,8 +1,332 @@
+/* Premium Features Section */
+.premium-features-section {
+    padding: 20px 0;
+    /* Clean, attractive plain light maroon background */
+    background-color: rgb(128 0 0 / 16%);
+    color: #333333;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* Subtle glowing orbs for a more premium, attractive background */
+.premium-features-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -15%;
+    width: 60%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(165, 42, 42, 0.12) 0%, rgba(255, 255, 255, 0) 65%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(50px);
+}
+
+.premium-features-section::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    right: -10%;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(128, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0) 65%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(50px);
+}
+
+.premium-features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.premium-features-header {
+    text-align: center;
+    margin-bottom: 20px;
+    /* Reduced from 60px */
+    max-width: 800px;
+}
+
+.premium-features-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #800000;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.premium-features-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 3px;
+    background: #800000;
+    border-radius: 2px;
+}
+
+.premium-features-subtitle {
+    font-size: 1.2rem;
+    color: black;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 0px;
+}
+
+/* SaaS Category Navigation Bar */
+.enterprise-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    /* Clean horizontal separator */
+    width: 100%;
+    max-width: 800px;
+}
+
+.enterprise-tab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    /* Dark gray */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tab-icon {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.enterprise-tab-btn.active .tab-icon {
+    transform: scale(1.1);
+}
+
+.enterprise-tab-btn:hover {
+    color: #800000;
+}
+
+/* Maroon Underline Animation */
+.enterprise-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    /* Overlap border-bottom */
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #800000;
+    transition: width 0.3s ease;
+}
+
+.enterprise-tab-btn.active {
+    color: #800000;
+    /* Deep Maroon */
+    transform: scale(1.05);
+    /* Slight scale-up */
+}
+
+.enterprise-tab-btn.active::after {
+    width: 100%;
+}
+
+.enterprise-tab-btn:disabled {
+    pointer-events: none;
+}
+
+/* Advanced Grid Layout (30% / 70%) */
+/* Balanced Feature Grid (Full Width) */
+.enterprise-layout {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.enterprise-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.premium-feature-card {
+    flex: 0 1 calc(25% - 20px);
+    /* 4 cards per row on desktop */
+    min-width: 260px;
+    background: #F8F8F8;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    z-index: 1;
+}
+
+/* For smaller screens, adjust the flex-basis to 2 per row or 1 per row */
+@media (max-width: 1200px) {
+    .premium-feature-card {
+        flex: 0 1 calc(33.333% - 20px);
+        /* 3 cards per row */
+    }
+}
+
+@media (max-width: 1024px) {
+    .premium-feature-card {
+        flex: 0 1 calc(50% - 20px);
+        /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .premium-feature-card {
+        flex: 0 1 100%;
+        /* 1 card per row */
+    }
+}
+
+
+
+/* 
+  SaaS Hover 
+  - Smooth lift
+  - Deepen shadow
+  - Thin maroon glow line
+*/
+.premium-feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(128, 0, 0, 0.4);
+    /* Thin maroon glow border */
+    box-shadow: 0 10px 30px rgba(128, 0, 0, 0.06);
+}
+
+.premium-feature-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Grid Fade Animations */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.premium-feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    background: rgba(128, 0, 0, 0.06);
+    /* Small maroon container */
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #800000;
+    transition: all 0.3s ease;
+}
+
+.premium-feature-card:hover .premium-feature-icon {
+    background: #800000;
+    color: #ffffff;
+}
+
+.premium-feature-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    transition: all 0.3s ease;
+}
+
+.premium-feature-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+/* Footer CTA */
+.premium-features-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.premium-cta-btn {
+    background: #800000;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(128, 0, 0, 0.2);
+}
+
+.premium-cta-btn:hover {
+    background: #A52A2A;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(165, 42, 42, 0.3);
+}
+
+
+/*
+=============================================================
+PREVIOUS CSS FOR FEATURES SECTION (Commented out as requested)
+=============================================================
 .features-adoption-section {
     padding: 30px 0;
-    /* Ultra-compact: Reduced from 60px */
+    /*\ Ultra-compact: Reduced from 60px *\/
     background: #800000;
-    /* Infosyte Fidelity: Deep Maroon */
+    /*\ Infosyte Fidelity: Deep Maroon *\/
     overflow: hidden;
 }
 
@@ -10,7 +334,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 5px 40px;
-    /* Increased density compression */
+    /*\ Increased density compression *\/
     position: relative;
     overflow: visible;
 }
@@ -19,15 +343,15 @@
     display: grid;
     grid-template-columns: 380px 1fr;
     gap: 10px;
-    /* Reduced to 10px for maximum leftward density */
+    /*\ Reduced to 10px for maximum leftward density *\/
     align-items: flex-start;
 }
 
-/* Left Column Styling */
+/*\ Left Column Styling *\/
 .features-static-column {
     position: relative;
     padding-top: 0;
-    /* Resetting for bottom-grounded fidelity */
+    /*\ Resetting for bottom-grounded fidelity *\/
 }
 
 .features-top-shelf {
@@ -37,7 +361,7 @@
     position: relative;
     z-index: 10;
     margin-bottom: 0px;
-    /* Line traversal channel: gap between sub-header and cards */
+    /*\ Line traversal channel: gap between sub-header and cards *\/
 }
 
 .sub-header-adoption {
@@ -48,7 +372,7 @@
     font-weight: 700;
     font-size: 0.95rem;
     margin-bottom: 0;
-    /* Aligned in shelf row */
+    /*\ Aligned in shelf row *\/
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
@@ -60,22 +384,22 @@
 .main-heading-adoption {
     font-size: 1.3rem;
     color: #ffffff;
-    /* Contrast for Maroon background */
+    /*\ Contrast for Maroon background *\/
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 8px;
-    /* Ultra-compact vertical footprint */
+    /*\ Ultra-compact vertical footprint *\/
     max-width: 380px;
 }
 
-/* Flowing Line Decoration Overlay */
+/*\ Flowing Line Decoration Overlay *\/
 .flowing-line-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    /* No max-width to allow infinite line bleed */
+    /*\ No max-width to allow infinite line bleed *\/
     height: 100%;
     z-index: 1;
     pointer-events: none;
@@ -88,7 +412,7 @@
 
 .view-all-btn-adoption {
     background: #ffffff;
-    /* High-end contrast on maroon */
+    /*\ High-end contrast on maroon *\/
     color: #800000;
     padding: 16px 35px;
     border: none;
@@ -99,7 +423,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     margin-top: 60px;
-    /* Reduced from 80px */
+    /*\ Reduced from 80px *\/
 }
 
 .view-all-btn-adoption:hover {
@@ -109,7 +433,7 @@
     color: white;
 }
 
-/* Right Column & Scroll Area */
+/*\ Right Column & Scroll Area *\/
 .features-scroll-column {
     width: 100%;
     min-width: 0;
@@ -150,11 +474,11 @@
     gap: 30px;
     overflow-x: auto;
     padding: 0px 0px 30px 0px;
-    /* Removed 5px horizontal padding */
+    /*\ Removed 5px horizontal padding *\/
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-behavior: auto;
-    /* Instant jump needs auto */
+    /*\ Instant jump needs auto *\/
     user-select: none;
     -webkit-user-select: none;
     cursor: grab;
@@ -165,8 +489,8 @@
     cursor: grabbing;
 }
 
-/* Specialized Adoption Cards (Compact) */
-/* Modern Feature Cards: Professional Glassmorphism & Modernity */
+/*\ Specialized Adoption Cards (Compact) *\/
+/*\ Modern Feature Cards: Professional Glassmorphism & Modernity *\/
 .features-layout-adoption {
     display: grid;
     grid-template-columns: 380px 1fr;
@@ -176,38 +500,82 @@
 
 .adoption-card {
     flex: 0 0 210px;
-    /* Scaled down for density: 250px -> 210px */
-    background: rgba(255, 255, 255, 0.9);
-    /* Premium White Glass */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid #f1f5f9;
-    border-radius: 12px;
-    /* Tightened radius: 16px -> 12px */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 18px;
     padding: 25px 15px;
-    /* Compact padding: 35px 25px -> 25px 15px */
     text-align: center;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
     scroll-snap-align: start;
+    perspective: 1000px;
+}
+
+/*\ Spotlight Effect *\/
+.adoption-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.8) 0%,
+            transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.adoption-card:hover::before {
+    opacity: 1;
+}
+
+/*\ Floating Label *\/
+.adoption-card::after {
+    content: 'EXPLORE DETAILS';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #800000;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    z-index: 2;
+}
+
+.adoption-card:hover::after {
+    bottom: 15px;
+    opacity: 1;
 }
 
 .card-number-watermark {
     position: absolute;
-    top: -10px;
+    bottom: -20px;
     right: -10px;
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: 900;
-    color: rgba(128, 0, 0, 0.05);
+    color: rgba(128, 0, 0, 0.03);
     pointer-events: none;
     z-index: 0;
-    font-family: serif;
-    font-style: italic;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
 }
 
 .card-shimmer {
@@ -234,74 +602,69 @@
 }
 
 .adoption-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    /* Reduced jump */
-    border-color: rgba(128, 0, 0, 0.15);
+    transform: translateY(-12px) rotateX(4deg) rotateY(-2deg);
+    border-color: rgba(128, 0, 0, 0.3);
     background: #ffffff;
-    /* Pure white popup on hover */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 30px rgba(128, 0, 0, 0.1);
 }
 
 .icon-wrapper-adoption {
-    width: 50px;
-    /* Compact: 65px -> 50px */
-    height: 50px;
-    background: rgba(0, 0, 0, 0.04);
-    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    background: #f8fafc;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    /* Compact: 1.8rem -> 1.5rem */
+    font-size: 2.22rem;
     color: #800000;
-    margin-bottom: 20px;
-    /* Compact: 25px -> 20px */
-    transition: all 0.4s ease;
-    border: 1px solid rgba(128, 0, 0, 0.05);
+    margin-bottom: 22px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(128, 0, 0, 0.1);
     position: relative;
     z-index: 1;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .adoption-card:hover .icon-wrapper-adoption {
     background: #800000;
     color: #ffffff;
-    transform: rotateY(360deg) scale(1.1);
-    box-shadow: 0 0 20px rgba(128, 0, 0, 0.2);
+    transform: translateY(-5px) rotateY(10deg);
+    box-shadow: 0 15px 30px rgba(128, 0, 0, 0.3);
+    border-color: #800000;
 }
 
 .adoption-card h3 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #1a1a1a;
     font-weight: 800;
-    margin-bottom: 2px;
-    /* Tightest space possible */
-    line-height: 1.3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 0.1px;
-    position: relative;
-    z-index: 1;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
 }
 
-.card-footer-adoption {
-    width: 100%;
-    margin-top: 0;
-    /* Removed auto to prevent pushing description down */
-    padding-top: 0px;
-    position: relative;
-    z-index: 1;
+.adoption-card:hover h3 {
+    color: #800000;
 }
 
 .card-description-adoption {
     font-size: 0.8rem;
-    color: #4a5568;
+    color: #64748b;
     line-height: 1.5;
     margin: 0;
     font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-/* Responsiveness - Overhauled for Premium Bento Grid on Mobile */
+.adoption-card:hover .card-description-adoption {
+    transform: translateY(-5px);
+    opacity: 0.8;
+}
+
+/*\ Responsiveness - Overhauled for Premium Bento Grid on Mobile *\/
 @media (max-width: 1200px) {
     .features-layout-grid {
         grid-template-columns: 1fr;
@@ -372,11 +735,11 @@
         touch-action: auto;
     }
 
-    /* Bento Pattern Logic for 9 items (1-2-1-2-1-2) */
+    /*\ Bento Pattern Logic for 9 items (1-2-1-2-1-2) *\/
     .adoption-card {
         flex: none;
         width: calc(50% - 7.5px);
-        /* Default to half-width */
+        /*\ Default to half-width *\/
         height: auto;
         min-height: 180px;
         padding: 25px 15px;
@@ -384,7 +747,7 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    /* Pattern: 1st, 4th, 7th are full width focus cards */
+    /*\ Pattern: 1st, 4th, 7th are full width focus cards *\/
     .adoption-card:nth-child(1),
     .adoption-card:nth-child(4),
     .adoption-card:nth-child(7) {
@@ -421,7 +784,7 @@
         text-align: left;
     }
 
-    /* Hide the cloned items used for infinite scroll on desktop */
+    /*\ Hide the cloned items used for infinite scroll on desktop *\/
     .adoption-card:nth-child(n+10) {
         display: none !important;
     }
@@ -463,3 +826,4 @@
         font-size: 0.85rem;
     }
 }
+*/

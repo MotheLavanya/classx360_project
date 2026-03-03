@@ -101,13 +101,13 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
                 <div className="mobile-nav-actions">
                     <button
                         className="btn-secondary"
-                        onClick={() => { onLogin(); closeMobileMenu(); }}
+                        onClick={() => { onLogin(); setIsMobileMenuOpen(false); }}
                     >
                         Login
                     </button>
                     <button
                         className="btn-primary"
-                        onClick={() => { onSignUp(); closeMobileMenu(); }}
+                        onClick={() => { onSignUp(); setIsMobileMenuOpen(false); }}
                     >
                         Signup
                     </button>

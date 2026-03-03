@@ -65,10 +65,10 @@ const Pricing = ({ onSignUp }) => {
             q: "Can I cancel my subscription?",
             a: "Yes, you have full control over your subscription. You can cancel at any time with a single click from your account settings. Your service will continue until the end of your current paid period."
         },
-        {
-            q: "Do you offer discounts for NGOs?",
-            a: "Yes, we love supporting social causes! We offer special discounted pricing for registered non-profit schools and NGOs. Please contact our support team to get your special discount."
-        },
+        // {
+        //     q: "Do you offer discounts for NGOs?",
+        //     a: "Yes, we love supporting social causes! We offer special discounted pricing for registered non-profit schools and NGOs. Please contact our support team to get your special discount."
+        // },
         {
             q: "Is my data backed up?",
             a: "Yes, your data is very safe with us. We perform automated cloud backups every single day for all institutions. This ensures that your student records and school data are always protected and never lost."
@@ -113,7 +113,7 @@ const Pricing = ({ onSignUp }) => {
                         <ul className="plan-features">
                             {plan.features.map((f, i) => <li key={i}>{f}</li>)}
                         </ul>
-                        <Link to={`/checkout/${plan.name.split(' ')[0].toLowerCase()}`} className={`btn-${plan.popular ? 'primary' : 'secondary'} lg text-center no-decoration`} style={{ display: 'inline-block', lineHeight: '1.5', textDecoration: 'none' }}>
+                        <Link to={`/checkout/${plan.name.split(' ')[0].toLowerCase()}`} className={`btn-${plan.popular ? 'primary' : 'secondary'} text-center no-decoration`} style={{ display: 'inline-block', lineHeight: '1.5', textDecoration: 'none' }}>
                             {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
                         </Link>
                     </div>

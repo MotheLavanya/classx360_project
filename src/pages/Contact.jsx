@@ -7,7 +7,7 @@ import {
 import './Contact.css';
 import ChatWidget from '../components/ChatWidget';
 import SupportImage from '../assets/contact-support.png';
-import ContactBanner from '../assets/image copy 10.png';
+import ContactBanner from '../assets/contactus1.png';
 
 const Contact = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -55,17 +55,8 @@ const Contact = () => {
             <section className="contact-hero-banner">
                 <div className="banner-bg-wrapper">
                     <img src={ContactBanner} alt="Contact Banner" className="banner-bg-img" />
-                    <div className="banner-overlay"></div>
                 </div>
-                <div className="banner-content">
-                    <h1 className="banner-title reveal">
-                        {"Connect With ClassX360".split('').map((char, index) => (
-                            <span key={index} style={{ '--char-index': index }}>
-                                {char === ' ' ? '\u00A0' : char}
-                            </span>
-                        ))}
-                    </h1>
-                </div>
+
             </section>
 
             <div className="contact-container">

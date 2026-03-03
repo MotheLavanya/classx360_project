@@ -153,35 +153,35 @@ const Checkout = () => {
                                 <h3>Contact Information</h3>
                                 <p style={{ fontSize: '0.9rem' }}>Please fill in your details to proceed to billing.</p>
                             </div>
-                            
+
                             <div className="billing-form-grid" style={{ gridTemplateColumns: '1fr', gap: '1.5rem' }}>
                                 <div className="input-group">
                                     <label>Full Name *</label>
-                                    <input 
-                                        type="text" 
-                                        placeholder="John Doe" 
+                                    <input
+                                        type="text"
+                                        placeholder="John Doe"
                                         value={formData.fullName}
-                                        onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                                        required 
+                                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                                        required
                                     />
                                 </div>
                                 <div className="input-group">
                                     <label>Email Address *</label>
-                                    <input 
-                                        type="email" 
-                                        placeholder="john@example.com" 
+                                    <input
+                                        type="email"
+                                        placeholder="john@example.com"
                                         value={formData.email}
-                                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                                        required 
+                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                        required
                                     />
                                 </div>
                                 <div className="input-group">
                                     <label>Organization / Institute *</label>
-                                    <input 
-                                        type="text" 
-                                        placeholder="Acme Academy" 
+                                    <input
+                                        type="text"
+                                        placeholder="Acme Academy"
                                         value={formData.organization}
-                                        onChange={(e) => setFormData({...formData, organization: e.target.value})}
+                                        onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                                         required
                                     />
                                 </div>

@@ -183,6 +183,15 @@
     -webkit-text-fill-color: #ffffff !important;
 }
 
+.hero-highlight {
+    background: linear-gradient(135deg, #FFE566 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.4));
+}
+
 .hero-subtitle {
     font-size: 1.15rem;
     line-height: 1.6;

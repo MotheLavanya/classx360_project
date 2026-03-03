@@ -1,3 +1,95 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaBuilding, FaGraduationCap, FaBullhorn } from 'react-icons/fa';
+import { featureCategories } from '../data/featuresData.jsx';
+import './FeatureShowcase.css';
+
+const FeatureShowcase = () => {
+    const [activeCategory, setActiveCategory] = useState('Management');
+    const [isAnimating, setIsAnimating] = useState(false);
+    const navigate = useNavigate();
+
+    const handleCategoryChange = (category) => {
+        if (category === activeCategory) return;
+        setIsAnimating(true);
+        setTimeout(() => {
+            setActiveCategory(category);
+            setIsAnimating(false);
+        }, 300); // 300ms fade transition
+    };
+
+    const handleCardClick = (slug) => {
+        navigate(`/feature/${slug}`);
+    };
+
+    const activeCategoryData = featureCategories[activeCategory];
+    const activeCards = activeCategoryData.items;
+
+    return (
+        <section className="premium-features-section" id="features">
+            <div className="premium-features-container">
+                <div className="premium-features-header">
+                    <h2 className="premium-features-title">Features of ClassX360</h2>
+                    <p className="premium-features-subtitle">
+                        "A complete Learning Management System that makes teaching, learning, and school management easy for everyone."
+                    </p>
+                </div>
+
+                {/* SaaS Category Navigation Bar */}
+                <div className="enterprise-tabs">
+                    {Object.keys(featureCategories).map((category) => {
+                        const iconMap = {
+                            Management: <FaBuilding className="tab-icon" />,
+                            Learning: <FaGraduationCap className="tab-icon" />,
+                            Communication: <FaBullhorn className="tab-icon" />
+                        };
+                        return (
+                            <button
+                                key={category}
+                                className={`enterprise-tab-btn ${activeCategory === category ? 'active' : ''}`}
+                                onClick={() => handleCategoryChange(category)}
+                                disabled={isAnimating}
+                            >
+                                {iconMap[category]}
+                                {category}
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* Full Width Feature Grid */}
+                <div className={`enterprise-layout ${isAnimating ? 'fade-out' : 'fade-in'}`}>
+                    <div className="enterprise-grid">
+                        {activeCards.map((feature, index) => (
+                            <div
+                                key={feature.id}
+                                className="premium-feature-card visible"
+                                style={{
+                                    animationDelay: `${index * 50}ms`,
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => handleCardClick(feature.slug)}
+                            >
+                                <div className="premium-feature-icon">
+                                    {feature.icon}
+                                </div>
+                                <h3 className="premium-feature-name">{feature.name}</h3>
+                                <p className="premium-feature-desc">{feature.shortDesc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default FeatureShowcase;
+
+/* 
+=============================================================
+PREVIOUS CODE OF FEATURES SECTION (Commented out as requested)
+=============================================================
 import React, { useRef, useState, useEffect } from 'react';
 import {
     FaCalendarCheck,
@@ -6,33 +98,23 @@ import {
     FaArrowLeft, FaArrowRight, FaLayerGroup,
     FaGraduationCap, FaBullhorn, FaLock
 } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { features } from '../data/featuresData.jsx';
 import './FeatureShowcase.css';
 
 const FeatureShowcase = () => {
-    const categories = [
-        { id: '1', name: "User & Role Management", icon: <FaLock />, desc: "Secure portal access and permissions for staff and students." },
-        { id: '2', name: "Student & Batch Management", icon: <FaGraduationCap />, desc: "Effortlessly manage student profiles and batch assignments." },
-        { id: '3', name: "Exams & Assessments", icon: <FaClipboardCheck />, desc: "Comprehensive tools for scheduling and grading assessments." },
-        { id: '4', name: "Attendance Management", icon: <FaCalendarCheck />, desc: "Automated digital tracking for daily student attendance." },
-        { id: '5', name: "Fee & Finance Management", icon: <FaCreditCard />, desc: "Manage billing, payments, and financial records with ease." },
-        { id: '6', name: "Communication & Notifications", icon: <FaBullhorn />, desc: "Instantly share updates and alerts with your community." },
-        { id: '7', name: "Advanced Reports & Analytics", icon: <FaChartBar />, desc: "Actionable data insights to monitor educational performance." },
-        { id: '8', name: "Mobile & Cloud Access", icon: <FaMobileAlt />, desc: "Access your dashboard anytime from any device." },
-        { id: '9', name: "AI Automation & Personalization", icon: <FaRobot />, desc: "Smart tools to streamline repetitive tasks and learning." }
-    ];
-
+    const navigate = useNavigate();
     // Triple the categories for infinite buffer
-    const extendedCategories = [...categories, ...categories, ...categories];
+    const extendedCategories = [...features, ...features, ...features];
 
-    const rowRef = React.useRef(null);
-    const isDraggingRef = React.useRef(false);
-    const isHoveredRef = React.useRef(false);
+    const rowRef = useRef(null);
+    const isDraggingRef = useRef(false);
+    const isHoveredRef = useRef(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeftPos, setScrollLeftPos] = useState(0);
 
     const CARD_WIDTH = 240; // 210px card + 30px gap
-    const SET_WIDTH = categories.length * CARD_WIDTH;
+    const SET_WIDTH = features.length *\ CARD_WIDTH;
 
     // ── Initial Positioning & Loop Jump ──
     const handleInfiniteJump = () => {
@@ -42,7 +124,7 @@ const FeatureShowcase = () => {
         // If too far left or too far right, jump to middle set center
         if (scrollLeft < 10) {
             rowRef.current.scrollLeft = SET_WIDTH;
-        } else if (scrollLeft >= (SET_WIDTH * 2)) {
+        } else if (scrollLeft >= (SET_WIDTH *\ 2)) {
             rowRef.current.scrollLeft = SET_WIDTH;
         }
     };
@@ -53,7 +135,7 @@ const FeatureShowcase = () => {
         }
     }, [SET_WIDTH]);
 
-    // ── Auto-scroll: one card every 12 seconds ──
+    // ── Auto-scroll: one card every 8 seconds ──
     useEffect(() => {
         const INTERVAL_MS = 8000;
         const timer = setInterval(() => {
@@ -89,7 +171,7 @@ const FeatureShowcase = () => {
         if (!isDraggingRef.current) return;
         e.preventDefault();
         const x = e.pageX - rowRef.current.offsetLeft;
-        const walk = (x - startX) * 1.5;
+        const walk = (x - startX) *\ 1.5;
         rowRef.current.scrollLeft = scrollLeftPos - walk;
         handleInfiniteJump();
     };
@@ -99,8 +181,22 @@ const FeatureShowcase = () => {
         if (rowRef.current) rowRef.current.style.cursor = 'grab';
     };
 
-    const touchStartX = React.useRef(0);
-    const touchScrollLeft = React.useRef(0);
+    const handleCardMouseMove = (e) => {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) *\ 100;
+        const y = ((e.clientY - rect.top) / rect.height) *\ 100;
+        card.style.setProperty('--mouse-x', `${x}%`);
+        card.style.setProperty('--mouse-y', `${y}%`);
+    };
+
+    const handleCardClick = (slug) => {
+        if (isDraggingRef.current) return;
+        navigate(`/feature/${slug}`);
+    };
+
+    const touchStartX = useRef(0);
+    const touchScrollLeft = useRef(0);
 
     const onTouchStart = (e) => {
         touchStartX.current = e.touches[0].pageX - rowRef.current.offsetLeft;
@@ -109,7 +205,7 @@ const FeatureShowcase = () => {
 
     const onTouchMove = (e) => {
         const x = e.touches[0].pageX - rowRef.current.offsetLeft;
-        const walk = (x - touchStartX.current) * 1.5;
+        const walk = (x - touchStartX.current) *\ 1.5;
         rowRef.current.scrollLeft = touchScrollLeft.current - walk;
         handleInfiniteJump();
     };
@@ -159,13 +255,19 @@ const FeatureShowcase = () => {
                             onTouchMove={onTouchMove}
                         >
                             {extendedCategories.map((cat, index) => (
-                                <div key={`${cat.id}-${index}`} className="adoption-card">
+                                <div
+                                    key={`${cat.id}-${index}`}
+                                    className="adoption-card"
+                                    onClick={() => handleCardClick(cat.slug)}
+                                    onMouseMove={handleCardMouseMove}
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     <div className="card-number-watermark">{cat.number}</div>
                                     <div className="card-shimmer"></div>
                                     <div className="icon-wrapper-adoption">{cat.icon}</div>
                                     <h3>{cat.name}</h3>
                                     <div className="card-footer-adoption">
-                                        <p className="card-description-adoption">{cat.desc}</p>
+                                        <p className="card-description-adoption">{cat.shortDesc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -178,3 +280,5 @@ const FeatureShowcase = () => {
 };
 
 export default FeatureShowcase;
+
+*/

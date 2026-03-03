@@ -1175,15 +1175,15 @@
 .btn-about-primary {
     background: #ffffff;
     color: #800000;
-    padding: 20px 45px;
+    padding: 20px 20px;
     border-radius: 50px;
-    font-weight: 800;
+    font-weight: 500;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 12px;
     transition: all 0.3s ease;
-    margin: 10px;
+    margin: 20px;
 }
 
 .btn-about-primary:hover {
@@ -1203,7 +1203,7 @@
     text-decoration: none;
     display: inline-block;
     transition: all 0.3s ease;
-    margin: 10px;
+    margin: 20px;
 }
 
 .btn-about-secondary:hover {

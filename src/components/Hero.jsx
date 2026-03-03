@@ -5,9 +5,6 @@ import { FaChevronLeft, FaChevronRight, FaChalkboardTeacher, FaLaptopCode, FaBoo
 import HeroBg1 from '../assets/hero_new_1.png';
 import HeroBg2 from '../assets/allinone.png';
 import HeroBg3 from '../assets/graduation-bg.png';
-import LogoTCS from '../assets/tcs.png';
-import LogoInfosys from '../assets/infosys.png';
-import LogoAmazon from '../assets/image copy 7.png';
 import LogoInfosyte from '../assets/infosyte.png';
 import LogoGyantrix from '../assets/Screenshot 2026-02-05 185349.png';
 import LogoFutureInvo from '../assets/futureinvosolutions.webp';
@@ -22,7 +19,7 @@ const Hero = ({ onGetDemo }) => {
 
     const slides = [
         {
-            headline: "All-In-One Education Management Platform",
+            headline: <>All-In-One <span className="hero-highlight">Education Management</span> Platform</>,
             subheadline: "Automate attendance, exams, fee workflows, staff records, and real-time insights — all in one system.",
             primaryCTA: "Start Your Free Demo",
             secondaryCTA: "Explore Features",
@@ -30,7 +27,7 @@ const Hero = ({ onGetDemo }) => {
             background: HeroBg1
         },
         {
-            headline: "Modern LMS, Zero Paperwork",
+            headline: <>Modern LMS, <span className="hero-highlight">Zero Paperwork</span></>,
             subheadline: "Everything your institution needs, in one digital platform. Less paperwork, more focus on growth and results.",
             primaryCTA: "Sign Up Free",
             secondaryCTA: "See Features",
@@ -38,7 +35,7 @@ const Hero = ({ onGetDemo }) => {
             background: HeroBg2
         },
         {
-            headline: "Empowering Next-Gen Education",
+            headline: <>Empowering <span className="hero-highlight">Next-Gen Education</span></>,
             subheadline: "Join thousands of institutions using ClassX 360 to engage students and scale faster.",
             primaryCTA: "Start Free Trial",
             secondaryCTA: "Success Stories",
@@ -207,27 +204,18 @@ const Hero = ({ onGetDemo }) => {
                                 {/* First Set */}
                                 <img src={LogoFutureInvo} alt="Future Invo Solutions" className="company-logo" />
                                 <img src={LogoInfosyte} alt="Infosyte" className="company-logo infosyte" />
-                                <img src={LogoTCS} alt="TCS" className="company-logo large" />
-                                <img src={LogoAmazon} alt="Amazon" className="company-logo" />
-                                <img src={LogoInfosys} alt="Infosys" className="company-logo large" />
                                 <img src={LogoGyantrix} alt="Gyantrix" className="company-logo" />
                                 <img src={LogoInfotech} alt="Infotech" className="company-logo" />
 
                                 {/* Duplicated for Infinite Scroll */}
                                 <img src={LogoFutureInvo} alt="Future Invo Solutions" className="company-logo" />
                                 <img src={LogoInfosyte} alt="Infosyte" className="company-logo infosyte" />
-                                <img src={LogoTCS} alt="TCS" className="company-logo large" />
-                                <img src={LogoAmazon} alt="Amazon" className="company-logo" />
-                                <img src={LogoInfosys} alt="Infosys" className="company-logo large" />
                                 <img src={LogoGyantrix} alt="Gyantrix" className="company-logo" />
                                 <img src={LogoInfotech} alt="Infotech" className="company-logo" />
 
                                 {/* Third set for gapless loop on wider screens */}
                                 <img src={LogoFutureInvo} alt="Future Invo Solutions" className="company-logo" />
                                 <img src={LogoInfosyte} alt="Infosyte" className="company-logo infosyte" />
-                                <img src={LogoTCS} alt="TCS" className="company-logo large" />
-                                <img src={LogoAmazon} alt="Amazon" className="company-logo" />
-                                <img src={LogoInfosys} alt="Infosys" className="company-logo large" />
                                 <img src={LogoGyantrix} alt="Gyantrix" className="company-logo" />
                                 <img src={LogoInfotech} alt="Infotech" className="company-logo" />
                             </div>

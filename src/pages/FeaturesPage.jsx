@@ -25,14 +25,14 @@ const FeaturesPage = ({ onSignUp }) => {
                 </div>
 
                 {/* Maroon Curve Divider */}
-                <div className="features-banner-curve">
+                {/* <div className="features-banner-curve">
                     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
                         <path
                             d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z"
                             fill="#800000"
                         />
                     </svg>
-                </div>
+                </div> */}
             </section>
 
             <FeatureShowcase />

@@ -22,6 +22,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: auto !important;
+}
+
 body {
   background-color: var(--background);
   color: var(--text-main);

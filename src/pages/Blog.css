@@ -44,8 +44,7 @@ body.blog-page-active .navbar .mobile-menu-btn span {
 }
 
 .blog-page-container.academic-mode {
-    background-color: #ffffff;
-    /* Updated background color */
+    background-color: white;
     min-height: 100vh;
     padding-top: 80px;
     /* Push below the 65px Navbar */
@@ -474,6 +473,7 @@ body.blog-page-active .navbar .mobile-menu-btn span {
     font-size: 0.8rem;
     /* Reduced from 0.85rem */
     transition: var(--blog-transition);
+    border-radius: 50px;
 }
 
 .btn-academic-solid:hover {
@@ -493,6 +493,8 @@ body.blog-page-active .navbar .mobile-menu-btn span {
     font-size: 0.8rem;
     /* Reduced from 0.85rem */
     transition: var(--blog-transition);
+    border-radius: 50px;
+    background-color: rgb(239, 209, 209);
 }
 
 .btn-academic-outline:hover {

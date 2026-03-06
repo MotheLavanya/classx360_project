@@ -120,7 +120,7 @@
 .features-hero-content h1 {
     font-size: 3rem;
     /* Decreased from 4rem */
-    font-weight: 950;
+    font-weight: 800;
     color: #ffffff;
     margin-bottom: 0.8rem;
     /* Reduced from 1.5rem */
@@ -151,10 +151,10 @@
 }
 
 .highlight-maroon {
-    color: #ff0000 !important;
-    /* Force solid red and ensure visibility */
-    -webkit-text-fill-color: #ff0000 !important;
-    background: none !important;
+    color: #b30000 !important;
+    /* Force solid maroon and ensure visibility */
+    -webkit-text-fill-color: #b30000 !important;
+    /* background: none !important; */
 }
 
 .features-hero-content p {
@@ -211,9 +211,9 @@
 .btn-primary-lg {
     background: #800000;
     color: #fff;
-    padding: 20px 45px;
-    border-radius: 12px;
-    font-size: 1.1rem;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 0.8rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -224,7 +224,7 @@
     box-shadow: 0 10px 25px rgba(128, 0, 0, 0.2);
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 30px;
 }
 
 .btn-primary-lg:hover {

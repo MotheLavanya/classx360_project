@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Testimonials from '../components/Testimonials';
 import './TestimonialsPage.css';
-import { FaGraduationCap, FaQuoteRight, FaCheck } from 'react-icons/fa';
+import { FaGraduationCap, FaQuoteRight, FaCheck, FaUsers, FaChartLine } from 'react-icons/fa';
 
-const TestimonialsPage = () => {
+const TestimonialsPage = ({ onSignUp }) => {
+    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo(0, 0);
 
@@ -40,19 +42,28 @@ const TestimonialsPage = () => {
                 <div className="container">
                     <div className="stats-grid">
                         <div className="stat-card">
-                            <h3 className="stat-number">100+</h3>
-                            <p className="stat-name">Institutions</p>
-                            <p className="stat-detail">Using ClassX 360 Daily</p>
+                            <div className="stat-icon-wrap"><FaGraduationCap /></div>
+                            <div className="stat-info">
+                                <h3 className="stat-number">100+</h3>
+                                <p className="stat-name">Institutions</p>
+                                <p className="stat-detail">Using ClassX 360 Daily</p>
+                            </div>
                         </div>
                         <div className="stat-card highlighted">
-                            <h3 className="stat-number">50k+</h3>
-                            <p className="stat-name">Active Users</p>
-                            <p className="stat-detail">Across All Platforms</p>
+                            <div className="stat-icon-wrap"><FaUsers /></div>
+                            <div className="stat-info">
+                                <h3 className="stat-number">50k+</h3>
+                                <p className="stat-name">Active Users</p>
+                                <p className="stat-detail">Across All Platforms</p>
+                            </div>
                         </div>
                         <div className="stat-card">
-                            <h3 className="stat-number">98%</h3>
-                            <p className="stat-name">Satisfaction Rate</p>
-                            <p className="stat-detail">Based on User Surveys</p>
+                            <div className="stat-icon-wrap"><FaChartLine /></div>
+                            <div className="stat-info">
+                                <h3 className="stat-number">98%</h3>
+                                <p className="stat-name">Satisfaction Rate</p>
+                                <p className="stat-detail">Based on User Surveys</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,8 +135,8 @@ const TestimonialsPage = () => {
                         <h2>Ready to write your own <span className="highlight-maroon">success story?</span></h2>
                         <p>Join the growing network of futuristic educational institutions.</p>
                         <div className="cta-actions">
-                            <button className="btn-primary">Book a Demo</button>
-                            <button className="btn-secondary">Get Started</button>
+                            <button className="btn-primary" onClick={() => navigate('/contact')}>Book a Demo</button>
+                            <button className="btn-secondary" onClick={onSignUp}>Get Started</button>
                         </div>
                     </div>
                 </div>

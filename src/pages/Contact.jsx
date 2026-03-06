@@ -53,10 +53,9 @@ const Contact = () => {
         <div className="contact-page">
             {/* 🚀 PREMIUM HERO BANNER */}
             <section className="contact-hero-banner">
-                <div className="banner-bg-wrapper">
-                    <img src={ContactBanner} alt="Contact Banner" className="banner-bg-img" />
+                <div className="banner-content">
+                    <h1 className="banner-title">Contact Us</h1>
                 </div>
-
             </section>
 
             <div className="contact-container">

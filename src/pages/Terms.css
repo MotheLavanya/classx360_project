@@ -3,7 +3,7 @@
     min-height: 100vh;
     padding-bottom: 80px;
     overflow-x: hidden;
-    color: #1a1a1a;
+    color: #800000;
 }
 
 @keyframes fadeInUp {
@@ -33,140 +33,119 @@
 }
 
 .terms-hero {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: #800000;
     padding: 100px 0 60px;
     color: white;
     text-align: center;
     position: relative;
-    min-height: 400px;
+    min-height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Dark Overlay to make text readable */
 .terms-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
+    display: none;
 }
 
 .terms-hero h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 2;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
-    color: #ff3333;
+    color: white;
 }
 
-.terms-hero .last-updated {
-    opacity: 0.9;
-    font-size: 1.1rem;
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+.last-updated {
+    opacity: 0.8;
+    font-size: 0.95rem;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
 }
 
 .terms-content-wrapper {
-    margin-top: -100px;
+    margin-top: 60px;
     padding: 0 5%;
     position: relative;
     z-index: 10;
 }
 
-.terms-card {
-    background: #0a0a0a;
-    border-radius: 20px;
-    padding: 60px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+.terms-content {
     max-width: 900px;
     margin: 0 auto;
-    animation: fadeInUp 1s ease-out 0.6s backwards;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-    border: 1px solid #1a1a1a;
-}
-
-.terms-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out 0.2s backwards;
 }
 
 .terms-intro p {
     font-size: 1.15rem;
-    color: #cbd5e1;
+    color: #1a1a1a;
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
+    text-align: justify;
 }
 
 .terms-section {
-    /* margin-top: 2px; */
-    border-top: 1px solid #1a1a1a;
-    /* padding-top: 5px; */
-    transition: transform 0.3s ease;
-}
-
-.terms-section:hover {
-    transform: translateX(10px);
+    padding-top: 15px;
+    margin-top: 15px;
 }
 
 .terms-section h2 {
     font-size: 1.5rem;
     font-weight: 700;
     color: #800000;
-    /* Fixed visibility on white bg */
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subsection {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.subsection h3 {
+    font-size: 1.2rem;
+    color: #800000;
+    margin-bottom: 0.3rem;
 }
 
 .terms-section p {
-    color: white;
+    color: #1a1a1a;
     line-height: 1.7;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     font-size: 1rem;
+    text-align: justify;
 }
 
-.terms-footer-note {
-    margin-top: 60px;
-    padding: 40px;
-    background: linear-gradient(135deg, #1a0202 0%, #050505 100%);
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid #1a1a1a;
+.terms-section ul,
+.terms-section ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
 }
 
-.terms-footer-note p {
-    color: #cbd5e1;
-    line-height: 1.7;
-    margin-bottom: 0;
+.terms-section li {
+    color: #1a1a1a;
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+}
+
+.check-list {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.check-list li {
+    color: #1a1a1a;
     font-weight: 500;
+    display: list-item;
 }
 
-.terms-footer-note a {
-    color: #ff3333;
+.email-link {
+    color: #800000;
+    font-weight: bold;
     text-decoration: none;
-    font-weight: 700;
-}
-
-.terms-footer-note a:hover {
-    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
     .terms-hero h1 {
         font-size: 2.2rem;
-    }
-
-    .terms-card {
-        padding: 30px;
     }
 
     .terms-section h2 {

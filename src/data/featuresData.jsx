@@ -15,13 +15,13 @@ import studentMgmtImg from '../assets/feature_student_records.png';
 import financeImg from '../assets/feature_finance.png';
 import timetableImg from '../assets/feature_timetable.png';
 import staffPayrollImg from '../assets/feature_staff_payroll.png';
-import libraryImg from '../assets/feature_library.png';
-import multiCampusImg from '../assets/feature_multi_campus.png';
+import libraryImg from '../assets/library-management.png';
+import multiCampusImg from '../assets/multi-campus-management.png';
 
 // Learning — generated images
 import assessmentImg from '../assets/feature_assessments.png';
 import attendanceImg from '../assets/feature_attendance.png';
-import courseImg from '../assets/feature_course_mgmt.png';
+import courseImg from '../assets/course-management.png';
 import assignmentImg from '../assets/feature_assignment_workflow.png';
 import aiImg from '../assets/feature_ai_learning.png';
 import interactiveImg from '../assets/feature_interactive_tools.png';

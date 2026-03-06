@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import './PrivacyPolicy.css';
 
-import PrivacyHeroImage from '../assets/privacypolicy.png';
+
 
 const PrivacyPolicy = () => {
     return (
         <div className="privacy-page page-entrance">
-            <div className="privacy-hero" style={{ backgroundImage: `url(${PrivacyHeroImage})` }}>
+            <div className="privacy-hero">
                 <div className="privacy-hero-overlay"></div>
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <h1>Privacy Policy</h1>
@@ -18,90 +18,92 @@ const PrivacyPolicy = () => {
 
             <div className="privacy-content-wrapper">
                 <div className="container">
-                    <div className="privacy-card">
+                    <div className="privacy-content">
                         <section className="privacy-intro">
                             <p>
-                                Welcome to the <strong>ClassX 360</strong> Privacy Policy. Your privacy and trust are very important to us.
-                                This policy explains what information we collect, why we collect it, how we use it, and how we protect it
-                                when you use our Learning Management System (LMS) and related services.
+                                At <strong>ClassX360</strong>, your privacy is important to us. This Privacy Policy explains what information we collect, how we use it, and how we protect it when you use our Learning Management System (LMS) and related services.
                             </p>
                             <p>
-                                We are committed to safeguarding your personal information while providing you with a secure
-                                and reliable digital learning experience.
+                                Our goal is to provide a safe and secure learning platform while respecting your personal information.
                             </p>
                         </section>
 
                         <section className="privacy-section">
-                            <h2>1️⃣ Information We Collect</h2>
-                            <p>To deliver, improve, and personalize your experience on ClassX 360, we may collect the following categories of information:</p>
-                            <ul>
-                                <li><strong>Account Information:</strong> Your name, email address, username, and other details you provide when you sign up or update your profile.</li>
-                                <li><strong>Usage Information:</strong> Data related to your activities within the LMS such as course interaction, progress, usage patterns, and device information.</li>
-                                <li><strong>Support & Communications:</strong> Information you provide when contacting support or responding to surveys.</li>
-                            </ul>
-                        </section>
+                            <h2>1. Information We Collect</h2>
+                            <p>To provide our services, we may collect the following information:</p>
 
-                        <section className="privacy-section">
-                            <h2>2️⃣ How We Use Your Information</h2>
-                            <p>Your data is used only for specific, legitimate purposes, including:</p>
-                            <ul className="check-list">
-                                <li>✔ Providing and maintaining your LMS account and access to learning tools.</li>
-                                <li>✔ Personalizing your learning experience and tracking course progress.</li>
-                                <li>✔ Communicating with you about updates, support, or platform improvements.</li>
-                                <li>✔ Complying with legal and regulatory obligations.</li>
-                            </ul>
-                            <div className="important-note">
-                                <p>We do not sell your personal information to advertisers or unrelated third parties.</p>
+                            <div className="subsection">
+                                <h3>Account Information</h3>
+                                <p>When you create an account, we may collect details such as your name, email address, username, and other profile information.</p>
+                            </div>
+
+                            <div className="subsection">
+                                <h3>Usage Information</h3>
+                                <p>We may collect information about how you use the platform, such as course progress, activity within the LMS, and basic device information.</p>
+                            </div>
+
+                            <div className="subsection">
+                                <h3>Support Information</h3>
+                                <p>If you contact us for help or support, we may collect the information you provide in your message.</p>
                             </div>
                         </section>
 
                         <section className="privacy-section">
-                            <h2>3️⃣ Cookies & Tracking Technologies</h2>
-                            <p>
-                                ClassX 360 uses cookies and similar technologies to enhance your experience, analyze site usage,
-                                and support platform functionality. You can manage cookie preferences through your browser or device settings.
-                            </p>
-                        </section>
-
-                        <section className="privacy-section">
-                            <h2>4️⃣ Data Protection & Security</h2>
-                            <p>
-                                We take your privacy seriously and implement appropriate technical and organizational measures
-                                to protect your data from unauthorized access, loss, or misuse.
-                            </p>
-                        </section>
-
-                        <section className="privacy-section">
-                            <h2>5️⃣ Your Rights & Choices</h2>
-                            <p>Depending on your location and applicable laws, you may have rights such as:</p>
-                            <ul>
-                                <li>Accessing your personal information.</li>
-                                <li>Correcting or updating inaccurate data.</li>
-                                <li>Requesting deletion or restricting processing.</li>
+                            <h2>2. How We Use Your Information</h2>
+                            <p>We use your information to:</p>
+                            <ul className="check-list">
+                                <li>Create and manage your account</li>
+                                <li>Provide access to courses and learning tools</li>
+                                <li>Track learning progress and improve the learning experience</li>
+                                <li>Send important updates and notifications</li>
+                                <li>Improve our platform and services</li>
+                                <li>Follow legal and regulatory requirements</li>
                             </ul>
-                            <p>If you wish to exercise any of these rights, please contact us at <a href="mailto:privacy@classx360.com">privacy@classx360.com</a>.</p>
+                            <p><strong>Note:</strong> We do not sell your personal information to third parties.</p>
                         </section>
 
                         <section className="privacy-section">
-                            <h2>6️⃣ Updates to This Policy</h2>
+                            <h2>3. Cookies</h2>
                             <p>
-                                We may update this Privacy Policy occasionally to reflect changes in our practices or legal requirements.
-                                When we make significant changes, we will update the "Last Updated" date at the top of this page.
+                                ClassX360 may use cookies and similar technologies to improve your experience and understand how the platform is used. You can manage or disable cookies through your browser settings.
                             </p>
                         </section>
 
-                        <section className="privacy-section contact-highlight">
-                            <h2>7️⃣ Contact Us</h2>
-                            <p>If you have questions or concerns about your privacy, please reach out to:</p>
-                            <a href="mailto:privacy@classx360.com" className="email-cta">📧 privacy@classx360.com</a>
+                        <section className="privacy-section">
+                            <h2>4. Data Security</h2>
+                            <p>
+                                We take appropriate steps to protect your personal information from unauthorized access, loss, or misuse.
+                            </p>
                         </section>
 
-                        <section className="privacy-footer-note">
-                            <h3>Why This Matters to You</h3>
+                        <section className="privacy-section">
+                            <h2>5. Your Rights</h2>
+                            <p>Depending on applicable laws, you may have the right to:</p>
+                            <ul className="check-list">
+                                <li>Access your personal information</li>
+                                <li>Correct or update your information</li>
+                                <li>Request deletion of your data</li>
+                            </ul>
+                            <p>If you would like to make a request, please contact us.</p>
+                        </section>
+
+                        <section className="privacy-section">
+                            <h2>6. Updates to This Policy</h2>
                             <p>
-                                Your privacy is more than a legal requirement — it's part of how we build a trusted learning environment.
-                                We strive to explain things clearly so you understand how your information is handled, why we collect it,
-                                and how you remain in control of your data while using ClassX 360.
+                                We may update this Privacy Policy from time to time. When we make important changes, we will update the “Last Updated” date on this page.
+                            </p>
+                        </section>
+
+                        <section className="privacy-section">
+                            <h2>7. Contact Us</h2>
+                            <p>If you have any questions about this Privacy Policy or your data, please contact us:</p>
+                            <a href="mailto:privacy@classx360.com" className="email-link">📧 privacy@classx360.com</a>
+                        </section>
+
+                        <section className="privacy-section">
+                            <h2>Why This Matters</h2>
+                            <p>
+                                Your privacy helps us build a safe and trusted learning environment. We are committed to handling your information responsibly and transparently.
                             </p>
                         </section>
                     </div>

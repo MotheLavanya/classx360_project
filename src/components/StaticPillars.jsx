@@ -2,20 +2,20 @@ import React from 'react';
 import './StaticPillars.css';
 
 // Import assets
-import MissionImage from '../assets/transforms.png';
-import StoryImage from '../assets/image1.jpg';
+import TransformImage from '../assets/transformclass.png';
+import EngageImage from '../assets/engage.png';
 import TeamImage from '../assets/datadriven.png';
 
 const pillarData = [
     {
-        title: "Transform your classroom",
+        title: "Transform your class",
         description: "Modern digital tools and engaging content that make learning easier and more effective for everyone. Our platform helps teachers spend less time on paperwork and more time inspiring students in the classroom. We provide the perfect balance of technology and education to create a better learning experience.",
-        image: MissionImage,
+        image: TransformImage,
     },
     {
         title: "Engage with Media",
         description: "A dynamic learning environment that helps students participate more and understand lessons with clarity. By using high-quality visuals and interactive resources, we bring difficult concepts to life through discovery. This approach ensures that every student stays curious and enjoys the journey of learning.",
-        image: StoryImage,
+        image: EngageImage,
     },
     {
         title: "Data-Driven Success",

@@ -48,8 +48,8 @@
 }
 
 .portal-title {
-    font-size: 2.2em;
-    font-weight: 800;
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
     color: #0f172a !important;
     margin-bottom: 20px;
     white-space: nowrap;
@@ -215,7 +215,7 @@
 }
 
 .portal-main-info h3 {
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: 800;
     margin: 0 0 20px;
     color: #0f172a;
@@ -329,7 +329,7 @@
 /* Comprehensive Responsive Overhaul */
 @media (max-width: 1024px) {
     .portal-title {
-        font-size: 2.2rem;
+        font-size: 2.25rem;
         white-space: normal;
     }
 

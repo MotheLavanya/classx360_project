@@ -6,8 +6,7 @@ import RefundHeroImage from '../assets/privacypolicy.png';
 const RefundPolicy = () => {
     return (
         <div className="terms-page page-entrance">
-            <div className="terms-hero" style={{ backgroundImage: `url(${RefundHeroImage})` }}>
-                <div className="terms-hero-overlay"></div>
+            <div className="terms-hero">
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <h1>Refund Policy</h1>
                     <p className="last-updated">Last updated: January 28, 2026</p>
@@ -16,8 +15,8 @@ const RefundPolicy = () => {
 
             <div className="terms-content-wrapper">
                 <div className="container">
-                    <div className="terms-card">
-                        <section className="privacy-intro">
+                    <div className="terms-content">
+                        <section className="terms-intro">
                             <p>
                                 At <strong>ClassX 360</strong>, we are committed to providing high-quality digital education.
                                 We want you to be perfectly satisfied with your learning experience. This policy outlines
@@ -25,7 +24,7 @@ const RefundPolicy = () => {
                             </p>
                         </section>
 
-                        <section className="privacy-section">
+                        <section className="terms-section">
                             <h2>1. Eligibility for Refunds</h2>
                             <p>To be eligible for a refund, the following conditions must be met:</p>
                             <ul>
@@ -35,7 +34,7 @@ const RefundPolicy = () => {
                             </ul>
                         </section>
 
-                        <section className="privacy-section">
+                        <section className="terms-section">
                             <h2>2. Non-Refundable Items</h2>
                             <p>Certain products and services are not eligible for refunds under any circumstances:</p>
                             <ul>
@@ -46,7 +45,7 @@ const RefundPolicy = () => {
                             </ul>
                         </section>
 
-                        <section className="privacy-section">
+                        <section className="terms-section">
                             <h2>3. How to Request a Refund</h2>
                             <p>To initiate a refund request, please follow these steps:</p>
                             <ol>
@@ -56,7 +55,7 @@ const RefundPolicy = () => {
                             </ol>
                         </section>
 
-                        <section className="privacy-section">
+                        <section className="terms-section">
                             <h2>4. Refund Processing</h2>
                             <p>
                                 Once approved, your refund will be processed back to the original payment method within
@@ -64,14 +63,14 @@ const RefundPolicy = () => {
                             </p>
                         </section>
 
-                        <section className="privacy-section contact-highlight">
+                        <section className="terms-section">
                             <h2>Contact Support</h2>
                             <p>If you have any questions about this policy, please reach out to our billing team:</p>
-                            <a href="mailto:support@classx360.com" className="email-cta">📧 support@classx360.com</a>
+                            <a href="mailto:support@classx360.com" className="email-link">📧 support@classx360.com</a>
                         </section>
 
-                        <section className="privacy-footer-note">
-                            <h3>Transparent & Fair</h3>
+                        <section className="terms-section">
+                            <h2>Transparent & Fair</h2>
                             <p>
                                 Our goal is to maintain a fair and sustainable platform for both students and instructors.
                                 Thank you for choosing ClassX 360 for your digital journey.

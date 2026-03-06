@@ -7,8 +7,7 @@ import TermsHeroImage from '../assets/privacypolicy.png';
 const Terms = () => {
     return (
         <div className="terms-page page-entrance">
-            <div className="terms-hero" style={{ backgroundImage: `url(${TermsHeroImage})` }}>
-                <div className="terms-hero-overlay"></div>
+            <div className="terms-hero">
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <h1>Terms of Service</h1>
                     <p className="last-updated">Last updated: January 28, 2026</p>
@@ -17,7 +16,7 @@ const Terms = () => {
 
             <div className="terms-content-wrapper">
                 <div className="container">
-                    <div className="terms-card">
+                    <div className="terms-content">
                         <section className="terms-intro">
                             <p>
                                 By accessing and using <strong>ClassX 360</strong>, you agree to comply with and be bound by the
@@ -38,7 +37,7 @@ const Terms = () => {
                         <section className="terms-section">
                             <h2>3. Prohibited Conduct</h2>
                             <p>You agree not to engage in any of the following prohibited activities:</p>
-                            <ul style={{ color: 'white', paddingLeft: '20px', lineHeight: '1.7' }}>
+                            <ul>
                                 <li>Copying, distributing, or disclosing any part of the service in any medium.</li>
                                 <li>Attempting to interfere with, compromise the system integrity or security.</li>
                                 <li>Taking any action that imposes an unreasonable load on our infrastructure.</li>
@@ -71,8 +70,8 @@ const Terms = () => {
                             <p>In no event shall ClassX 360 be liable for any indirect, incidental, special, exemplary, or consequential damages arising out of or in connection with the service.</p>
                         </section>
 
-                        <section className="terms-footer-note">
-                            <p>For full details or questions regarding these terms, contact our legal team at <a href="mailto:legal@classx360.com">legal@classx360.com</a></p>
+                        <section className="terms-section">
+                            <p>For full details or questions regarding these terms, contact our legal team at <a href="mailto:legal@classx360.com" className="email-link">legal@classx360.com</a></p>
                         </section>
                     </div>
                 </div>

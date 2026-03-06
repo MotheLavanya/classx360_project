@@ -104,7 +104,7 @@ function App() {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/refund" element={<RefundPolicy />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage onSignUp={openSignUp} />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/feature/:slug" element={<FeatureDetail onSignUp={openSignUp} />} />
         </Routes>

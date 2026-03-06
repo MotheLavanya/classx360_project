@@ -268,7 +268,7 @@ body.blog-page-active .navbar .mobile-menu-btn span {
 }
 
 .trifecta-kicker {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     font-weight: 900;
     color: var(--uw-maroon);
     text-transform: uppercase;
@@ -279,7 +279,7 @@ body.blog-page-active .navbar .mobile-menu-btn span {
 }
 
 .trifecta-subheading {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     /* Scaled down */
     font-weight: 900;
     color: var(--uw-dark);
@@ -288,11 +288,12 @@ body.blog-page-active .navbar .mobile-menu-btn span {
 }
 
 .trifecta-paragraph {
-    font-size: 1rem;
+    font-size: 0.9rem;
     /* Scaled down */
     line-height: 1.6;
     color: var(--uw-text-muted);
     margin: 0;
+    text-align: justify;
 }
 
 /* Center Column - Minimized Image */

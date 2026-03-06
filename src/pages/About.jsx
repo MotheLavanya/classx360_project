@@ -14,11 +14,11 @@ import DashboardImage from '../assets/dashboard_preview.png';
 import BgPattern from '../assets/vision.png';
 
 // Import additional assets
-import StudentImage from '../assets/student_mgmt_new.png';
+import StudentImage from '../assets/studentmanagement.png';
 import AcademicImage from '../assets/exams_assessments_new.png';
-import FinanceImage from '../assets/finance_premium.png';
-import CommunityImage from '../assets/communities_new.png';
-import InsightsImage from '../assets/reports_analytics_new.png';
+import FinanceImage from '../assets/financialoperation.png';
+import CommunityImage from '../assets/communityhub.png';
+import InsightsImage from '../assets/insightsreports.png';
 
 const About = () => {
     useEffect(() => {

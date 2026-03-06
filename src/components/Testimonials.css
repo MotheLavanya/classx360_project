@@ -57,6 +57,7 @@
     color: #ffffff !important;
     margin-bottom: 30px;
     max-width: 380px;
+    text-align: justify;
 }
 
 /* Right Side: Horizontal Scroller */
@@ -146,6 +147,7 @@
     line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    /* text-align: justify; */
 }
 
 /* Show Overlay on Hover */

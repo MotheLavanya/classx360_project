@@ -42,7 +42,7 @@ const WithoutOrbitAnimation = () => {
                 if (!isVisible) return;
                 setPhase('wavy');
                 let start = Date.now();
-                const morphDuration = 800;
+                const morphDuration = 1000;
                 const animateMorph = () => {
                     let elapsed = Date.now() - start;
                     let progress = Math.min(elapsed / morphDuration, 1);
@@ -54,8 +54,8 @@ const WithoutOrbitAnimation = () => {
                 timer = setTimeout(() => {
                     if (!isVisible) return;
                     setPhase('falling');
-                }, 1000);
-            }, 400);
+                }, 1500);
+            }, 800);
         };
 
         const observer = new IntersectionObserver(([entry]) => {
@@ -118,7 +118,7 @@ const WithoutOrbitAnimation = () => {
                     style={{
                         '--sy': `${y}px`,
                         '--fy': `${(index % 3) * 15}px`,
-                        transitionDelay: phase === 'falling' ? `${index * 0.02}s` : '0s'
+                        transitionDelay: phase === 'falling' ? `${index * 0.05}s` : '0s'
                     }}
                 >
                     <foreignObject x={x - 60} y={y - 60} width="120" height="150" style={{ overflow: 'visible' }}>

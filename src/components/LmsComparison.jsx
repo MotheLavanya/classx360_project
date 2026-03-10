@@ -23,7 +23,7 @@ const LmsComparison = () => {
                     // Start timer to trigger chaos after delay
                     fallTimeout = setTimeout(() => {
                         setChaosActive(true);
-                    }, 1200);
+                    }, 1400);
                 } else {
                     // Reset instantly when user scrolls away
                     if (fallTimeout) clearTimeout(fallTimeout);

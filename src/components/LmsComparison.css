@@ -147,68 +147,7 @@
     z-index: 2;
 }
 
-/* Stabilized Tracks for Without Side */
-/* Stabilized Tracks for Without Side */
-.wobbly-mode .layer-1:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 200px;
-    transform: translate(-50%, -50%);
-    border: 3px solid white;
-    border-radius: 50%;
-    opacity: 0.7;
-}
-
-.wobbly-mode .layer-2:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 320px;
-    height: 320px;
-    transform: translate(-50%, -50%);
-    border: 3px solid white;
-    border-radius: 50%;
-    opacity: 0.7;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.chaos-active .wobbly-mode .layer-1:before {
-    animation: distort-orbit 0.5s forwards cubic-bezier(0.4, 0, 0.2, 1);
-    /* Professional easing */
-}
-
-.chaos-active .wobbly-mode .layer-2:before {
-    animation: distort-orbit 0.5s forwards cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
-}
-
-@keyframes distort-orbit {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        border-radius: 50%;
-        border-width: 3px;
-        opacity: 0.8;
-    }
-
-    /* Phase 1: Subtle Expansion to indicate instability */
-    40% {
-        transform: translate(-50%, -50%) scale(1.15);
-        border-radius: 45%;
-        border-width: 2px;
-        opacity: 0.6;
-    }
-
-    /* Phase 2: Fade out completely as structure breaks */
-    100% {
-        transform: translate(-50%, -50%) scale(0.9);
-        border-radius: 40%;
-        opacity: 0;
-        visibility: hidden;
-    }
-}
+/* Orbit tracks handled by WithoutOrbitAnimation and embedded-orbits */
 
 /* Perfect Circles for With Side */
 .with-box .layer-1:before {
@@ -254,11 +193,7 @@
     --icon-dir: normal;
 }
 
-.chaos-active .orbit-track {
-    animation: none;
-    transform: rotate(0deg) !important;
-    transition: transform 0.1s ease-out;
-}
+/* .chaos-active handling removed in favor of WithoutOrbitAnimation */
 
 .chaos-active .orbital-icon {
     animation: warning-fall 3s ease-in-out infinite;
@@ -643,5 +578,23 @@
 @media (max-width: 480px) {
     .embedded-orbits {
         transform: scale(0.75);
+    }
+
+    .comparison-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .embedded-orbits {
+        transform: scale(0.65);
+    }
+
+    .comparison-title {
+        font-size: 1.7rem;
+    }
+
+    .comparison-box {
+        padding: 30px 15px !important;
     }
 }

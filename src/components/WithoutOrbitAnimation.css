@@ -1,0 +1,118 @@
+.standalone-orbit-container {
+    width: 320px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    overflow: visible;
+    background: transparent;
+}
+
+.wobbly-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.orbit-line {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    opacity: 1;
+    transform-origin: center;
+}
+
+/* 0.2s Lightning-Fast Collapse */
+.orbit-line.collapse {
+    opacity: 0;
+    transform: scale(0.6) rotate(10deg);
+}
+
+/* Smoothing for Morphing */
+.orbit-line:not(.collapse) {
+    transition: none;
+    /* Paths are updated via React state/requestAnimationFrame */
+}
+
+.orbital-item {
+    /* No default transition — prevents reverse animation on reset */
+    pointer-events: auto;
+}
+
+/* Instant reset — no animation when icons snap back on revisit */
+.orbital-item.resetting {
+    transform: none;
+    transition: none !important;
+    opacity: 1;
+}
+
+.orbital-item.collapse {
+    opacity: 1;
+    /* Stay visible at the bottom */
+    transform: translateY(calc(720px - var(--sy) - var(--fy)));
+    /* Vertical fall to staggered pile */
+    transition: transform 0.25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    /* High-speed gravity fall (Ease-In-Cubic) */
+    pointer-events: none;
+}
+
+.icon-with-label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100px;
+    height: 120px;
+}
+
+.orbital-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f1f5f9 60%, #e2e8f0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font-size: 2.5rem;
+    position: relative;
+    /* Required so label positions relative to icon */
+    /* Premium 3D Extrusion Shadow */
+    box-shadow:
+        0 4px 0 #cbd5e1,
+        0 10px 20px rgba(0, 0, 0, 0.15),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.orbital-item:hover .orbital-icon-wrapper {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.orbital-label-popup {
+    position: absolute;
+    top: 100%;
+    /* Always starts at the BOTTOM edge of the icon */
+    margin-top: 6px;
+    /* Small gap between icon and label */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(27, 26, 26, 0.5);
+    /* Maroon Glass */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    display: block;
+    text-align: center;
+    z-index: 100;
+}

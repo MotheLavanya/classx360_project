@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FaCheckCircle, FaLock, FaCreditCard, FaArrowRight, FaCheck, FaArrowLeft } from 'react-icons/fa';
+import { FaCheckCircle, FaLock, FaCreditCard, FaArrowRight, FaCheck, FaArrowLeft, FaTimes } from 'react-icons/fa';
 import './Checkout.css';
 
 const Checkout = () => {
@@ -106,6 +106,9 @@ const Checkout = () => {
                 {/* Step 1: Plan Overview */}
                 {step === 1 && (
                     <div className="checkout-card fade-in">
+                        <Link to="/" className="auth-close-btn" title="Close">
+                            <FaTimes />
+                        </Link>
                         <div className="plan-header">
                             <span className="plan-name-badge">You chose {selectedPlan.name}</span>
                             <h2>Review Your Selection</h2>
@@ -201,7 +204,7 @@ const Checkout = () => {
                                 }
                                 setError('');
                                 setStep(2);
-                            }}>Proceed to Billing <FaArrowRight /></button>
+                            }}>Proceed to Billing </button>
                         </div>
                     </div>
                 )}
@@ -209,6 +212,9 @@ const Checkout = () => {
                 {/* Step 2: Billing */}
                 {step === 2 && (
                     <div className="checkout-card fade-in">
+                        <Link to="/" className="auth-close-btn" title="Close">
+                            <FaTimes />
+                        </Link>
                         <div className="plan-header">
                             <h2>Billing Details</h2>
                             <p>Complete your purchase securely.</p>

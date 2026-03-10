@@ -15,7 +15,7 @@ import BgPattern from '../assets/vision.png';
 
 // Import additional assets
 import StudentImage from '../assets/studentmanagement.png';
-import AcademicImage from '../assets/exams_assessments_new.png';
+import AcademicImage from '../assets/academic-excellence.png';
 import FinanceImage from '../assets/financialoperation.png';
 import CommunityImage from '../assets/communityhub.png';
 import InsightsImage from '../assets/insightsreports.png';
@@ -381,9 +381,11 @@ const About = () => {
                     <p>Experience the power of ClassX 360 first-hand.</p>
                     <div className="cta-actions">
                         <Link to="/contact" className="btn-about-primary">
-                            Start Your Free Demo <FaArrowRight />
+                            <span>Start Your Free Demo</span>
                         </Link>
-                        <Link to="/contact" className="btn-about-secondary">Contact Us Today</Link>
+                        <Link to="/contact" className="btn-about-secondary">
+                            <span>Contact Us Today</span>
+                        </Link>
                     </div>
                 </div>
             </section>

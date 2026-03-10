@@ -64,13 +64,13 @@
 
 .terms-content-wrapper {
     margin-top: 60px;
-    padding: 0 5%;
+    padding: 0 3%;
     position: relative;
     z-index: 10;
 }
 
 .terms-content {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     animation: fadeInUp 1s ease-out 0.2s backwards;
 }
@@ -150,5 +150,27 @@
 
     .terms-section h2 {
         font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .terms-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .terms-intro p,
+    .terms-section p,
+    .terms-section li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .terms-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .terms-section h2 {
+        font-size: 1.15rem;
     }
 }

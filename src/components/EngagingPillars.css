@@ -326,3 +326,17 @@
         font-size: 0.9rem;
     }
 }
+
+@media (max-width: 360px) {
+    .text h2 {
+        font-size: 1.2rem;
+    }
+
+    .wysiwyg p {
+        font-size: 0.85rem;
+    }
+
+    .is-card .section--text-image__wrapper {
+        padding: 20px 15px;
+    }
+}

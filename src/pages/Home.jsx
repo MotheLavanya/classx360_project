@@ -1,36 +1,39 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Hero from '../components/Hero';
 import HowItWorks from '../components/HowItWorks';
 import LmsComparison from '../components/LmsComparison';
 import FeatureShowcase from '../components/FeatureShowcase';
 import RoleDashboards from '../components/RoleDashboards';
 import Testimonials from '../components/Testimonials';
-
 import HomeFinalCTA from '../components/HomeFinalCTA';
 
-const Home = ({ onSignUp }) => {
+const Home = () => {
+    const navigate = useNavigate();
+    const handleSignUp = () => navigate('/signup');
+
     return (
         <main>
             <section>
-                <Hero onGetDemo={onSignUp} />
+                <Hero onGetDemo={handleSignUp} />
             </section>
             <section>
                 <LmsComparison />
             </section>
             <section>
-                <HowItWorks onGetDemo={onSignUp} />
+                <HowItWorks onGetDemo={handleSignUp} />
             </section>
             <section>
                 <FeatureShowcase />
             </section>
             <section>
-                <RoleDashboards onSignUp={onSignUp} />
+                <RoleDashboards onSignUp={handleSignUp} />
             </section>
             <section>
                 <Testimonials />
             </section>
             <section>
-                <HomeFinalCTA onSignUp={onSignUp} />
+                <HomeFinalCTA onSignUp={handleSignUp} />
             </section>
 
             {/* 

@@ -270,21 +270,49 @@
 
 /* Premium Glass Secondary Button Style */
 .hero-btn-glass {
+    position: relative;
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     color: #ffffff !important;
     backdrop-filter: blur(12px) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1) !important;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-btn-glass span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease;
+}
+
+.hero-btn-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
 }
 
 .hero-btn-glass:hover {
-    background: #ffffff !important;
-    color: var(--primary) !important;
+    color: #800000 !important;
     border-color: #ffffff !important;
     transform: translateY(-5px) scale(1.05) !important;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
     letter-spacing: 0.5px;
+}
+
+.hero-btn-glass:hover span {
+    color: #800000 !important;
+}
+
+.hero-btn-glass:hover::before {
+    left: 0;
 }
 
 /* Icons styling within buttons */
@@ -672,5 +700,13 @@
 @media (max-width: 360px) {
     .hero-slide h1 {
         font-size: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 10px;
+    }
+
+    .stats-text {
+        font-size: 0.75rem;
     }
 }

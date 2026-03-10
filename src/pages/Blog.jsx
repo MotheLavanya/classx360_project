@@ -230,8 +230,8 @@ const Blog = () => {
                         <h2>Empower Your Institution's Future</h2>
                         <p>Discover how our smart tools can simplify your daily operations and help you focus on success.</p>
                         <div className="cta-links-academic">
-                            <Link to="/contact" className="btn-academic-solid">Get in Touch</Link>
-                            <Link to="/pricing" className="btn-academic-outline">Explore Our Plans</Link>
+                            <Link to="/contact" className="btn-academic-solid"><span>Get in Touch</span></Link>
+                            <Link to="/pricing" className="btn-academic-outline"><span>Explore Our Plans</span></Link>
                         </div>
                     </div>
                 </section>

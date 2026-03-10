@@ -144,11 +144,6 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  html {
-    font-size: 14px;
-  }
-}
 
 .home-section-placeholder {
   padding: 100px 5%;

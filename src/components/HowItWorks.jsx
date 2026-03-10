@@ -95,7 +95,7 @@ const HowItWorks = ({ onGetDemo }) => {
                 </div>
 
                 <div className="how-cta">
-                    <button className="btn-primary" onClick={onGetDemo}>Request a Demo</button>
+                    <button className="btn-primary" onClick={onGetDemo}><span>Request a Demo</span></button>
                     <p>Start your transformation today</p>
                 </div>
             </div>

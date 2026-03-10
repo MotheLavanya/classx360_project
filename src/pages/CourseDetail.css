@@ -429,3 +429,42 @@
         gap: 0.5rem;
     }
 }
+
+@media (max-width: 480px) {
+    .course-content-grid {
+        padding: 2rem 5%;
+    }
+
+    .course-header-banner h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-block,
+    .card-glass {
+        padding: 1.5rem;
+    }
+
+    .course-header-banner .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .course-header-banner h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-back-main {
+        top: 20px;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .current-price {
+        font-size: 2rem;
+    }
+}

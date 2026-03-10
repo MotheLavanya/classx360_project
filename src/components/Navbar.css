@@ -550,13 +550,41 @@
     }
 }
 
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .logo-icon-main {
+        font-size: 1.8rem;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .mobile-menu-btn span {
+        width: 25px;
+    }
+}
+
 @media (max-width: 360px) {
     .logo-text {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         white-space: nowrap;
     }
 
     .navbar {
         padding: 0 10px;
+    }
+
+    .nav-links {
+        padding: 5rem 1rem 3rem;
+    }
+
+    .nav-link-btn,
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.8rem;
     }
 }

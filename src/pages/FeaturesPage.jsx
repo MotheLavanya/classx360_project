@@ -41,7 +41,7 @@ const FeaturesPage = ({ onSignUp }) => {
                 <div className="cta-content">
                     <h2>Ready to get started?</h2>
                     <p>Join 1000+ institutions transforming education with ClassX360.</p>
-                    <button className="btn-primary-lg" onClick={onSignUp}>Get Started Free</button>
+                    <button className="btn-primary-lg" onClick={onSignUp}><span>Get Started Free</span></button>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ import './StaticPillars.css';
 // Import assets
 import TransformImage from '../assets/transformclass.png';
 import EngageImage from '../assets/engage.png';
-import TeamImage from '../assets/datadriven.png';
+import TeamImage from '../assets/datadrivensuccesss.png';
 
 const pillarData = [
     {
@@ -25,21 +25,56 @@ const pillarData = [
 ];
 
 const StaticPillars = () => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+
     return (
         <section className="static-pillars-section">
             <div className="container">
-                <div className="static-pillars-grid">
-                    {pillarData.map((pillar, idx) => (
-                        <div key={idx} className="static-pillar-card reveal-section">
-                            <div className="pillar-image-wrapper">
-                                <img src={pillar.image} alt={pillar.title} />
-                            </div>
-                            <div className="pillar-content">
-                                <h3>{pillar.title}</h3>
-                                <p>{pillar.description}</p>
-                            </div>
-                        </div>
-                    ))}
+                <div className="sp-header reveal-section">
+                    <div className="sp-badge">Our Core Philosophy</div>
+                    <h2>Experience the <span className="highlight-maroon">Difference</span></h2>
+                    <p>Discover how ClassX 360 transforms traditional education into a dynamic, data-driven journey.</p>
+                </div>
+                <div className="static-pillars-tabs-container reveal-section">
+
+                    {/* Left Side: Clickable Tabs */}
+                    <div className="sp-tabs-sidebar">
+                        {pillarData.map((pillar, idx) => {
+                            const isActive = activeIndex === idx;
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`sp-tab-item ${isActive ? 'active' : ''}`}
+                                    onClick={() => setActiveIndex(idx)}
+                                >
+                                    <div className="sp-tab-indicator"></div>
+                                    <h3>{pillar.title}</h3>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Right Side: Active Content Display */}
+                    <div className="sp-tab-content-display">
+                        {pillarData.map((pillar, idx) => {
+                            const isActive = activeIndex === idx;
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`sp-content-pane ${isActive ? 'active' : ''}`}
+                                >
+                                    <div className="sp-pane-image">
+                                        <img src={pillar.image} alt={pillar.title} />
+                                    </div>
+                                    <div className="sp-pane-text">
+                                        <h4>{pillar.title}</h4>
+                                        <p>{pillar.description}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
                 </div>
             </div>
         </section>

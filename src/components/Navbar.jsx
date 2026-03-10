@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FaGraduationCap, FaGlobe } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -8,6 +8,7 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -88,10 +89,10 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
                             }
                         }}
                     >
-                        About <span className="dropdown-arrow">▾</span>
+                        About Us <span className="dropdown-arrow">▾</span>
                     </span>
                     <div className="nav-dropdown-menu">
-                        <NavLink to="/about" onClick={() => { handleNavigate(); setIsAboutDropdownOpen(false); }}>About Us</NavLink>
+                        <NavLink to="/about" onClick={() => { handleNavigate(); setIsAboutDropdownOpen(false); }}>About</NavLink>
                         <NavLink to="/faqs" onClick={() => { handleNavigate(); setIsAboutDropdownOpen(false); }}>FAQs</NavLink>
                     </div>
                 </div>
@@ -101,13 +102,13 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
                 <div className="mobile-nav-actions">
                     <button
                         className="btn-secondary"
-                        onClick={() => { onLogin(); setIsMobileMenuOpen(false); }}
+                        onClick={() => { navigate('/login'); setIsMobileMenuOpen(false); }}
                     >
                         Login
                     </button>
                     <button
                         className="btn-primary"
-                        onClick={() => { onSignUp(); setIsMobileMenuOpen(false); }}
+                        onClick={() => { navigate('/signup'); setIsMobileMenuOpen(false); }}
                     >
                         Signup
                     </button>
@@ -115,8 +116,8 @@ const Navbar = ({ onLogin, onSignUp, onFeaturesToggle, isFeaturesOpen, onAboutTo
             </nav>
 
             <div className="nav-actions">
-                <button className="btn-secondary" onClick={onLogin}>Login</button>
-                <button className="btn-primary" onClick={onSignUp}>Signup</button>
+                <button className="btn-secondary" onClick={() => navigate('/login')}>Login</button>
+                <button className="btn-primary" onClick={() => navigate('/signup')}>Signup</button>
             </div>
         </header>
     );

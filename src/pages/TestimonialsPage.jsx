@@ -135,8 +135,8 @@ const TestimonialsPage = ({ onSignUp }) => {
                         <h2>Ready to write your own <span className="highlight-maroon">success story?</span></h2>
                         <p>Join the growing network of futuristic educational institutions.</p>
                         <div className="cta-actions">
-                            <button className="btn-primary" onClick={() => navigate('/contact')}>Book a Demo</button>
-                            <button className="btn-secondary" onClick={onSignUp}>Get Started</button>
+                            <button className="btn-primary" onClick={() => navigate('/contact')}><span>Book a Demo</span></button>
+                            <button className="btn-secondary" onClick={onSignUp}><span>Get Started</span></button>
                         </div>
                     </div>
                 </div>

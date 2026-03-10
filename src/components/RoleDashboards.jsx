@@ -112,7 +112,7 @@ const RoleDashboards = ({ onSignUp }) => {
                                         <p>{activeRole.description}</p>
 
                                         <button className="portal-cta-btn" onClick={onSignUp}>
-                                            {activeRole.cta} <FaArrowRight />
+                                            {activeRole.cta}
                                         </button>
                                     </div>
 

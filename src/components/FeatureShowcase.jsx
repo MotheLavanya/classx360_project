@@ -70,6 +70,7 @@ const FeatureShowcase = () => {
                                 }}
                                 onClick={() => handleCardClick(feature.slug)}
                             >
+                                <div className="border-beam"></div>
                                 <div className="premium-feature-icon">
                                     {feature.icon}
                                 </div>

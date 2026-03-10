@@ -65,10 +65,32 @@ body {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 600px) {
+  html {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 480px) {
   html {
     font-size: 13px;
-    /* Extra scaling for small phones */
+  }
+
+  .container {
+    padding: 0 16px;
+    /* Fixed padding for very small screens */
+  }
+}
+
+@media (max-width: 380px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 11px;
   }
 }
 
@@ -82,4 +104,29 @@ body {
 .reveal-on-scroll.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Global Close Button for Forms/Cards */
+.auth-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 35px;
+  height: 35px;
+  background: #f1f5f9;
+  color: #64748b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.auth-close-btn:hover {
+  background: #800000;
+  color: white;
+  transform: rotate(90deg);
 }

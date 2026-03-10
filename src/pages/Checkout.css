@@ -238,7 +238,7 @@
 .input-group input,
 .input-group select {
     width: 100%;
-    padding: 0.8rem;
+    padding: 1rem 1.2rem;
     border: 1px solid #e2e8f0;
     /* Light border */
     border-radius: 8px;
@@ -450,5 +450,25 @@
     .validity-box {
         padding: 0.8rem 1.2rem;
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .checkout-card {
+        padding: 1.2rem;
+    }
+
+    .checkout-page {
+        padding-top: calc(var(--nav-height) + 10px);
+    }
+
+    .step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .plan-header h2 {
+        font-size: 1.35rem;
     }
 }

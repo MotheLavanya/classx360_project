@@ -114,7 +114,7 @@ const Pricing = ({ onSignUp }) => {
                             {plan.features.map((f, i) => <li key={i}>{f}</li>)}
                         </ul>
                         <Link to={`/checkout/${plan.name.split(' ')[0].toLowerCase()}`} className={`btn-${plan.popular ? 'primary' : 'secondary'} text-center no-decoration`} style={{ display: 'inline-block', lineHeight: '1.5', textDecoration: 'none' }}>
-                            {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
+                            <span>{plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}</span>
                         </Link>
                     </div>
                 ))}

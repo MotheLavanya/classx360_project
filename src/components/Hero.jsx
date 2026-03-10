@@ -178,8 +178,8 @@ const Hero = ({ onGetDemo }) => {
                         Start Your Free Demo
                     </button>
                     <button className="btn-secondary hero-btn-glass" onClick={() => navigate('/features')}>
-                        Explore Features
-                        <FaArrowRight className="btn-icon-trail" />
+                        <span>Explore Features</span>
+                        {/* <FaArrowRight className="btn-icon-trail" /> */}
                     </button>
                 </div>
 

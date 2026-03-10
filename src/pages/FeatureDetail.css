@@ -457,3 +457,27 @@
         padding: 60px 5%;
     }
 }
+
+@media (max-width: 360px) {
+    .fd-hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .fd-hero-desc {
+        font-size: 1rem;
+    }
+
+    .fd-about-simple h2,
+    .fd-benefits-simple h2,
+    .fd-related-header h2,
+    .fd-cta-simple h2 {
+        font-size: 1.5rem;
+    }
+
+    .fd-benefit-card {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

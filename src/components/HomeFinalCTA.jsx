@@ -17,7 +17,7 @@ const HomeFinalCTA = ({ onSignUp }) => {
                     <div className="cta-minimal-actions reveal-scale delay-2">
                         <button className="btn-cta-premium" onClick={onSignUp}>
                             <span>Get Started Now</span>
-                            <FaArrowRight className="btn-icon" />
+                            {/* <FaArrowRight className="btn-icon" /> */}
                         </button>
                     </div>
                 </div>

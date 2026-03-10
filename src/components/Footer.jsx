@@ -48,13 +48,15 @@ const Footer = ({ onSignUp, onLogin }) => {
 
                     {/* 2. Platform */}
                     <div className="footer-col">
-                        <h4>Platform</h4>
+                        <h4>Explore</h4>
                         <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/features">Features</a></li>
-                            <li><a href="/pricing">Pricing</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/testimonials">Testimonials</a></li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/features">Features</Link></li>
+                            <li><Link to="/pricing">Pricing</Link></li>
+                            <li><Link to="/blog">Blog</Link></li>
+                            <li><Link to="/testimonials">Testimonials</Link></li>
+                            {/* <li><Link to="/login">Login</Link></li> */}
+                            {/* <li><Link to="/signup">Signup</Link></li>0*/}
                         </ul>
                     </div>
 
@@ -62,10 +64,10 @@ const Footer = ({ onSignUp, onLogin }) => {
                     <div className="footer-col">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="/about">About Us</a></li>
-                            {/* <li><a href="/careers">Careers</a></li> */}
-                            <li><a href="/faqs">FAQs</a></li>
-                            <li><a href="/contact">Contact</a></li>
+                            <li><Link to="/about">About Us</Link></li>
+                            {/* <li><Link to="/careers">Careers</Link></li> */}
+                            <li><Link to="/faqs">FAQs</Link></li>
+                            <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </div>
 
@@ -73,16 +75,16 @@ const Footer = ({ onSignUp, onLogin }) => {
                     <div className="footer-col">
                         <h4>Legal</h4>
                         <ul>
-                            <li><a href="/privacy">Privacy Policy</a></li>
-                            <li><a href="/terms">Terms of Service</a></li>
-                            <li><a href="/refund">Refund Policy</a></li>
+                            <li><Link to="/privacy">Privacy Policy</Link></li>
+                            <li><Link to="/terms">Terms of Service</Link></li>
+                            <li><Link to="/refund">Refund Policy</Link></li>
                         </ul>
                     </div>
 
                     {/* 5. Stay in Loop */}
                     <div className="footer-col newsletter-col">
                         <h4>Stay in Loop</h4>
-                        <p>Subscribe for latest updates and news.</p>
+                        <p>Get product updates, learning tips, and platform news directly in your inbox.</p>
                         <form className="newsletter-form" onSubmit={handleSubscribe}>
                             <input
                                 type="email"
@@ -92,13 +94,13 @@ const Footer = ({ onSignUp, onLogin }) => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <button type="submit">
-                                Join
+                                Subscribe
                             </button>
                         </form>
                         {showToast && (
                             <div className="subscribe-success-inline">
                                 {/* <FaCheckCircle className="success-icon" /> */}
-                                <span>Thanks for joining!</span>
+                                <span>Thank you for subscribing!</span>
                             </div>
                         )}
                     </div>

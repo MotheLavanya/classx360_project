@@ -250,3 +250,18 @@
         gap: 8px;
     }
 }
+
+@media (max-width: 360px) {
+    .testimonial-card-modern {
+        flex: 0 0 200px;
+        height: 300px;
+    }
+
+    .card-image-container {
+        height: 160px;
+    }
+
+    .card-info-bottom h4 {
+        font-size: 0.9rem;
+    }
+}

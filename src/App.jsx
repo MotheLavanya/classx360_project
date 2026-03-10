@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
 import CourseDetail from './pages/CourseDetail';
 import Footer from './components/Footer';
-import AuthModal from './components/AuthModal';
 import FeaturesModal from './components/FeaturesModal';
 import AboutModal from './components/AboutModal';
 
@@ -29,7 +28,7 @@ import FeatureDetail from './pages/FeatureDetail';
 // Helper component to handle conditional footer
 const ConditionalFooter = ({ onSignUp, openLogin }) => {
   const location = useLocation();
-  const hideOnPaths = ['/login', '/signup'];
+  const hideOnPaths = [];
 
   if (hideOnPaths.includes(location.pathname)) {
     return null;
@@ -38,11 +37,11 @@ const ConditionalFooter = ({ onSignUp, openLogin }) => {
   return <Footer onSignUp={onSignUp} onLogin={openLogin} />;
 };
 
-function App() {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+// Main Content component to allow using useNavigate
+const MainApp = () => {
+  const navigate = useNavigate();
   const [isFeaturesModalOpen, setIsFeaturesModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [authMode, setAuthMode] = useState('login');
 
   useLayoutEffect(() => {
     // Force scroll to top instantly on initial load/refresh
@@ -50,17 +49,13 @@ function App() {
   }, []);
 
   const openLogin = () => {
-    setAuthMode('login');
-    setIsAuthModalOpen(true);
-    setIsFeaturesModalOpen(false);
-    setIsAboutModalOpen(false);
+    navigate('/login');
+    closeModals();
   };
 
   const openSignUp = () => {
-    setAuthMode('signup');
-    setIsAuthModalOpen(true);
-    setIsFeaturesModalOpen(false);
-    setIsAboutModalOpen(false);
+    navigate('/signup');
+    closeModals();
   };
 
   const closeModals = () => {
@@ -69,61 +64,60 @@ function App() {
   };
 
   return (
+    <div className="landing-page">
+      <Navbar
+        onLogin={openLogin}
+        onSignUp={openSignUp}
+        onFeaturesToggle={() => {
+          setIsFeaturesModalOpen(!isFeaturesModalOpen);
+          setIsAboutModalOpen(false);
+        }}
+        isFeaturesOpen={isFeaturesModalOpen}
+        onAboutToggle={() => {
+          setIsAboutModalOpen(!isAboutModalOpen);
+          setIsFeaturesModalOpen(false);
+        }}
+        isAboutOpen={isAboutModalOpen}
+        onNavigate={closeModals}
+      />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/features" element={<FeaturesPage onSignUp={openSignUp} />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/pricing" element={<Pricing onSignUp={openSignUp} />} />
+        <Route path="/checkout/:planId" element={<Checkout />} />
+        <Route path="/course/:id" element={<CourseDetail onSignUp={openSignUp} />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/refund" element={<RefundPolicy />} />
+        <Route path="/testimonials" element={<TestimonialsPage onSignUp={openSignUp} />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/feature/:slug" element={<FeatureDetail onSignUp={openSignUp} />} />
+      </Routes>
+      <ConditionalFooter onSignUp={openSignUp} openLogin={openLogin} />
+
+      <FeaturesModal
+        isOpen={isFeaturesModalOpen}
+        onClose={() => setIsFeaturesModalOpen(false)}
+      />
+      <AboutModal
+        isOpen={isAboutModalOpen}
+        onClose={() => setIsAboutModalOpen(false)}
+      />
+    </div>
+  );
+};
+
+function App() {
+  return (
     <Router>
       <ScrollToTop />
-      <div className="landing-page">
-        <Navbar
-          onLogin={openLogin}
-          onSignUp={openSignUp}
-          onFeaturesToggle={() => {
-            setIsFeaturesModalOpen(!isFeaturesModalOpen);
-            setIsAboutModalOpen(false);
-            setIsAuthModalOpen(false);
-          }}
-          isFeaturesOpen={isFeaturesModalOpen}
-          onAboutToggle={() => {
-            setIsAboutModalOpen(!isAboutModalOpen);
-            setIsFeaturesModalOpen(false);
-            setIsAuthModalOpen(false);
-          }}
-          isAboutOpen={isAboutModalOpen}
-          onNavigate={closeModals}
-        />
-        <Routes>
-          <Route path="/" element={<Home onSignUp={openSignUp} />} />
-          <Route path="/features" element={<FeaturesPage onSignUp={openSignUp} />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/pricing" element={<Pricing onSignUp={openSignUp} />} />
-          <Route path="/checkout/:planId" element={<Checkout />} />
-          <Route path="/course/:id" element={<CourseDetail onSignUp={openSignUp} />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/faqs" element={<FAQs />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/refund" element={<RefundPolicy />} />
-          <Route path="/testimonials" element={<TestimonialsPage onSignUp={openSignUp} />} />
-          <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/feature/:slug" element={<FeatureDetail onSignUp={openSignUp} />} />
-        </Routes>
-        <ConditionalFooter onSignUp={openSignUp} openLogin={openLogin} />
-
-        <AuthModal
-          isOpen={isAuthModalOpen}
-          onClose={() => setIsAuthModalOpen(false)}
-          initialMode={authMode}
-        />
-        <FeaturesModal
-          isOpen={isFeaturesModalOpen}
-          onClose={() => setIsFeaturesModalOpen(false)}
-        />
-        <AboutModal
-          isOpen={isAboutModalOpen}
-          onClose={() => setIsAboutModalOpen(false)}
-        />
-      </div>
+      <MainApp />
     </Router>
   );
 }

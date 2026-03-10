@@ -137,7 +137,7 @@ const FAQs = () => {
                     <div className="cta-box glass-card">
                         <h2>Still have questions?</h2>
                         <p>We're here to help. Reach out to our support team for any further assistance.</p>
-                        <a href="/contact" className="btn-contact-support">Contact Support</a>
+                        <a href="/contact" className="btn-contact-support"><span>Contact Support</span></a>
                     </div>
                 </div>
             </section>

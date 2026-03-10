@@ -200,3 +200,39 @@
         font-size: 2rem;
     }
 }
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+
+    .section-header-center h2 {
+        font-size: 1.8rem;
+    }
+
+    .workflow-feature-card {
+        padding: 25px;
+    }
+
+    .cta-box {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .banner-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .section-header-center h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-box h3 {
+        font-size: 1.6rem;
+    }
+
+    .how-banner-section {
+        padding: 120px 0 60px;
+    }
+}

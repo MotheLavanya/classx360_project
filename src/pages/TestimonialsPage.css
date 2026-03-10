@@ -326,17 +326,88 @@
     flex-wrap: wrap;
 }
 
+.cta-actions .btn-primary,
 .cta-actions .btn-secondary {
-    background-color: #800000 !important;
-    color: white !important;
-    border-color: #800000 !important;
+    position: relative;
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-actions .btn-primary {
+    background: #800000;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-actions .btn-secondary {
+    background: #ffffff !important;
+    color: #800000 !important;
+    border: 2px solid #800000 !important;
+}
+
+.cta-actions .btn-primary span,
+.cta-actions .btn-secondary span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease;
+}
+
+.cta-actions .btn-primary::before,
+.cta-actions .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
+}
+
+.cta-actions .btn-primary::before {
+    background: #ffffff;
+}
+
+.cta-actions .btn-secondary::before {
+    background: #800000;
+}
+
+.cta-actions .btn-primary:hover,
+.cta-actions .btn-secondary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(128, 0, 0, 0.3);
+}
+
+.cta-actions .btn-primary:hover {
+    color: #800000 !important;
+    border-color: rgb(128 0 0 / 12%) !important;
 }
 
 .cta-actions .btn-secondary:hover {
-    background-color: #4a0404 !important;
-    border-color: #4a0404 !important;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(128, 0, 0, 0.3);
+    color: #ffffff !important;
+    border-color: #800000 !important;
+}
+
+.cta-actions .btn-primary:hover span {
+    color: #800000 !important;
+}
+
+.cta-actions .btn-secondary:hover span {
+    color: #ffffff !important;
+}
+
+.cta-actions .btn-primary:hover::before,
+.cta-actions .btn-secondary:hover::before {
+    left: 0;
 }
 
 /* Responsive */
@@ -413,5 +484,28 @@
 
     .story-text {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 20px;
+    }
+
+    .section-intro h2 {
+        font-size: 1.5rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+        min-width: 100%;
+    }
+
+    .cta-glass h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-glass {
+        padding: 2rem 1rem;
     }
 }

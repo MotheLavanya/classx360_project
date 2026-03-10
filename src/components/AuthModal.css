@@ -298,3 +298,37 @@
         font-size: 1.875rem;
     }
 }
+
+@media (max-width: 480px) {
+    .auth-modal {
+        padding: 24px 20px;
+    }
+
+    .auth-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+    }
+
+    .btn-auth-submit {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .auth-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .auth-header p {
+        font-size: 0.95rem;
+    }
+
+    .form-group label {
+        font-size: 0.8rem;
+    }
+}

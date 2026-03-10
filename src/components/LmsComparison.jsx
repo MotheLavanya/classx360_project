@@ -9,6 +9,7 @@ import {
     FaTabletAlt, FaUserShield
 } from 'react-icons/fa';
 import { comparisonData } from './comparisonData';
+import WithoutOrbitAnimation from './WithoutOrbitAnimation';
 
 const LmsComparison = () => {
     const sectionRef = useRef(null);
@@ -22,7 +23,7 @@ const LmsComparison = () => {
                     // Start timer to trigger chaos after delay
                     fallTimeout = setTimeout(() => {
                         setChaosActive(true);
-                    }, 2500);
+                    }, 1200);
                 } else {
                     // Reset instantly when user scrolls away
                     if (fallTimeout) clearTimeout(fallTimeout);
@@ -113,45 +114,11 @@ const LmsComparison = () => {
                     >
                         <h3 className="box-label">Without ClassX360</h3>
                         <div className="box-text-content">
-                            <p className="box-desc">Disconnected tools and manual work lead to silos. <br /> <strong className="danger-text">You are losing efficiency!</strong></p>
+                            <p className="box-desc white-text">Using separate tools and manual work makes management slow and complicated.<br /> <strong className="danger-text">You are losing efficiency!</strong></p>
                         </div>
 
                         <div className="box-visual-area">
-                            <div className="embedded-orbits wobbly-mode">
-                                {withoutGroups.map((group, gIdx) => (
-                                    <div key={gIdx} className={`orbit-layer layer-${gIdx + 1}`}>
-                                        <div className={`orbit-track group-${gIdx + 1}`}>
-                                            {group.map((item, iIdx) => {
-                                                const rotation = (360 / group.length) * iIdx;
-                                                const radius = gIdx === 0 ? 100 : 160;
-                                                const angleRad = (rotation - 90) * (Math.PI / 180);
-                                                const lx = Math.round(radius * Math.cos(angleRad));
-                                                const ly = Math.round(radius * Math.sin(angleRad));
-                                                // Calculate consistent index for stability
-                                                const flatIdx = gIdx * 3 + iIdx;
-
-                                                return (
-                                                    <div
-                                                        key={iIdx}
-                                                        className="orbit-slot"
-                                                        style={{
-                                                            '--lx': `${lx}px`,
-                                                            '--ly': `${ly}px`,
-                                                            '--fx': `${fallOffsets[flatIdx]?.x || 0}px`,
-                                                            '--fy': `${fallOffsets[flatIdx]?.y || 40}px`
-                                                        }}
-                                                    >
-                                                        <div className="orbital-icon">
-                                                            {item.icon}
-                                                            <span className="icon-label-popup">{item.text}</span>
-                                                        </div>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                            <WithoutOrbitAnimation />
                         </div>
                     </div>
 
@@ -159,7 +126,7 @@ const LmsComparison = () => {
                     <div className="comparison-box with-box reveal-right">
                         <h3 className="box-label white-text">With ClassX360</h3>
                         <div className="box-text-content">
-                            <p className="box-desc white-text">Unified platform with real-time insights and automation. <br /> <strong className="success-text">You are acing your goals!</strong></p>
+                            <p className="box-desc white-text">One platform that keeps everything organized with real-time updates and automation. <br /> <strong className="success-text">You are acing your goals!</strong></p>
                         </div>
 
                         <div className="box-visual-area">
